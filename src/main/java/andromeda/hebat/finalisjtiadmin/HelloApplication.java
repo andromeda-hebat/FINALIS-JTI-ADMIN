@@ -1,4 +1,4 @@
-package farrel.ad.finalisjtiadmin;
+package andromeda.hebat.finalisjtiadmin;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -3,6 +3,6 @@ module farrel.ad.finalisjtiadmin {
     requires javafx.fxml;
 
 
-    opens farrel.ad.finalisjtiadmin to javafx.fxml;
-    exports farrel.ad.finalisjtiadmin;
+    opens andromeda.hebat.finalisjtiadmin to javafx.fxml;
+    exports andromeda.hebat.finalisjtiadmin;
 }

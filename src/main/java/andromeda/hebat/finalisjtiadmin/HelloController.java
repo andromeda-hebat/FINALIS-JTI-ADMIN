@@ -1,4 +1,4 @@
-package farrel.ad.finalisjtiadmin;
+package andromeda.hebat.finalisjtiadmin;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
