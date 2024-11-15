@@ -1,4 +1,4 @@
-module farrel.ad.finalisjtiadmin {
+module andromeda.hebat.finalisjtiadmin {
     requires javafx.controls;
     requires javafx.fxml;
 
