@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.DataController">
+    <TextArea fx:id="dataTextArea" prefHeight="700" prefWidth="1000" />
+    <Button fx:id="loadDataBtn" style="-fx-background-color: GREEN;" text="Load Data" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Button>
+</VBox>

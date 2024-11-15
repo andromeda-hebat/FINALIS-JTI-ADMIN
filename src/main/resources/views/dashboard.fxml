@@ -6,10 +6,8 @@
 <?import javafx.scene.text.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.DashboardController">
-    <!-- Sidebar -->
     <left>
         <VBox spacing="10" style="-fx-background-color: #2C3E50; -fx-padding: 20;">
-            <!-- Logo and System Name -->
             <HBox alignment="CENTER_LEFT" spacing="10">
                 <ImageView fitHeight="40" fitWidth="40">
 
@@ -24,13 +22,13 @@
             <VBox spacing="15" style="-fx-padding: 20 0 0 0;">
                 <Button styleClass="sidebar-button" text="Dashboard" />
                 <Button styleClass="sidebar-button" text="Menu" />
+                <Button fx:id="dataBtn" style="-fx-background-color: GREEN;" styleClass="sidebar-button" text="Data" textFill="WHITE" />
                 <Button styleClass="sidebar-button" text="Request" />
                 <Button styleClass="sidebar-button" text="Logout" />
             </VBox>
         </VBox>
     </left>
 
-    <!-- Top Bar -->
     <top>
         <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-background-color: #34495E; -fx-padding: 10;">
             <Label style="-fx-text-fill: #ECF0F1;" text="Notifikasi" />
@@ -41,12 +39,10 @@
         </HBox>
     </top>
 
-    <!-- Main Content with Table -->
     <center>
         <VBox spacing="10" style="-fx-padding: 20;">
             <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Dashboard" />
 
-            <!-- Table -->
             <TableView fx:id="studentTable" style="-fx-padding: 10;">
                 <columns>
                     <TableColumn prefWidth="100" text="NIM" />
