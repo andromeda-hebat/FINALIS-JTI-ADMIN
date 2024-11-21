@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgba(196, 217, 255, 0.18); -fx-effect: -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.0, 5, 5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgba(196, 217, 255, 0.18);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.LoginController">
    <children>
       <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="FINALIS JTI" textAlignment="CENTER" textFill="#052c65">
          <VBox.margin>
@@ -18,16 +18,16 @@
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="300.0">
          <children>
             <Label text="Username" textFill="#052c65" />
-            <TextField />
+            <TextField fx:id="inputFieldUsername" promptText="Masukkan nama anda" />
          </children>
       </VBox>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="300.0">
          <children>
             <Label text="Password" textFill="#052c65" />
-            <TextField />
+            <PasswordField fx:id="inputFieldPassword" promptText="Masukkan password anda" />
          </children>
       </VBox>
-      <Button mnemonicParsing="false" style="-fx-background-color: #052C65;" text="Masuk" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#enterDashboard" style="-fx-background-color: #052C65;" text="Masuk" textFill="WHITE">
          <VBox.margin>
             <Insets top="30.0" />
          </VBox.margin>
