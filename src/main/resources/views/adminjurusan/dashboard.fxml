@@ -9,7 +9,7 @@
     <fx:include source="../../components/adminjurusan/sidebar.fxml" />
    <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
       <children>
-          <fx:include source="../../components/adminjurusan/topbar.fxml" />
+          <fx:include source="../../components/admin/topbar.fxml" />
          <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
             <children>
                <Label text="Kelola Data Admin" textFill="#052c65">
