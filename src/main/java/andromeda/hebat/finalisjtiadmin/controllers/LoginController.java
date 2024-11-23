@@ -1,11 +1,9 @@
 package andromeda.hebat.finalisjtiadmin.controllers;
 
-import andromeda.hebat.finalisjtiadmin.Main;
 import andromeda.hebat.finalisjtiadmin.core.Database;
+import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -27,7 +25,6 @@ public class LoginController {
 
     @FXML
     private void enterDashboard() {
-        System.out.println("hai!");
         final String username = inputFieldUsername.getText();
         final String password = inputFieldPassword.getText();
         String fxmlFile = null;
@@ -37,7 +34,7 @@ public class LoginController {
             switch (currentAdmin.getRole()) {
                 case "jurusan":
                     System.out.println("Selamat datang admin jurusan!");
-                    fxmlFile = "/views/adminjurusan/dashboard.fxml";
+                    fxmlFile = "/views/adminjurusan/kelola-data-admin.fxml";
                     break;
                 case "prodi":
                     System.out.println("Selamat datang admin prodi!");
@@ -53,7 +50,7 @@ public class LoginController {
         }
 
         Stage mainStage = (Stage) loginScene.getScene().getWindow();
-        changeScene(mainStage, fxmlFile);
+        SceneHelper.changeScene(mainStage, fxmlFile);
     }
 
     private Admin checkUser(String username, String password) {
@@ -80,15 +77,4 @@ public class LoginController {
 
         return admin;
     }
-
-    public void changeScene(Stage stage, String fxmlFile) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile));
-            Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
-            stage.setScene(scene);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }
