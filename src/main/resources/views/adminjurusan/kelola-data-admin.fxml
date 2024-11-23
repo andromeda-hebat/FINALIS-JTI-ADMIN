@@ -2,12 +2,13 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.jurusan.KelolaDataAdminController">
     <fx:include source="../../components/adminjurusan/sidebar.fxml" />
-   <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
+   <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" style="-fx-cursor: hand;">
       <children>
           <fx:include source="../../components/admin/topbar.fxml" />
          <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
@@ -20,7 +21,16 @@
                <Button mnemonicParsing="false" style="-fx-background-color: #052C65;" text="Tambahkan" textFill="WHITE">
                   <VBox.margin>
                      <Insets bottom="15.0" top="15.0" />
-                  </VBox.margin></Button>
+                  </VBox.margin>
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../icons/plus-square.png" />
+                        </image></ImageView>
+                  </graphic>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding></Button>
                <TableView prefHeight="200.0" prefWidth="200.0">
                  <columns>
                    <TableColumn prefWidth="75.0" text="No" />
