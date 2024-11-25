@@ -7,16 +7,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class KelolaDataAdminController {
+public class KelolaDataMahasiswaController {
     @FXML
-    private Button btnTambahkan;
+    private Button btnTambahkanMhs;
 
-    public void openOverlayTambahAdmin(){
+    public void openOverlayTambahMahasiswa(){
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Tambah Template Surat Baru");
+            overlay.setTitle("Tambah Data Mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-tambah-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-tambah-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
             overlay.setScene(scene);
             overlay.show();
@@ -24,12 +24,13 @@ public class KelolaDataAdminController {
             e.printStackTrace();
         }
     }
-    public void openOverlayEditAdmin(){
+
+    public void openOverlayEditMahasiswa(){
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Edit Data Admin");
+            overlay.setTitle("Edit Data mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-edit-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-edit-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
             overlay.setScene(scene);
             overlay.show();
@@ -37,12 +38,12 @@ public class KelolaDataAdminController {
             e.printStackTrace();
         }
     }
-    public void openOverlayDeleteAdmin(){
+    public void openOverlayHapusMahasiswa(){
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Hapus Data Admin");
+            overlay.setTitle("Hapus Data Mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-hapus-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-hapus-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 450);
             overlay.setScene(scene);
             overlay.show();
@@ -50,6 +51,4 @@ public class KelolaDataAdminController {
             e.printStackTrace();
         }
     }
-
-
 }

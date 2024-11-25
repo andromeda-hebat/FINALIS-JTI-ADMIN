@@ -69,30 +69,30 @@ public class LoginController {
      * @return an {@code Admin} object representing the verified admin user if
      *          credentials are valid; otherwise, returns {@code null}.
      */
-//    private Admin checkUser(String username, String password) {
-//        String query = "SELECT * FROM Admin WHERE name = ? AND password = ?";
-//        Admin admin = null;
-//
-//        try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
-//            stmt.setString(1, username);
-//            stmt.setString(2, password);
-//
-//            ResultSet rs = stmt.executeQuery();
-//
-//
-//            if (rs.next()) {
-//                admin = new Admin();
-//                admin.setUserId(rs.getInt("id"));
-//                admin.setName(rs.getString("name"));
-//                admin.setPassword(rs.getString("password"));
-//                admin.setRole(rs.getString("role"));
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return admin;
-//    }
+    private Admin checkUser(String username, String password) {
+        String query = "SELECT * FROM Admin WHERE name = ? AND password = ?";
+        Admin admin = null;
+
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+
+            ResultSet rs = stmt.executeQuery();
+
+
+            if (rs.next()) {
+                admin = new Admin();
+                admin.setUserId(rs.getInt("id"));
+                admin.setName(rs.getString("name"));
+                admin.setPassword(rs.getString("password"));
+                admin.setRole(rs.getString("role"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return admin;
+    }
 
     /**
      * Verifies the credentials of a user by connecting to external API.
@@ -103,33 +103,33 @@ public class LoginController {
      * @return an {@code Admin} object representing the verified admin user if
      *           credentials are valid; otherwise, returns {@code null}.
      */
-    private Admin checkUser(String username, String password) {
-        Admin admin = null;
-        HttpClient client = HttpClient.newHttpClient();
-
-        String requestBody = "username="+username+"&password="+password;
-
-        HttpRequest req = HttpRequest.newBuilder()
-                .uri(URI.create("http://finalis-jti-web.test/api/auth"))
-                .header("Content-Type", "application/x-www-form-urlencoded")
-                .header("Accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
-                .build();
-
-        try {
-            HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString());
-
-            if (response.statusCode() == 200) {
-                admin = new Admin();
-                admin.setUserId(0);
-                admin.setName(JsonHelper.getDataFromJson(response.body(), "name"));
-                admin.setPassword(JsonHelper.getDataFromJson(response.body(), "password"));
-                admin.setRole(JsonHelper.getDataFromJson(response.body(), "role"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return admin;
-    }
+//    private Admin checkUser(String username, String password) {
+//        Admin admin = null;
+//        HttpClient client = HttpClient.newHttpClient();
+//
+//        String requestBody = "username="+username+"&password="+password;
+//
+//        HttpRequest req = HttpRequest.newBuilder()
+//                .uri(URI.create("http://finalis-jti-web.test/api/auth"))
+//                .header("Content-Type", "application/x-www-form-urlencoded")
+//                .header("Accept", "application/json")
+//                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+//                .build();
+//
+//        try {
+//            HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString());
+//
+//            if (response.statusCode() == 200) {
+//                admin = new Admin();
+//                admin.setUserId(0);
+//                admin.setName(JsonHelper.getDataFromJson(response.body(), "name"));
+//                admin.setPassword(JsonHelper.getDataFromJson(response.body(), "password"));
+//                admin.setRole(JsonHelper.getDataFromJson(response.body(), "role"));
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return admin;
+//    }
 }
