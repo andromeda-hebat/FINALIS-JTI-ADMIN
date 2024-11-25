@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label text="Nama Lengkap" />
+        <TextField prefHeight="26.0" prefWidth="502.0" />
+        <Label text="NIM" />
+        <TextField />
+        <Label text="Jurusan" />
+      <TextField />
+        <Label text="Prodi" />
+        <TextField />
+        <Label text="Email" />
+        <PasswordField />
+        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="btnTambahkan" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #052C65;" text="Tambahkan" textFill="WHITE" />
+            </children>
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="30.0" right="40.0" top="30.0" />
+    </padding>
+</VBox>
