@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="20.0" left="30.0" right="40.0" top="30.0" />
+   </padding>
+   <children>
+      <Label text="Nama Lengkap" />
+      <TextField text="Nama Admin Disini" />
+      <Label text="Nomor Telepon" />
+      <TextField text="081763897652" />
+      <Label text="Tanggal Bergabung" />
+      <DatePicker prefWidth="450.0" promptText="bulan/tanggal/tahun" showWeekNumbers="true" />
+      <Label text="Username" />
+      <TextField text="1234567" />
+      <Label text="Password" />
+      <PasswordField text="password24" />
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="45.0" style="-fx-background-color: #052C65;" text="Edit" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
