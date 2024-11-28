@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayFormTambahAdmin">
+<VBox fx:id="overlayTambahAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayFormTambahAdmin">
    <children>
       <Label layoutX="40.0" layoutY="40.0" text="ID Admin" />
       <TextField fx:id="inputIDAdmin" layoutX="40.0" layoutY="76.0" prefHeight="26.0" prefWidth="502.0" />

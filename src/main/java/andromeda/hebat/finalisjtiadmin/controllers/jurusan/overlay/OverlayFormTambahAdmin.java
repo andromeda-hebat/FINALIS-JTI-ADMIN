@@ -1,16 +1,20 @@
 package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayFormTambahAdmin {
+
+    @FXML
+    VBox overlayTambahAdmin;
 
     @FXML
     TextField inputIDAdmin;
@@ -38,7 +42,7 @@ public class OverlayFormTambahAdmin {
     @FXML
     public void initialize() {
         positionList.removeAll(positionList);
-        positionList.addAll("Admin TA", "Admin Prodi", "Admin Jurusan");
+        positionList.addAll("Admin TA", "Admin Prodi");
         inputPosition.getItems().addAll(positionList);
 
     }
@@ -65,6 +69,8 @@ public class OverlayFormTambahAdmin {
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
+                Stage overlayStage = (Stage) overlayTambahAdmin.getScene().getWindow();
+                overlayStage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil menambahkan data admin baru!");
                 alert.showAndWait();
