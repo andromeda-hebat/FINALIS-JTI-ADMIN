@@ -1,16 +1,17 @@
 package andromeda.hebat.finalisjtiadmin.models;
 
 public class Admin {
-    private int userId;
+    private String userId;
     private String name;
     private String password;
-    private String role;
+    private String email;
+    private String jabatan;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -30,11 +31,19 @@ public class Admin {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getEmail() {
+        return email;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getJabatan() {
+        return jabatan;
+    }
+
+    public void setJabatan(String role) {
+        this.jabatan = role;
     }
 }
