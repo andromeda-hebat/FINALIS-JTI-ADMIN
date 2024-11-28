@@ -14,7 +14,7 @@ public class KelolaDataAdminController {
     public void openOverlayTambahAdmin(){
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Tambah Template Surat Baru");
+            overlay.setTitle("Tambah admin baru");
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-tambah-admin.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
@@ -24,10 +24,11 @@ public class KelolaDataAdminController {
             e.printStackTrace();
         }
     }
+
     public void openOverlayEditAdmin(){
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Edit Data Admin");
+            overlay.setTitle("Edit data admin");
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-edit-data-admin.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
@@ -37,10 +38,11 @@ public class KelolaDataAdminController {
             e.printStackTrace();
         }
     }
+
     public void openOverlayDeleteAdmin(){
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Hapus Data Admin");
+            overlay.setTitle("Hapus data admin");
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-hapus-data-admin.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 450);
