@@ -13,4 +13,6 @@ module andromeda.hebat.finalisjtiadmin {
     opens andromeda.hebat.finalisjtiadmin.controllers.jurusan to javafx.fxml;
     exports andromeda.hebat.finalisjtiadmin.models;
     opens andromeda.hebat.finalisjtiadmin.models to javafx.fxml;
+    exports andromeda.hebat.finalisjtiadmin.controllers.prodi;
+    opens andromeda.hebat.finalisjtiadmin.controllers.prodi to javafx.fxml;
 }
