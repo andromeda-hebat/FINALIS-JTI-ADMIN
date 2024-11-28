@@ -7,6 +7,17 @@ public class Admin {
     private String email;
     private String jabatan;
 
+    public Admin() {
+    }
+
+    public Admin(String userId, String name, String email, String jabatan) {
+        this.userId = userId;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.jabatan = jabatan;
+    }
+
     public String getUserId() {
         return userId;
     }
