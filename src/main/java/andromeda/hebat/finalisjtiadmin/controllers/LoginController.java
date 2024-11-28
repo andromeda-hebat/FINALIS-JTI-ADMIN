@@ -36,26 +36,26 @@ public class LoginController {
 
         Admin currentAdmin = checkUser(username, password);
         if (currentAdmin != null) {
-            switch (currentAdmin.getRole()) {
-                case "jurusan":
+            switch (currentAdmin.getJabatan()) {
+                case "Admin Jurusan":
                     System.out.println("Selamat datang admin jurusan!");
                     fxmlFile = "/views/adminjurusan/kelola-data-admin.fxml";
                     break;
-                case "prodi":
+                case "Admin Prodi":
                     System.out.println("Selamat datang admin prodi!");
                     fxmlFile = "/views/adminprodi/dashboard.fxml";
                     break;
-                case "ta":
+                case "Admin TA":
                     System.out.println("Selamat datang admin TA!");
                     fxmlFile = "/views/adminta/dashboard.fxml";
                     break;
             }
+
+            Stage mainStage = (Stage) loginScene.getScene().getWindow();
+            SceneHelper.changeScene(mainStage, fxmlFile);
         } else {
             System.out.println("Tidak ditemukan username yang cocok dengan data pengguna!");
         }
-
-        Stage mainStage = (Stage) loginScene.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, fxmlFile);
     }
 
     /**
@@ -70,7 +70,7 @@ public class LoginController {
      *          credentials are valid; otherwise, returns {@code null}.
      */
     private Admin checkUser(String username, String password) {
-        String query = "SELECT * FROM Admin WHERE name = ? AND password = ?";
+        String query = "SELECT * FROM USERS.Admin WHERE nama_lengkap = ? AND password = ?";
         Admin admin = null;
 
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
@@ -82,10 +82,11 @@ public class LoginController {
 
             if (rs.next()) {
                 admin = new Admin();
-                admin.setUserId(rs.getInt("id"));
-                admin.setName(rs.getString("name"));
+                admin.setUserId(rs.getString("id_admin"));
+                admin.setName(rs.getString("nama_lengkap"));
                 admin.setPassword(rs.getString("password"));
-                admin.setRole(rs.getString("role"));
+                admin.setEmail(rs.getString("email"));
+                admin.setJabatan(rs.getString("jabatan"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,10 +122,11 @@ public class LoginController {
 //
 //            if (response.statusCode() == 200) {
 //                admin = new Admin();
-//                admin.setUserId(0);
-//                admin.setName(JsonHelper.getDataFromJson(response.body(), "name"));
+//                admin.setUserId(JsonHelper.getDataFromJson(response.body(), "id_admin"));
+//                admin.setName(JsonHelper.getDataFromJson(response.body(), "nama_lengkap"));
 //                admin.setPassword(JsonHelper.getDataFromJson(response.body(), "password"));
-//                admin.setRole(JsonHelper.getDataFromJson(response.body(), "role"));
+//                admin.setEmail(JsonHelper.getDataFromJson(response.body(), "email"));
+//                admin.setJabatan(JsonHelper.getDataFromJson(response.body(), "jabatan"));
 //            }
 //        } catch (Exception e) {
 //            e.printStackTrace();
