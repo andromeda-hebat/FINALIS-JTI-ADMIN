@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="400" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #052C65;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="sidebarContainer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="700.0" prefWidth="300.0" style="-fx-background-color: #052C65;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.ta.SidebarController">
     <children>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
             <children>
@@ -25,7 +25,7 @@
                 </Label>
             </children>
         </HBox>
-        <Button alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #052C65;" text="Dashboard" textFill="WHITE">
+        <Button fx:id="btnDashboard" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnDashboardOnClicked" style="-fx-background-color: #052C65;" text="Dashboard" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -36,7 +36,7 @@
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
         </Button>
-        <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="273.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #052C65;" text="Permintaan Verifikasi" textFill="WHITE">
+        <Button fx:id="btnRequestVerification" alignment="TOP_LEFT" layoutX="10.0" layoutY="273.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnRequestVerificationOnClicked" style="-fx-background-color: #052C65;" text="Permintaan Verifikasi" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -45,6 +45,28 @@
             </padding>
             <VBox.margin>
                 <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+        </Button>
+        <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+        <Button fx:id="btnLogout" alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLogoutOnClicked" style="-fx-background-color: #052C65;" text="Keluar" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <font>
+                <Font name="Reddit Sans Bold" size="14.0" />
+            </font>
+            <padding>
+                <Insets left="50.0" />
+            </padding>
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../icons/logout.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+                <Insets bottom="20.0" />
             </VBox.margin>
         </Button>
     </children>
