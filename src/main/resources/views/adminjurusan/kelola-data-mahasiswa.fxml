@@ -39,6 +39,9 @@
                             <TableColumn prefWidth="150.0" text="Tanggal Bergabung" />
                             <TableColumn prefWidth="100.0" text="Aksi" />
                         </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
                     </TableView>
                 </children>
                 <VBox.margin>
