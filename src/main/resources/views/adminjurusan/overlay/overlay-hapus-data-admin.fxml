@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="overlayDelete" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayDeleteDataAdmin">
+<VBox fx:id="overlayDelete" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayDeleteDataAdmin">
    <children>
       <VBox alignment="CENTER" prefHeight="143.0" prefWidth="400.0">
          <children>
             <Label alignment="CENTER" prefHeight="82.0" prefWidth="324.0" text="Apakah anda ingin menghapus data ini ?">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Reddit Sans Regular" size="18.0" />
                </font>
             </Label>
          </children>
       </VBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="402.0">
          <children>
-            <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmDelete" style="-fx-background-color: red;" text="Iya" textFill="WHITE">
+            <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmDelete" style="-fx-border-color: white; -fx-background-color: #052C65;" text="Iya" textFill="WHITE">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>
