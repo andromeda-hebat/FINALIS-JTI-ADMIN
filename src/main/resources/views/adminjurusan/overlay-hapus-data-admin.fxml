@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="overlayDelete" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayDeleteDataAdmin">
    <children>
       <VBox alignment="CENTER" prefHeight="143.0" prefWidth="400.0">
          <children>
@@ -21,12 +18,15 @@
       </VBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="402.0">
          <children>
-            <Button mnemonicParsing="false" text="Hapus">
+            <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmDelete" style="-fx-background-color: red;" text="Iya" textFill="WHITE">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Reddit Sans Regular" size="12.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" prefWidth="50.0" text="Batal">
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelDelete" prefWidth="50.0" text="Batal">
                <HBox.margin>
                   <Insets left="15.0" />
                </HBox.margin>
@@ -35,4 +35,3 @@
       </HBox>
    </children>
 </VBox>
-
