@@ -3,11 +3,14 @@ package andromeda.hebat.finalisjtiadmin.controllers.ta;
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.List;
+import java.util.Optional;
 
 public class SidebarController {
 
@@ -47,5 +50,20 @@ public class SidebarController {
     public void btnRequestVerificationOnClicked() {
         mainStage = (Stage) sidebarContainer.getScene().getWindow();
         SceneHelper.changeScene(mainStage, "/views/adminta/permintaan-verif-seluruh.fxml");
+    }
+
+    @FXML
+    public void btnLogoutOnClicked() {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Konfirmasi keluar");
+        confirmationAlert.setHeaderText("Konfirmasi untuk keluar akun");
+        confirmationAlert.setContentText("Apakah anda yakin untuk keluar ?");
+
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Stage mainStage = (Stage) sidebarContainer.getScene().getWindow();
+            SceneHelper.changeScene(mainStage, "/views/login.fxml", 600, 400);
+        }
     }
 }

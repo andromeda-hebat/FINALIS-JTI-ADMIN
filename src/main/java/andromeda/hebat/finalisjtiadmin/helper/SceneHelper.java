@@ -18,7 +18,7 @@ public class SceneHelper {
 
             Scene scene = new Scene(fxmlLoader.load(), screenWidth, screenHeight);
             stage.setScene(scene);
-
+            stage.centerOnScreen();
             stage.setMaximized(true);
 
             if (!stage.isShowing()) {
@@ -34,17 +34,10 @@ public class SceneHelper {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile));
 
-            double screenWidth = Screen.getPrimary().getVisualBounds().getWidth();
-            double screenHeight = Screen.getPrimary().getVisualBounds().getHeight();
-
             Scene scene = new Scene(fxmlLoader.load(), width, height);
             stage.setScene(scene);
-
-            stage.sizeToScene();
-            double stageWidth = stage.getWidth();
-            double stageHeight = stage.getHeight();
-            stage.setX((screenWidth - stageWidth) / 2);
-            stage.setY((screenHeight - stageHeight) / 2);
+            stage.centerOnScreen();
+            stage.show();
 
             if (!stage.isShowing()) {
                 stage.show();
