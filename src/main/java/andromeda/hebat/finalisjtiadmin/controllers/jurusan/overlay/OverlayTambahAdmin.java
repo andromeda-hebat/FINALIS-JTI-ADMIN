@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class OverlayFormTambahAdmin {
+public class OverlayTambahAdmin {
 
     @FXML private VBox overlayTambahAdmin;
 
