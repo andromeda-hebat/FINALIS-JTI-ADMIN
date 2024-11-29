@@ -105,7 +105,7 @@ public class KelolaDataAdminController {
         return adminList;
     }
 
-    public void openOverlayTambahAdmin(){
+    public void openOverlayTambahAdmin() {
         try {
             Stage overlay = new Stage();
             overlay.setTitle("Tambah admin baru");
