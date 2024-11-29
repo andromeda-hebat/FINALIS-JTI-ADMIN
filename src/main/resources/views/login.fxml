@@ -17,7 +17,7 @@
       </Label>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="300.0">
          <children>
-            <Label text="Username" textFill="#052c65">
+            <Label text="Nama pengguna" textFill="#052c65">
                <font>
                   <Font name="Reddit Sans Regular" size="12.0" />
                </font></Label>
