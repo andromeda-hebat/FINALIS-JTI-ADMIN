@@ -37,7 +37,6 @@ public class OverlayEditDataAdmin {
         positionList.removeAll(positionList);
         positionList.addAll("Admin TA", "Admin Prodi");
         inputPosition.getItems().addAll(positionList);
-
     }
 
     public void fillData(Admin admin) {

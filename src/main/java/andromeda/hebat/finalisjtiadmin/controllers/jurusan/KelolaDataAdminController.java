@@ -1,6 +1,7 @@
 package andromeda.hebat.finalisjtiadmin.controllers.jurusan;
 
 import andromeda.hebat.finalisjtiadmin.Main;
+import andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayDeleteDataAdmin;
 import andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayEditDataAdmin;
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
@@ -128,6 +129,7 @@ public class KelolaDataAdminController {
 
             OverlayEditDataAdmin controller = fxmlLoader.getController();
             controller.fillData(admin);
+
             Scene scene = new Scene(root, 500, 600);
             overlay.setScene(scene);
             overlay.show();
@@ -142,7 +144,12 @@ public class KelolaDataAdminController {
             overlay.setTitle("Hapus data admin");
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-hapus-data-admin.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 450);
+            Parent root = fxmlLoader.load();
+
+            OverlayDeleteDataAdmin controller = fxmlLoader.getController();
+            controller.fillData(admin);
+
+            Scene scene = new Scene(root, 400, 450);
             overlay.setScene(scene);
             overlay.show();
         } catch (Exception e) {
