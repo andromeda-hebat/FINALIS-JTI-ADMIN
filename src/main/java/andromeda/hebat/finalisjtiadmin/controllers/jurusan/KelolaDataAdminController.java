@@ -110,7 +110,7 @@ public class KelolaDataAdminController {
             Stage overlay = new Stage();
             overlay.setTitle("Tambah admin baru");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-tambah-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-tambah-admin.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
             overlay.setScene(scene);
             overlay.show();
@@ -124,7 +124,7 @@ public class KelolaDataAdminController {
             Stage overlay = new Stage();
             overlay.setTitle("Edit data admin");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-edit-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-edit-data-admin.fxml"));
             Parent root = fxmlLoader.load();
 
             OverlayEditDataAdmin controller = fxmlLoader.getController();
@@ -143,7 +143,7 @@ public class KelolaDataAdminController {
             Stage overlay = new Stage();
             overlay.setTitle("Hapus data admin");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-hapus-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-hapus-data-admin.fxml"));
             Parent root = fxmlLoader.load();
 
             OverlayDeleteDataAdmin controller = fxmlLoader.getController();

@@ -17,7 +17,7 @@ public class KelolaTemplateSuratController {
             Stage overlay = new Stage();
             overlay.setTitle("Tambah Template Surat Baru");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay-tambah-template-surat-baru.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-tambah-template-surat-baru.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 700);
             overlay.setScene(scene);
             overlay.show();

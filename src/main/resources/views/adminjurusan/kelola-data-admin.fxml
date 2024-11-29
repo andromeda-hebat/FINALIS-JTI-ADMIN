@@ -11,7 +11,7 @@
    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" style="-fx-cursor: hand;" HBox.hgrow="ALWAYS">
       <children>
           <fx:include source="../../components/admin/topbar.fxml" />
-         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" VBox.vgrow="ALWAYS">
+         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" VBox.vgrow="ALWAYS">
             <children>
                <Label text="Kelola Data Admin" textFill="#052c65">
                   <font>
@@ -31,7 +31,7 @@
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding></Button>
-               <TableView fx:id="tableViewAdmin" minHeight="200.0" style="-fx-border-color: #E4EEFF; -fx-border-width: 2px;" stylesheets="@../../css/table-view.css">
+               <TableView fx:id="tableViewAdmin" style="-fx-border-color: #E4EEFF; -fx-border-width: 2px;" stylesheets="@../../css/table-view.css">
                  <columns>
                    <TableColumn fx:id="numberColumn" prefWidth="75.0" text="No" />
                      <TableColumn fx:id="adminIDColumn" prefWidth="120.20004272460938" styleClass=".table-header" text="ID" />
