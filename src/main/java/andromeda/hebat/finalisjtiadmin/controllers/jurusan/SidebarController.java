@@ -11,8 +11,6 @@ import java.util.List;
 
 public class SidebarController {
 
-    private Stage mainStage;
-
     @FXML
     private VBox sidebarJurusan;
 
@@ -58,18 +56,19 @@ public class SidebarController {
 
     @FXML
     public void btnAdminOnClicked() {
-        mainStage = (Stage) sidebarJurusan.getScene().getWindow();
+        Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
         SceneHelper.changeScene(mainStage, "/views/adminjurusan/kelola-data-admin.fxml");
     }
 
     @FXML
     public void btnTemplateSuratOnClicked() {
-        mainStage = (Stage) sidebarJurusan.getScene().getWindow();
+        Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
         SceneHelper.changeScene(mainStage, "/views/adminjurusan/kelola-template-surat.fxml");
     }
+
     @FXML
     public void btnMahasiswaOnClkicked() {
-        mainStage = (Stage) sidebarJurusan.getScene().getWindow();
+        Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
         SceneHelper.changeScene(mainStage, "/views/adminjurusan/kelola-data-mahasiswa.fxml");
     }
 }

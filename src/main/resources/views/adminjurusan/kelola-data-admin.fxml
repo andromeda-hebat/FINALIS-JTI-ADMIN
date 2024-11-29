@@ -49,19 +49,6 @@
                <Insets left="20.0" right="20.0" top="20.0" />
             </VBox.margin>
          </VBox>
-         <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
-            <VBox.margin>
-               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-            </VBox.margin>
-            <children>
-               <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#openOverlayEditAdmin" prefWidth="50.0" text="Edit">
-                  <HBox.margin>
-                     <Insets right="10.0" />
-                  </HBox.margin>
-               </Button>
-               <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#openOverlayDeleteAdmin" text="Delete" />
-            </children>
-         </HBox>
       </children>
    </VBox>
 

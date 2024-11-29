@@ -7,10 +7,9 @@ public class Admin {
     private String email;
     private String jabatan;
 
-    public Admin() {
-    }
+    public Admin() { }
 
-    public Admin(String userId, String name, String email, String jabatan) {
+    public Admin(String userId, String name, String password, String email, String jabatan) {
         this.userId = userId;
         this.name = name;
         this.password = password;
