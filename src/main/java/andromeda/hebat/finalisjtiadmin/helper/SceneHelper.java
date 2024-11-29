@@ -2,6 +2,7 @@ package andromeda.hebat.finalisjtiadmin.helper;
 
 import andromeda.hebat.finalisjtiadmin.Main;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -11,7 +12,11 @@ public class SceneHelper {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile));
 
-            Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            double screenWidth = screenBounds.getWidth();
+            double screenHeight = screenBounds.getHeight();
+
+            Scene scene = new Scene(fxmlLoader.load(), screenWidth, screenHeight);
             stage.setScene(scene);
 
             stage.setMaximized(true);
