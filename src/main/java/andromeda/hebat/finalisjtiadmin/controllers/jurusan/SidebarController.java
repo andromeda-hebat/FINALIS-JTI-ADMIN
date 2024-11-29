@@ -11,26 +11,19 @@ import java.util.List;
 
 public class SidebarController {
 
-    @FXML
-    private VBox sidebarJurusan;
+    @FXML private VBox sidebarJurusan;
 
-    @FXML
-    private Button btnKelolaData;
+    @FXML private Button btnKelolaData;
 
-    @FXML
-    private Button btnAdmin;
+    @FXML private Button btnAdmin;
 
-    @FXML
-    private Button btnMahasiswa;
+    @FXML private Button btnMahasiswa;
 
-    @FXML
-    private Button btnTemplateSurat;
+    @FXML private Button btnTemplateSurat;
 
-    @FXML
-    private Button btnLogAktivitas;
+    @FXML private Button btnLogAktivitas;
 
-    @FXML
-    private Button btnLaporan;
+    @FXML private Button btnLogout;
 
     @FXML
     public void initialize() {
@@ -40,7 +33,7 @@ public class SidebarController {
                 btnMahasiswa,
                 btnTemplateSurat,
                 btnLogAktivitas,
-                btnLaporan
+                btnLogout
         );
 
         for (Button button : buttons) {
