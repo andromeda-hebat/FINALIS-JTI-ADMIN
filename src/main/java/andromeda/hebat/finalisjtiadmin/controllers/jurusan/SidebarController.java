@@ -60,7 +60,7 @@ public class SidebarController {
     }
 
     @FXML
-    public void btnMahasiswaOnClkicked() {
+    public void btnMahasiswaOnClicked() {
         Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
         SceneHelper.changeScene(mainStage, "/views/adminjurusan/kelola-data-mahasiswa.fxml");
     }

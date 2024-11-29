@@ -49,7 +49,7 @@
                   <Insets left="80.0" />
                </padding>
             </Button>
-            <Button fx:id="btnMahasiswa" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnMahasiswaOnClkicked" style="-fx-background-color: #052C65;" text="Mahasiswa" textFill="WHITE">
+            <Button fx:id="btnMahasiswa" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnMahasiswaOnClicked" style="-fx-background-color: #052C65;" text="Mahasiswa" textFill="WHITE">
                <font>
                   <Font name="Reddit Sans Regular" size="14.0" />
                </font>
