@@ -6,12 +6,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -35,15 +33,15 @@ public class PermintaanVerifSeluruh {
     @FXML private TableColumn<BerkasProdi, Void> actionColumn;
 
 
-    private ObservableList<BerkasProdi> BerkasProdiList;
+    private ObservableList<BerkasProdi> berkasProdiList;
 
     @FXML
     public void initialize() {
-        BerkasProdiList = FXCollections.observableArrayList();
+        berkasProdiList = FXCollections.observableArrayList();
+        getAllBerkasProdi();
 
         numberColumn.setCellValueFactory((TableColumn.CellDataFeatures<BerkasProdi, Integer> cellData) -> {
-//            int index = tableViewBerkasProdi.getItems().indexOf(cellData.getValue()) + 1;
-            int index = 1;
+            int index = tableViewBerkasProdi.getItems().indexOf(cellData.getValue()) + 1;
             return new ReadOnlyObjectWrapper<>(index);
         });
         idColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
@@ -74,19 +72,23 @@ public class PermintaanVerifSeluruh {
             }
         });
 
-        tableViewBerkasProdi.setItems(BerkasProdiList);
+        tableViewBerkasProdi.setItems(berkasProdiList);
     }
     private void getAllBerkasProdi() {
-        String query = "SELECT * FROM USERS.BerkasProdi;";
+        String query = """
+                SELECT m.nim, nama_lengkap mahasiswa, 'kosong' keterangan, tanggal_request
+                from USERS.Mahasiswa m
+                INNER JOIN BERKAS.Prodi p ON p.nim = m.nim
+           """;
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                String BerkasProdiID = rs.getString("id_BerkasProdi");
-                String fullname = rs.getString("nama_lengkap");
-                String password = rs.getString("password");
-                String email = rs.getString("email");
-                String position = rs.getString("jabatan");
-//                BerkasProdiList.add(new BerkasProdi(BerkasProdiID, fullname, password, email, position));
+                String nim = rs.getString("nim");
+                String mahasiswa = rs.getString("mahasiswa");
+                String keterangan = rs.getString("keterangan");
+                String tanggalRequest = rs.getString("tanggal_request");
+
+                berkasProdiList.add(new BerkasProdi(nim, mahasiswa, keterangan, tanggalRequest));
             }
         } catch (Exception e) {
             e.printStackTrace();

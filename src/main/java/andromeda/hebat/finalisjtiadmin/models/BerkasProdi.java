@@ -10,8 +10,15 @@ public class BerkasProdi {
     private String distribusiSkripsi;
     private String magang;
     private String bebasKompen;
-    private String Keterangan;
+    private String keterangan;
     private String tanggalPersetujuan;
+
+    public BerkasProdi(String nim, String namaMahasiswa, String keterangan,String tanggalRequest) {
+        this.nim = nim;
+        this.namaMahasiswa = namaMahasiswa;
+        this.keterangan = keterangan;
+        this.tanggalRequest = tanggalRequest;
+    }
 
     public String getIdBerkasProdi() {
         return idBerkasProdi;
@@ -86,11 +93,11 @@ public class BerkasProdi {
     }
 
     public String getKeterangan() {
-        return Keterangan;
+        return keterangan;
     }
 
     public void setKeterangan(String keterangan) {
-        Keterangan = keterangan;
+        this.keterangan = keterangan;
     }
 
     public String getTanggalPersetujuan() {
