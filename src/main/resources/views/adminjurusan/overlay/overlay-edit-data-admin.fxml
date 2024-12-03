@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="overlayEditDataAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayEditDataAdmin">
+   <padding>
+      <Insets bottom="20.0" left="30.0" right="40.0" top="30.0" />
+   </padding>
+   <children>
+      <Label layoutX="40.0" layoutY="40.0" text="ID Admin" />
+      <TextField fx:id="inputIDAdmin" editable="false" layoutX="40.0" layoutY="76.0" />
+      <Label text="Nama Lengkap" />
+      <TextField fx:id="inputFullName" />
+      <Label text="Email" />
+      <TextField fx:id="inputEmail" />
+      <Label text="Jabatan" />
+      <ChoiceBox fx:id="inputPosition" prefHeight="26.0" prefWidth="434.0" />
+      <Label text="Password" />
+      <PasswordField fx:id="inputPassword" />
+      <Label text="Konfirmasi Password" />
+      <PasswordField fx:id="inputConfirmedPassword" />
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+         <children>
+            <Button fx:id="btnSubmitForm" alignment="CENTER" mnemonicParsing="false" onAction="#updateData" style="-fx-background-color: #052C65;" text="Perbarui" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

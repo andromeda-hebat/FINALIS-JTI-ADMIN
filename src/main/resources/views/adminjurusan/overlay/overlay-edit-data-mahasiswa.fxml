@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="20.0" left="30.0" right="40.0" top="30.0" />
+    </padding>
+    <children>
+        <Label text="Nama Lengkap" />
+        <TextField text="Aruffin bin Abdul Salam" />
+        <Label text="NIM" />
+        <TextField text="2341720100" />
+        <Label text="Jurusan" />
+      <TextField text="Teknologi Informasi" />
+        <Label text="Prodi" />
+        <TextField text="D4-Teknik Informatika" />
+        <Label text="Email" />
+      <TextField text="upin@polinema.ac.id" />
+        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" prefWidth="45.0" style="-fx-background-color: #052C65;" text="Edit" textFill="WHITE" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

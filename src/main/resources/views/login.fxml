@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="loginScene" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgba(196, 217, 255, 0.18);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.LoginController">
+   <children>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="FINALIS JTI" textAlignment="CENTER" textFill="#052c65">
+         <VBox.margin>
+            <Insets bottom="50.0" top="30.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Reddit Sans Black" size="36.0" />
+         </font>
+      </Label>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="300.0">
+         <children>
+            <Label text="Nama pengguna" textFill="#052c65">
+               <font>
+                  <Font name="Reddit Sans Regular" size="12.0" />
+               </font></Label>
+            <TextField fx:id="inputFieldUsername" promptText="Masukkan nama anda" />
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="300.0">
+         <children>
+            <Label text="Password" textFill="#052c65" />
+            <PasswordField fx:id="inputFieldPassword" promptText="Masukkan password anda" />
+         </children>
+      </VBox>
+      <Button mnemonicParsing="false" onAction="#enterDashboard" style="-fx-background-color: #052C65; -fx-cursor: hand;" text="Masuk" textFill="WHITE">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Reddit Sans Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</VBox>
