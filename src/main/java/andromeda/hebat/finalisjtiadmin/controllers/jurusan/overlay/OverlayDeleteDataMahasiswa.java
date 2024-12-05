@@ -24,12 +24,12 @@ public class OverlayDeleteDataMahasiswa {
         this.mahasiswa = mahasiswa;
     }
 
+    @FXML
     public void confirmDelete() {
-        String query = "DELETE FROM USERS.Mahasiswa WHERE nim = ?";
 
+        String query = "DELETE FROM USERS.Mahasiswa WHERE nim = ?";
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
             stmt.setString(1, mahasiswa.getNim());
-
             int rowsDeleted = stmt.executeUpdate();
 
             if (rowsDeleted > 0) {
@@ -38,13 +38,27 @@ public class OverlayDeleteDataMahasiswa {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil menghapus data!");
                 alert.showAndWait();
+            } else {
+                // Handle case where no rows were deleted
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Penghapusan Gagal");
+                alert.setHeaderText("Data tidak ditemukan");
+                alert.setContentText("Mahasiswa dengan NIM tersebut tidak ada.");
+                alert.showAndWait();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+
+    @FXML
     public void cancelDelete() {
+        if (overlayDelete == null) {
+            System.out.println("overlayDelete is null!");
+            return;
+        }
+
         ((Stage) overlayDelete.getScene().getWindow()).close();
     }
 }
