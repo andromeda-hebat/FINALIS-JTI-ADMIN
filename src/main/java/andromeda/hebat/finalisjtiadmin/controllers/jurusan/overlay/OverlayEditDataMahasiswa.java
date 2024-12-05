@@ -49,9 +49,9 @@ public class OverlayEditDataMahasiswa {
 
     public void updateData() {
         String query = """
-            UPDATE mahasiswa
+            UPDATE USERS.mahasiswa
             SET 
-                nama = ?,
+                nama_lengkap = ?,
                 password = ?,
                 email = ?,
                 jurusan = ?,
