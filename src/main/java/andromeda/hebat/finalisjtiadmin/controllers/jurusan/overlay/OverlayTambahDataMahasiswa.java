@@ -57,7 +57,7 @@ public class OverlayTambahDataMahasiswa {
         }
 
         String query = """
-            INSERT INTO mahasiswa (nim, nama, password, email, jurusan, prodi)
+            INSERT INTO USERS.mahasiswa (nim, nama_lengkap, password, email, jurusan, prodi)
             VALUES (?, ?, ?, ?, ?, ?);
         """;
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
