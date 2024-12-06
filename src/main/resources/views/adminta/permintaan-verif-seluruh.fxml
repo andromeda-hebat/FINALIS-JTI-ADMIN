@@ -25,7 +25,7 @@
                             <Insets right="20.0" />
                         </HBox.margin>
                     </ImageView>
-                    <Label fx:id="judulHalaman" text="Permintaan Verifikasi">
+                    <Label fx:id="judulHalaman" text="Permintaan Verifikasi TA">
                         <font>
                             <Font name="Reddit Sans Black" size="24.0" />
                         </font>
