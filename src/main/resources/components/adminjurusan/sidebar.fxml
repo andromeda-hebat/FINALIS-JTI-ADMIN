@@ -10,12 +10,12 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/logo-jti-polinema.png" />
+                  <Image url="@../../img/finalis-jti-logo.png" />
                </image>
                <HBox.margin>
-                  <Insets left="30.0" right="30.0" />
+                  <Insets left="30.0" right="10.0" />
                </HBox.margin>
             </ImageView>
             <Label text="FINALIS JTI" textFill="#f7de00">
@@ -24,6 +24,12 @@
                </font>
             </Label>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
       </HBox>
       <VBox prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
