@@ -18,7 +18,7 @@ public class UserRepository {
      * retrieves an admin user based on the provided username and password,
      * and returns the corresponding {@code Admin} object if a match is found.
      *
-     * @param username username the username of the admin to be verified.
+     * @param userID username the username of the admin to be verified.
      * @param password password the password of the admin to be verified.
      * @return an {@code Admin} object representing the verified admin user if
      *          credentials are valid; otherwise, returns {@code null}.
