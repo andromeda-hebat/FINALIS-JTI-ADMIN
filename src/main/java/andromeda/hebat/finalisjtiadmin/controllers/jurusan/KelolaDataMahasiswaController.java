@@ -164,6 +164,10 @@ public class KelolaDataMahasiswaController {
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-hapus-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 450);
+
+            OverlayDeleteDataMahasiswa overlayController = fxmlLoader.getController();
+            overlayController.fillData(mahasiswa);
+
             overlay.setScene(scene);
             overlay.show();
         } catch (Exception e) {
