@@ -1,5 +1,6 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan;
+package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
 
+import andromeda.hebat.finalisjtiadmin.repository.BerkasRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -17,13 +18,13 @@ public class OverlayTambahTemplateSuratController {
     private TextField inputKeterangan;
 
     @FXML
-    private Button inputFile;
+    private TextField inputFilePath;
+
+    @FXML
+    private Button btnFileChooser;
 
     @FXML
     private Button btnTambahkan;
-
-    @FXML
-    private TextField filePathField;
 
     @FXML
     public void onBrowse() {
@@ -31,7 +32,12 @@ public class OverlayTambahTemplateSuratController {
         fileChooser.setTitle("Cari file surat");
         File selectedFile = fileChooser.showOpenDialog(new Stage());
         if (selectedFile != null) {
-            filePathField.setText(selectedFile.getAbsolutePath());
+            inputFilePath.setText(selectedFile.getName());
         }
+    }
+
+    @FXML
+    public void btnTambahkanOnClicked() {
+        BerkasRepository.addNewTemplateSurat(inputNamaSurat.getText(), inputKeterangan.getText(), inputFilePath.getText());
     }
 }
