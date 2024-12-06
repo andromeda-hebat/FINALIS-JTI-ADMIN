@@ -35,12 +35,13 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Button>
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tableViewSurat" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn minWidth="30.0" prefWidth="150.0" text="Surat" />
-                <TableColumn minWidth="30.0" prefWidth="150.0" text="Keperluan" />
-                  <TableColumn prefWidth="150.0" text="File" />
-                  <TableColumn prefWidth="110.0" text="Aksi" />
+                  <TableColumn fx:id="idSuratColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="namaSuratColumn" minWidth="30.0" prefWidth="150.0" text="Surat" />
+                <TableColumn fx:id="keperluanColumn" minWidth="30.0" prefWidth="150.0" text="Keperluan" />
+                  <TableColumn fx:id="filePathColumn" prefWidth="150.0" text="File" />
+                  <TableColumn fx:id="actionColumn" prefWidth="110.0" text="Aksi" />
               </columns>
                <VBox.margin>
                   <Insets top="15.0" />
