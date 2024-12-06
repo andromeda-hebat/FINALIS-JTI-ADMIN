@@ -3,8 +3,8 @@ package andromeda.hebat.finalisjtiadmin.controllers.jurusan;
 import andromeda.hebat.finalisjtiadmin.Main;
 import andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayDeleteDataAdmin;
 import andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayEditDataAdmin;
-import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
+import andromeda.hebat.finalisjtiadmin.repository.UserRepository;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -20,13 +20,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 public class KelolaDataAdminController {
 
-    @FXML
-    private Button btnTambahkan;
+    @FXML private Button btnTambahkan;
 
     @FXML private TableView<Admin> tableViewAdmin;
 
@@ -47,7 +43,7 @@ public class KelolaDataAdminController {
     @FXML
     public void initialize() {
         adminList = FXCollections.observableArrayList();
-        getAllAdmin();
+        adminList.setAll(UserRepository.getAllAdmin());
 
         numberColumn.setCellValueFactory((TableColumn.CellDataFeatures<Admin, Integer> cellData) -> {
             int index = tableViewAdmin.getItems().indexOf(cellData.getValue()) + 1;
@@ -88,23 +84,6 @@ public class KelolaDataAdminController {
         });
 
         tableViewAdmin.setItems(adminList);
-    }
-
-    private void getAllAdmin() {
-        String query = "SELECT * FROM USERS.Admin;";
-        try (Statement stmt = Database.getConnection().createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
-            while (rs.next()) {
-                String adminID = rs.getString("id_admin");
-                String fullname = rs.getString("nama_lengkap");
-                String password = rs.getString("password");
-                String email = rs.getString("email");
-                String position = rs.getString("jabatan");
-                adminList.add(new Admin(adminID, fullname, password, email, position));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void openOverlayTambahAdmin() {
