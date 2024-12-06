@@ -104,74 +104,13 @@
             <children>
                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@../../img/journal-text.png" />
-                  </image>
-                  <HBox.margin>
-                     <Insets right="20.0" />
-                  </HBox.margin>
-               </ImageView>
-               <Label text="Status Permintaan">
-                  <font>
-                     <Font name="Reddit Sans Black" size="24.0" />
-                  </font>
-               </Label>
-            </children>
-            <VBox.margin>
-               <Insets left="20.0" right="20.0" top="30.0" />
-            </VBox.margin>
-         </HBox>
-         <HBox alignment="CENTER" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: E4EEFF; -fx-background-radius: 6;">
-            <effect>
-               <DropShadow offsetY="3.0">
-                  <color>
-                     <Color opacity="0.22335022687911987" />
-                  </color>
-               </DropShadow>
-            </effect>
-            <children>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Label text="Seluruh Permintaan" textFill="#052c65">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Label text="Terverifikasi" textFill="#052c65">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Label text="Ditolak" textFill="#052c65">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </HBox>
-            </children>
-            <VBox.margin>
-               <Insets left="20.0" right="20.0" top="10.0" />
-            </VBox.margin>
-         </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-            <children>
-               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
                      <Image url="@../../img/arrow-down-left-square.png" />
                   </image>
                   <HBox.margin>
                      <Insets right="20.0" />
                   </HBox.margin>
                </ImageView>
-               <Label text="Permintaan Terbaru">
+               <Label text="Aktivitas Terbaru">
                   <font>
                      <Font name="Reddit Sans Black" size="24.0" />
                   </font>
@@ -181,7 +120,7 @@
                <Insets left="20.0" right="20.0" top="30.0" />
             </VBox.margin>
          </HBox>
-         <TableView prefHeight="200.0" prefWidth="200.0">
+         <TableView prefHeight="318.0" prefWidth="662.0">
            <columns>
              <TableColumn prefWidth="75.0" text="NIM" />
              <TableColumn prefWidth="75.0" text="Mahasiswa" />
