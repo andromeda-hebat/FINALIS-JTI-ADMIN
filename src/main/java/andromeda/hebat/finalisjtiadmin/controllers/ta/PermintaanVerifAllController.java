@@ -1,59 +1,57 @@
-package andromeda.hebat.finalisjtiadmin.controllers.prodi;
-import andromeda.hebat.finalisjtiadmin.models.BerkasProdi;
+package andromeda.hebat.finalisjtiadmin.controllers.ta;
+import andromeda.hebat.finalisjtiadmin.models.BerkasTA;
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class PermintaanVerifSeluruh {
+public class PermintaanVerifAllController {
     @FXML
     private Label judulHalaman;
 
-    @FXML private TableView<BerkasProdi> tableViewBerkasProdi;
+    @FXML private TableView<BerkasTA> tableViewBerkasTA;
 
-    @FXML private TableColumn<BerkasProdi, Integer> numberColumn;
+    @FXML private TableColumn<BerkasTA, Integer> numberColumn;
 
-    @FXML private TableColumn<BerkasProdi, String> idColumn;
+    @FXML private TableColumn<BerkasTA, String> idColumn;
 
-    @FXML private TableColumn<BerkasProdi, String> nameColumn;
+    @FXML private TableColumn<BerkasTA, String> nameColumn;
 
-    @FXML private TableColumn<BerkasProdi, String> descriptionColumn;
+    @FXML private TableColumn<BerkasTA, String> descriptionColumn;
 
-    @FXML private TableColumn<BerkasProdi, String> dateColumn;
+    @FXML private TableColumn<BerkasTA, String> dateColumn;
 
-    @FXML private TableColumn<BerkasProdi, Void> actionColumn;
+    @FXML private TableColumn<BerkasTA, Void> actionColumn;
 
 
-    private ObservableList<BerkasProdi> berkasProdiList;
+    private ObservableList<BerkasTA> berkasTAList;
 
     @FXML
     public void initialize() {
-        berkasProdiList = FXCollections.observableArrayList();
-        getAllBerkasProdi();
+        berkasTAList = FXCollections.observableArrayList();
+        getAllBerkasTA();
 
-        numberColumn.setCellValueFactory((TableColumn.CellDataFeatures<BerkasProdi, Integer> cellData) -> {
-            int index = tableViewBerkasProdi.getItems().indexOf(cellData.getValue()) + 1;
+        numberColumn.setCellValueFactory((TableColumn.CellDataFeatures<BerkasTA, Integer> cellData) -> {
+            int index = tableViewBerkasTA.getItems().indexOf(cellData.getValue()) + 1;
             return new ReadOnlyObjectWrapper<>(index);
         });
         idColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
         nameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNamaMahasiswa()));
         descriptionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKeterangan()));
         dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTanggalRequest()));
-        actionColumn.setCellFactory(tc -> new TableCell<BerkasProdi, Void>() {
+        actionColumn.setCellFactory(tc -> new TableCell<BerkasTA, Void>() {
             private final Button detailBtn = new Button("Detail");
 
             {
                 detailBtn.setOnAction(event -> {
-                    BerkasProdi BerkasProdi = getTableView().getItems().get(getIndex());
+                    BerkasTA BerkasTA = getTableView().getItems().get(getIndex());
                     System.out.println("detail button telah diklik");
                 });
             }
@@ -72,13 +70,13 @@ public class PermintaanVerifSeluruh {
             }
         });
 
-        tableViewBerkasProdi.setItems(berkasProdiList);
+        tableViewBerkasTA.setItems(berkasTAList);
     }
-    private void getAllBerkasProdi() {
+    private void getAllBerkasTA() {
         String query = """
                 SELECT m.nim, nama_lengkap mahasiswa, 'kosong' keterangan, tanggal_request
                 from USERS.Mahasiswa m
-                INNER JOIN BERKAS.Prodi p ON p.nim = m.nim
+                INNER JOIN BERKAS.TA p ON p.nim = m.nim
            """;
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -88,7 +86,7 @@ public class PermintaanVerifSeluruh {
                 String keterangan = rs.getString("keterangan");
                 String tanggalRequest = rs.getString("tanggal_request");
 
-                berkasProdiList.add(new BerkasProdi(nim, mahasiswa, keterangan, tanggalRequest));
+                berkasTAList.add(new BerkasTA(nim, mahasiswa, keterangan, tanggalRequest));
             }
         } catch (Exception e) {
             e.printStackTrace();

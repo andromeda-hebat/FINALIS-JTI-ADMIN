@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.prodi.PermintaanVerifSeluruh">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.prodi.PermintaanVerifAllController">
     <fx:include source="../../components/adminprodi/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
@@ -25,7 +25,7 @@
                             <Insets right="20.0" />
                         </HBox.margin>
                     </ImageView>
-                    <Label fx:id="judulHalaman" text="Permintaan Verifikasi">
+                    <Label fx:id="judulHalaman" text="Permintaan Verifikasi Administrasi Prodi">
                         <font>
                             <Font name="Reddit Sans Black" size="24.0" />
                         </font>
