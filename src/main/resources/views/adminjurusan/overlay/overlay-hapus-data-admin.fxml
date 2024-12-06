@@ -18,7 +18,7 @@
       </VBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="402.0">
          <children>
-            <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmDelete" style="-fx-border-color: white; -fx-background-color: #052C65;" text="Iya" textFill="WHITE">
+            <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmDelete" style="-fx-background-color: #052C65;" text="Iya" textFill="WHITE">
                <HBox.margin>
                   <Insets right="15.0" />
                </HBox.margin>

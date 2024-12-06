@@ -42,8 +42,13 @@ public class KelolaDataAdminController {
 
     @FXML private TableColumn<Admin, Void> actionColumn;
 
+    private ObservableList<Admin> adminList;
+
     @FXML
     public void initialize() {
+        adminList = FXCollections.observableArrayList();
+        getAllAdmin();
+
         numberColumn.setCellValueFactory((TableColumn.CellDataFeatures<Admin, Integer> cellData) -> {
             int index = tableViewAdmin.getItems().indexOf(cellData.getValue()) + 1;
             return new ReadOnlyObjectWrapper<>(index);
@@ -82,12 +87,11 @@ public class KelolaDataAdminController {
             }
         });
 
-        tableViewAdmin.setItems(getAllAdmin());
+        tableViewAdmin.setItems(adminList);
     }
 
-    private ObservableList<Admin> getAllAdmin() {
+    private void getAllAdmin() {
         String query = "SELECT * FROM USERS.Admin;";
-        ObservableList<Admin> adminList = FXCollections.observableArrayList();
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
@@ -101,8 +105,6 @@ public class KelolaDataAdminController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return adminList;
     }
 
     public void openOverlayTambahAdmin() {
@@ -156,6 +158,4 @@ public class KelolaDataAdminController {
             e.printStackTrace();
         }
     }
-
-
 }
