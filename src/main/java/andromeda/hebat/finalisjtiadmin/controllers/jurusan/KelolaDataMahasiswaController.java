@@ -36,8 +36,8 @@ public class KelolaDataMahasiswaController {
     @FXML
     private TableColumn<Mahasiswa, String> columnNama;
 
-    @FXML
-    private TableColumn<Mahasiswa, String> columnPassword;
+//    @FXML
+//    private TableColumn<Mahasiswa, String> columnPassword;
 
     @FXML
     private TableColumn<Mahasiswa, String> columnEmail;
@@ -66,7 +66,7 @@ public class KelolaDataMahasiswaController {
         });
         columnNim.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
         columnNama.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
-        columnPassword.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPassword()));
+        //columnPassword.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPassword()));
         columnEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
         columnJurusan.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getJurusan()));
         columnProdi.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProdi()));

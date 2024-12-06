@@ -41,7 +41,7 @@
                             <TableColumn fx:id="columnNo" prefWidth="75.0" text="No" />
                             <TableColumn fx:id="columnNim" prefWidth="150.0" text="Nim" />
                             <TableColumn fx:id="columnNama" prefWidth="75.0" text="Nama Lengkap" />
-                            <TableColumn fx:id="columnPassword" prefWidth="150.0" text="Password" />
+<!--                            <TableColumn fx:id="columnPassword" prefWidth="150.0" text="Password" />-->
                             <TableColumn fx:id="columnEmail" prefWidth="100.0" text="Email" />
                      <TableColumn fx:id="columnJurusan" prefWidth="100.0" text="Jurusan" />
                      <TableColumn fx:id="columnProdi" prefWidth="100.0" text="Prodi" />
