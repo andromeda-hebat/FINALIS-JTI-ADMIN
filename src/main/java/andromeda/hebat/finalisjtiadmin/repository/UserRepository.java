@@ -3,6 +3,8 @@ package andromeda.hebat.finalisjtiadmin.repository;
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.helper.JsonHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -10,6 +12,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class UserRepository {
     /**
@@ -86,5 +89,27 @@ public class UserRepository {
         }
 
         return admin;
+    }
+
+    public static ObservableList getAllAdmin() {
+        ObservableList<Admin> result = FXCollections.observableArrayList();;
+        try (Statement stmt = Database.getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery("""
+             SELECT * FROM USERS.Admin;
+             """)) {
+            while (rs.next()) {
+                result.add(new Admin(
+                        rs.getString("id_admin"),
+                        rs.getString("nama_lengkap"),
+                        rs.getString("password"),
+                        rs.getString("email"),
+                        rs.getString("jabatan")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }
