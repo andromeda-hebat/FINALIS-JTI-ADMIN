@@ -50,12 +50,12 @@ public class KelolaTemplateSuratController {
             {
                 editBtn.setOnAction(event -> {
                     Surat surat = getTableView().getItems().get(getIndex());
-                    openOverlayEditAdmin(surat);
+                    openOverlayEditSurat(surat);
                 });
 
                 deleteBtn.setOnAction(event -> {
                     Surat surat = getTableView().getItems().get(getIndex());
-                    openOverlayDeleteAdmin(surat);
+                    openOverlayDeleteSurat(surat);
                 });
             }
 
@@ -76,12 +76,12 @@ public class KelolaTemplateSuratController {
         tableViewSurat.setItems(suratList);
     }
 
-    public void openOverlayEditAdmin(Surat surat) {
+    public void openOverlayEditSurat(Surat surat) {
         try {
             Stage overlay = new Stage();
             overlay.setTitle("Edit data admin");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-edit-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-edit-data-surat.fxml"));
             Parent root = fxmlLoader.load();
 
             OverlayEditDataSurat controller = fxmlLoader.getController();
@@ -95,12 +95,12 @@ public class KelolaTemplateSuratController {
         }
     }
 
-    public void openOverlayDeleteAdmin(Surat surat) {
+    public void openOverlayDeleteSurat(Surat surat) {
         try {
             Stage overlay = new Stage();
             overlay.setTitle("Hapus data admin");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-hapus-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-hapus-data-surat.fxml"));
             Parent root = fxmlLoader.load();
 
             OverlayDeleteDataSurat controller = fxmlLoader.getController();
@@ -119,7 +119,7 @@ public class KelolaTemplateSuratController {
             Stage overlay = new Stage();
             overlay.setTitle("Tambah Template Surat Baru");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-tambah-template-surat-baru.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-tambah-template-surat.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 700);
             overlay.setScene(scene);
             overlay.show();
