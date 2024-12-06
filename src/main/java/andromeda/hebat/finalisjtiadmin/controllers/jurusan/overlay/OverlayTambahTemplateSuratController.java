@@ -1,9 +1,12 @@
 package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
 
+import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasRepository;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -11,20 +14,17 @@ import java.io.File;
 
 public class OverlayTambahTemplateSuratController {
 
-    @FXML
-    private TextField inputNamaSurat;
+    @FXML private VBox mainContainer;
 
-    @FXML
-    private TextField inputKeterangan;
+    @FXML private TextField inputNamaSurat;
 
-    @FXML
-    private TextField inputFilePath;
+    @FXML private TextField inputKeterangan;
 
-    @FXML
-    private Button btnFileChooser;
+    @FXML private TextField inputFilePath;
 
-    @FXML
-    private Button btnTambahkan;
+    @FXML private Button btnFileChooser;
+
+    @FXML private Button btnTambahkan;
 
     @FXML
     public void onBrowse() {
@@ -38,6 +38,20 @@ public class OverlayTambahTemplateSuratController {
 
     @FXML
     public void btnTambahkanOnClicked() {
-        BerkasRepository.addNewTemplateSurat(inputNamaSurat.getText(), inputKeterangan.getText(), inputFilePath.getText());
+        String result = BerkasRepository.addNewTemplateSurat(inputNamaSurat.getText(), inputKeterangan.getText(), inputFilePath.getText());
+        if (result.equalsIgnoreCase("success")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Berhasil menambahkan data template surat baru!");
+            alert.setContentText("Sukses");
+            alert.showAndWait();
+        } else if (result.equalsIgnoreCase("failed")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Gagal menambahkan data template surat baru!");
+            alert.setContentText("Gagal!");
+            alert.showAndWait();
+        }
+
+        Stage overlayStage = (Stage) mainContainer.getScene().getWindow();
+        overlayStage.close();
     }
 }

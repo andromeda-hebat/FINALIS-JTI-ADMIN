@@ -33,7 +33,8 @@ public class BerkasRepository {
         return result;
     }
 
-    public static void addNewTemplateSurat(String namaSurat, String keperluanSurat, String fileSurat) {
+    public static String addNewTemplateSurat(String namaSurat, String keperluanSurat, String fileSurat) {
+        String result = "failed";
         try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
             INSERT INTO BERKAS.Surat (nama_surat, keperluan_surat, file_surat) 
             VALUES (?, ?, ?) 
@@ -43,12 +44,13 @@ public class BerkasRepository {
             stmt.setString(3, fileSurat);
 
             int rowsAffected = stmt.executeUpdate();
-
             if (rowsAffected > 0) {
-                System.out.println("Successfully insert new berkas template surat");
+                result = "success";
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return result;
     }
 }
