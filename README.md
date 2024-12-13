@@ -11,7 +11,7 @@ FINALIS JTI adalah sebuah sistem yang digunakan dibangun untuk Jurusan Teknologi
 
 Terdapat beberapa dokumentasi yang bisa anda lihat sesuai dengan kebutuhan anda.
 
-[![Pedoman developer](https://img.shields.io/badge/Pedoman|Developer-4CAF50?style=for-the-badge&logo=check-circle&logoColor=white)](https://github.com/andromeda-hebat/FINALIS-JTI-WEB/tree/main/docs/guides/dev) [![Pedoman Umum](https://img.shields.io/badge/Pedoman|Umum-0078D4?style=for-the-badge&logo=code&logoColor=white)](https://github.com/andromeda-hebat/FINALIS-JTI-WEB/tree/main/docs/guides/general)
+[![Pedoman developer](https://img.shields.io/badge/Pedoman%20Developer-4CAF50?style=for-the-badge&logo=check-circle&logoColor=white)](docs/guides/dev) [![Pedoman Umum](https://img.shields.io/badge/Pedoman%20Umum-0078D4?style=for-the-badge&logo=code&logoColor=white)](docs/guides/general)
 
 
 ---
