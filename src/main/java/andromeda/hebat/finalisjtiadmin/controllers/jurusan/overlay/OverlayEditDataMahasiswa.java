@@ -2,16 +2,20 @@ package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayEditDataMahasiswa {
 
+    public Button btnFileChooser;
     @FXML private VBox overlayEditDataMahasiswa;
 
     @FXML private TextField editNama;
@@ -27,6 +31,10 @@ public class OverlayEditDataMahasiswa {
     @FXML private PasswordField editPassword;
 
     @FXML private Button btnEdit;
+
+    @FXML private TextField editTahunMasuk;
+
+    @FXML private TextField editFotoProfil;
 
     private Mahasiswa mahasiswa;
 
@@ -45,6 +53,8 @@ public class OverlayEditDataMahasiswa {
         editJurusan.setText(mahasiswa.getJurusan());
         editProdi.setText(mahasiswa.getProdi());
         editPassword.setText(mahasiswa.getPassword());
+        editTahunMasuk.setText(mahasiswa.getTahunAngkatan());
+        editFotoProfil.setText(mahasiswa.getFotoProfil());
     }
 
     public void updateData() {
@@ -55,7 +65,9 @@ public class OverlayEditDataMahasiswa {
                 password = ?,
                 email = ?,
                 jurusan = ?,
-                prodi = ?
+                prodi = ?,
+                tahun_angkatan = ?,
+                foto_profil = ?
             WHERE nim = ?;
         """;
 
@@ -66,6 +78,8 @@ public class OverlayEditDataMahasiswa {
             stmt.setString(4, editJurusan.getText());
             stmt.setString(5, editProdi.getText());
             stmt.setString(6, editNim.getText());
+            stmt.setString(7, editTahunMasuk.getText());
+            stmt.setString(8, editFotoProfil.getText());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -77,6 +91,18 @@ public class OverlayEditDataMahasiswa {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onBrowse() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Cari foto mahasiswa");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            editFotoProfil.setText(selectedFile.getName());
         }
     }
 }

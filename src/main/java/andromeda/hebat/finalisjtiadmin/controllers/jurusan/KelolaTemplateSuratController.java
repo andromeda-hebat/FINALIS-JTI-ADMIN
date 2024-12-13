@@ -79,9 +79,9 @@ public class KelolaTemplateSuratController {
     public void openOverlayEditSurat(Surat surat) {
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Edit data admin");
+            overlay.setTitle("Edit data surat");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-edit-data-surat.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-edit-data-template-surat.fxml"));
             Parent root = fxmlLoader.load();
 
             OverlayEditDataSurat controller = fxmlLoader.getController();
@@ -98,7 +98,7 @@ public class KelolaTemplateSuratController {
     public void openOverlayDeleteSurat(Surat surat) {
         try {
             Stage overlay = new Stage();
-            overlay.setTitle("Hapus data admin");
+            overlay.setTitle("Hapus data surat");
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/adminjurusan/overlay/overlay-hapus-data-surat.fxml"));
             Parent root = fxmlLoader.load();
