@@ -19,7 +19,13 @@ Berikut adalah spesifikasi minimum untuk mengembangkan aplikasi ini:
 | Framework          | JavaFX               | 23.0.1 |
 | Project management | Maven                | 3.9.9  |
 | Basis data         | Microsoft SQL Server | 2022   |
-> Direkomendasikan untuk menggunakan IDE [IntelliJ IDEA](https://www.jetbrains.com/idea/) untuk kemudahan dalam konfigurasi awal proyek
+ 
+#### Rekomendasi Alat Pengembangan
+
+| Jenis                                    | Nama          | Versi    |
+|------------------------------------------|---------------|----------|
+| IDE (Integrated Development Environment) | IntelliJ IDEA | 2024.2.4 |
+| GUI designer                             | Scene Builder | 23.0.1   |
 
 ### Langkah Instalasi
 
