@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.ta.DashboardController">
+<HBox fx:id="dashboardContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.ta.DashboardController">
     <fx:include source="../../components/adminta/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
@@ -116,14 +116,14 @@
                <Insets left="20.0" right="20.0" top="30.0" />
             </VBox.margin>
          </HBox>
-         <TableView fx:id="tableViewBerkasPengajuan" prefHeight="318.0" prefWidth="662.0" stylesheets="@../../../css/table-view.css">
+         <TableView fx:id="tableViewBerkasPengajuan" prefWidth="662.0" stylesheets="@../../../css/table-view.css">
            <columns>
                <TableColumn fx:id="noCol" prefWidth="75.0" text="No" />
              <TableColumn fx:id="nimCol" prefWidth="75.0" text="NIM" />
              <TableColumn fx:id="mahasiswaCol" prefWidth="75.0" text="Mahasiswa" />
-               <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status" />
+               <TableColumn fx:id="statusCol" prefWidth="75.0" sortable="false" text="Status" />
                <TableColumn fx:id="tanggalCol" prefWidth="75.0" text="Tanggal pengajuan" />
-               <TableColumn fx:id="actionCol" prefWidth="75.0" text="Aksi" />
+               <TableColumn fx:id="actionCol" editable="false" prefWidth="75.0" sortable="false" text="Aksi" />
            </columns>
             <opaqueInsets>
                <Insets />
