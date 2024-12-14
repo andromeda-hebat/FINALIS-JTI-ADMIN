@@ -1,5 +1,6 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta;
 
+import andromeda.hebat.finalisjtiadmin.helper.CSSHelper;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;
 import andromeda.hebat.finalisjtiadmin.repository.StatistikRepository;
@@ -29,6 +30,7 @@ public class DashboardController {
     private ObservableList<BerkasPengajuan> pengajuanTAList;
 
     public void initialize() {
+        CSSHelper.loadCSS(dashboardContainer, "global");
         statisticRequestInit();
         tableViewInit();
     }
