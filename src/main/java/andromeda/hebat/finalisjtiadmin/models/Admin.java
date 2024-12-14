@@ -6,6 +6,7 @@ public class Admin {
     private String password;
     private String email;
     private String jabatan;
+    private String fotoProfil;
 
     public Admin() { }
 
@@ -55,5 +56,13 @@ public class Admin {
 
     public void setJabatan(String role) {
         this.jabatan = role;
+    }
+
+    public String getFotoProfil() {
+        return fotoProfil;
+    }
+
+    public void setFotoProfil(String fotoProfil) {
+        this.fotoProfil = fotoProfil;
     }
 }

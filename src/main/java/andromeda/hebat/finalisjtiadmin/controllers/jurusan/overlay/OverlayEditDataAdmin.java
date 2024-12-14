@@ -7,8 +7,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -28,6 +30,8 @@ public class OverlayEditDataAdmin {
 
     @FXML private PasswordField inputConfirmedPassword;
 
+    @FXML private TextField inputFotoProfil;
+
     @FXML private Button btnSubmitForm;
 
     private ObservableList positionList = FXCollections.observableArrayList();
@@ -46,6 +50,7 @@ public class OverlayEditDataAdmin {
         inputPosition.setValue(admin.getJabatan());
         inputPassword.setText(admin.getPassword());
         inputConfirmedPassword.setText(admin.getPassword());
+        inputFotoProfil.setText(admin.getFotoProfil());
     }
 
     public void updateData() {
@@ -62,7 +67,8 @@ public class OverlayEditDataAdmin {
                 nama_lengkap = ?,
                 password = ?,
                 email = ?,
-                jabatan = ?
+                jabatan = ?,
+                foto_profil = ?
             WHERE id_admin = ?;
         """;
 
@@ -72,6 +78,7 @@ public class OverlayEditDataAdmin {
             stmt.setString(3, inputEmail.getText());
             stmt.setString(4, inputPosition.getValue());
             stmt.setString(5, inputIDAdmin.getText());
+            stmt.setString(6, inputFotoProfil.getText());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -83,6 +90,18 @@ public class OverlayEditDataAdmin {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onBrowse() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Cari file foto");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            inputFotoProfil.setText(selectedFile.getName());
         }
     }
 }

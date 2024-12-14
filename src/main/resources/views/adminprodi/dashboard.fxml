@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.prodi.StatistikProdiController">
     <fx:include source="../../components/adminprodi/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
             <fx:include source="../../components/admin/topbar.fxml" />
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="81.0" prefWidth="661.0">
                 <children>
-                    <Label prefHeight="67.0" prefWidth="255.0" text="Dashboard" textFill="#052c65">
+                    <Label prefHeight="67.0" prefWidth="295.0" text="Dashboard Admin Prodi" textFill="#052c65">
                         <font>
                             <Font name="Reddit Sans Black" size="24.0" />
                         </font>
@@ -40,7 +44,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Permintaan" textFill="#052c65" />
-                           <Label text="75" textFill="#052c65">
+                           <Label fx:id="PengajuanProdi" text="75" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -59,7 +63,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Terverifikasi" textFill="#052c65" />
-                           <Label text="200" textFill="#052c65">
+                           <Label fx:id="ProdiVerif" text="200" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -78,7 +82,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Ditolak" textFill="#052c65" />
-                           <Label text="22" textFill="#052c65">
+                           <Label fx:id="ProdiDitolak" text="22" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -97,87 +101,30 @@
             </effect>
          </HBox>
          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-            <children>
-               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../img/journal-text.png" />
-                  </image>
-                  <HBox.margin>
-                     <Insets right="20.0" />
-                  </HBox.margin>
-               </ImageView>
-               <Label text="Status Permintaan">
-                  <font>
-                     <Font name="Reddit Sans Black" size="24.0" />
-                  </font>
-               </Label>
-            </children>
             <VBox.margin>
                <Insets left="20.0" right="20.0" top="30.0" />
             </VBox.margin>
-         </HBox>
-         <HBox alignment="CENTER" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: E4EEFF; -fx-background-radius: 6;">
-            <effect>
-               <DropShadow offsetY="3.0">
-                  <color>
-                     <Color opacity="0.22335022687911987" />
-                  </color>
-               </DropShadow>
-            </effect>
             <children>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="286.0">
                   <children>
-                     <Label text="Seluruh Permintaan" textFill="#052c65">
+                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../img/arrow-down-left-square.png" />
+                        </image>
+                        <HBox.margin>
+                           <Insets right="20.0" />
+                        </HBox.margin>
+                     </ImageView>
+                     <Label text="Aktivitas Terbaru">
                         <font>
-                           <Font size="20.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Label text="Terverifikasi" textFill="#052c65">
-                        <font>
-                           <Font size="20.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Label text="Ditolak" textFill="#052c65">
-                        <font>
-                           <Font size="20.0" />
+                           <Font name="Reddit Sans Black" size="24.0" />
                         </font>
                      </Label>
                   </children>
                </HBox>
             </children>
-            <VBox.margin>
-               <Insets left="20.0" right="20.0" top="10.0" />
-            </VBox.margin>
          </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-            <children>
-               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../img/arrow-down-left-square.png" />
-                  </image>
-                  <HBox.margin>
-                     <Insets right="20.0" />
-                  </HBox.margin>
-               </ImageView>
-               <Label text="Permintaan Terbaru">
-                  <font>
-                     <Font name="Reddit Sans Black" size="24.0" />
-                  </font>
-               </Label>
-            </children>
-            <VBox.margin>
-               <Insets left="20.0" right="20.0" top="30.0" />
-            </VBox.margin>
-         </HBox>
-         <TableView prefHeight="200.0" prefWidth="200.0">
+         <TableView prefHeight="310.0" prefWidth="662.0">
            <columns>
              <TableColumn prefWidth="75.0" text="NIM" />
              <TableColumn prefWidth="75.0" text="Mahasiswa" />
