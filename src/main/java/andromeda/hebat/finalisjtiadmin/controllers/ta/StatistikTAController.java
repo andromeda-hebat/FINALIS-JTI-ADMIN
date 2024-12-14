@@ -3,7 +3,6 @@ package andromeda.hebat.finalisjtiadmin.controllers.ta;
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
