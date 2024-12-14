@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.prodi;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.ta;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import javafx.fxml.FXML;
@@ -18,7 +18,7 @@ public class SidebarController {
 
     @FXML private VBox sidebarContainer;
 
-    @FXML private  Button btnDashboard;
+    @FXML private Button btnDashboard;
 
     @FXML private Button btnRequestVerification;
 
@@ -43,13 +43,13 @@ public class SidebarController {
     @FXML
     public void btnDashboardOnClicked() {
         Stage mainStage = (Stage) sidebarContainer.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, "/views/pages/adminprodi/dashboard.fxml");
+        SceneHelper.changeScene(mainStage, "/views/pages/adminta/dashboard.fxml");
     }
 
     @FXML
     public void btnRequestVerificationOnClicked() {
         mainStage = (Stage) sidebarContainer.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, "/views/pages/adminprodi/permintaan-verif-seluruh.fxml");
+        SceneHelper.changeScene(mainStage, "/views/pages/adminta/permintaan-verif-seluruh.fxml");
     }
 
     @FXML

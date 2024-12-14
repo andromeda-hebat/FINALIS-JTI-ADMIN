@@ -1,61 +1,62 @@
-package andromeda.hebat.finalisjtiadmin.controllers.ta;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.prodi;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class  StatistikTAController {
-    @FXML private Label PengajuanTA;
-    @FXML private Label TAVerif;
-    @FXML private Label TADitolak;
+public class StatistikProdiController {
+    @FXML private Label PengajuanProdi;
+    @FXML private Label ProdiVerif;
+    @FXML private Label ProdiDitolak;
 
     @FXML
     public void initialize(){
-        JumlahPengajuanTA();
-        JumlahTAVerif();
-        JumlahTADitolak();
+        JumlahPengajuanProdi();
+        JumlahProdiVerif();
+        JumlahProdiDitolak();
     }
 
-    private void JumlahPengajuanTA(){
-        String query = "SELECT COUNT(*) AS total_pengajuan_TA FROM VER.VerifikasiBerkas WHERE jenis_berkas = 'TA'";
+    private void JumlahPengajuanProdi(){
+        String query = "SELECT COUNT(*) AS total_pengajuan_TA FROM VER.VerifikasiBerkas WHERE jenis_berkas = 'Prodi'";
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
             if (rs.next()) {
                 int total = rs.getInt("total_pengajuan_TA");
                 System.out.println("Jumlah " + total);
-                PengajuanTA.setText(String.valueOf(total));
+                PengajuanProdi.setText(String.valueOf(total));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void JumlahTAVerif(){
-        String query = "SELECT COUNT(*) AS total_pengajuan_TA FROM VER.VerifikasiBerkas WHERE jenis_berkas = 'TA' AND status_verifikasi = 'Disetujui'";
+    private void JumlahProdiVerif(){
+        String query = "SELECT COUNT(*) AS total_pengajuan_TA FROM VER.VerifikasiBerkas WHERE jenis_berkas = 'Prodi' AND status_verifikasi = 'Disetujui'";
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
             if (rs.next()) {
                 int total = rs.getInt("total_pengajuan_TA");
-                TAVerif.setText(String.valueOf(total));
+                ProdiVerif.setText(String.valueOf(total));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void JumlahTADitolak(){
-        String query = "SELECT COUNT(*) AS total_pengajuan_TA FROM VER.VerifikasiBerkas WHERE jenis_berkas = 'TA' AND status_verifikasi = 'Ditolak'";
+    private void JumlahProdiDitolak(){
+        String query = "SELECT COUNT(*) AS total_pengajuan_TA FROM VER.VerifikasiBerkas WHERE jenis_berkas = 'Prodi' AND status_verifikasi = 'Ditolak'";
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
             if (rs.next()) {
                 int total = rs.getInt("total_pengajuan_TA");
-                TADitolak.setText(String.valueOf(total));
+                ProdiDitolak.setText(String.valueOf(total));
             }
         } catch (SQLException e) {
             e.printStackTrace();

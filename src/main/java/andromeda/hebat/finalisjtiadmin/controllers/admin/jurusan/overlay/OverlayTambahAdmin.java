@@ -1,9 +1,9 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
-import andromeda.hebat.finalisjtiadmin.models.Admin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -14,9 +14,9 @@ import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class OverlayEditDataAdmin {
+public class OverlayTambahAdmin {
 
-    @FXML private VBox overlayEditDataAdmin;
+    @FXML private VBox overlayTambahAdmin;
 
     @FXML private TextField inputIDAdmin;
 
@@ -41,19 +41,10 @@ public class OverlayEditDataAdmin {
         positionList.removeAll(positionList);
         positionList.addAll("Admin TA", "Admin Prodi");
         inputPosition.getItems().addAll(positionList);
+
     }
 
-    public void fillData(Admin admin) {
-        inputIDAdmin.setText(admin.getUserId());
-        inputFullName.setText(admin.getName());
-        inputEmail.setText(admin.getEmail());
-        inputPosition.setValue(admin.getJabatan());
-        inputPassword.setText(admin.getPassword());
-        inputConfirmedPassword.setText(admin.getPassword());
-        inputFotoProfil.setText(admin.getFotoProfil());
-    }
-
-    public void updateData() {
+    public void submitForm() {
         if (!inputPassword.getText().equals(inputConfirmedPassword.getText())) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Input password dan konfirmasi password tidak sesuai!");
@@ -62,30 +53,24 @@ public class OverlayEditDataAdmin {
         }
 
         String query = """
-            UPDATE USERS.Admin
-            SET 
-                nama_lengkap = ?,
-                password = ?,
-                email = ?,
-                jabatan = ?,
-                foto_profil = ?
-            WHERE id_admin = ?;
+            INSERT INTO USERS.Admin (id_admin, nama_lengkap, password, email, jabatan, foto_profil)
+            VALUES (?, ?, ?, ?, ?, ?);
         """;
 
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
-            stmt.setString(1, inputFullName.getText());
-            stmt.setString(2, inputPassword.getText());
-            stmt.setString(3, inputEmail.getText());
-            stmt.setString(4, inputPosition.getValue());
-            stmt.setString(5, inputIDAdmin.getText());
+            stmt.setString(1, inputIDAdmin.getText());
+            stmt.setString(2, inputFullName.getText());
+            stmt.setString(3, inputPassword.getText());
+            stmt.setString(4, inputEmail.getText());
+            stmt.setString(5, inputPosition.getValue());
             stmt.setString(6, inputFotoProfil.getText());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
-                Stage overlayStage = (Stage) overlayEditDataAdmin.getScene().getWindow();
+                Stage overlayStage = (Stage) overlayTambahAdmin.getScene().getWindow();
                 overlayStage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Berhasil memperbarui data admin!");
+                alert.setTitle("Berhasil menambahkan data admin baru!");
                 alert.showAndWait();
             }
         } catch (SQLException e) {

@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.Admin;

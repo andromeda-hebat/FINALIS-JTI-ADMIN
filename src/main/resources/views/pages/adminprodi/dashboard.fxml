@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.prodi.StatistikProdiController">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.prodi.DashboardController">
     <fx:include source="../../components/adminprodi/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
             <fx:include source="../../components/admin/topbar.fxml" />
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="81.0" prefWidth="661.0">
                 <children>
-                    <Label prefHeight="67.0" prefWidth="295.0" text="Dashboard Admin Prodi" textFill="#052c65">
+                    <Label prefHeight="67.0" prefWidth="295.0" text="Dashboard" textFill="#052c65">
                         <font>
                             <Font name="Reddit Sans Black" size="24.0" />
                         </font>
@@ -29,7 +25,7 @@
                     <Insets left="20.0" right="20.0" top="20.0" />
                 </VBox.margin>
             </VBox>
-         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: E4EEFF; -fx-background-radius: 6;">
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-color: E4EEFF; -fx-background-radius: 6;">
             <VBox.margin>
                <Insets left="20.0" right="20.0" />
             </VBox.margin>
@@ -44,7 +40,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Permintaan" textFill="#052c65" />
-                           <Label fx:id="PengajuanProdi" text="75" textFill="#052c65">
+                           <Label fx:id="PengajuanProdi" text="175" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -62,8 +58,8 @@
                      </ImageView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
-                           <Label text="Terverifikasi" textFill="#052c65" />
-                           <Label fx:id="ProdiVerif" text="200" textFill="#052c65">
+                           <Label text="Disetujui" textFill="#052c65" />
+                           <Label fx:id="ProdiVerif" text="123" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -82,7 +78,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Ditolak" textFill="#052c65" />
-                           <Label fx:id="ProdiDitolak" text="22" textFill="#052c65">
+                           <Label fx:id="ProdiDitolak" text="52" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -126,11 +122,13 @@
          </HBox>
          <TableView prefHeight="310.0" prefWidth="662.0">
            <columns>
+               <TableColumn prefWidth="75.0" text="No" />
              <TableColumn prefWidth="75.0" text="NIM" />
              <TableColumn prefWidth="75.0" text="Mahasiswa" />
-               <TableColumn prefWidth="75.0" text="Aktivitas" />
-               <TableColumn prefWidth="75.0" text="Tanggal" />
-               <TableColumn prefWidth="75.0" />
+               <TableColumn prefWidth="75.0" text="Status" />
+               <TableColumn prefWidth="75.0" text="Tanggal pengajuan" />
+               <TableColumn prefWidth="75.0" text="Keterangan" />
+               <TableColumn prefWidth="75.0" text="Aksi" />
            </columns>
             <opaqueInsets>
                <Insets />

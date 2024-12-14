@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.ta;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.ta;
 import andromeda.hebat.finalisjtiadmin.models.BerkasTA;
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import javafx.beans.property.ReadOnlyObjectWrapper;

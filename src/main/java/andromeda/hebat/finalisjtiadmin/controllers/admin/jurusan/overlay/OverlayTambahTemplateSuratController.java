@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasRepository;
