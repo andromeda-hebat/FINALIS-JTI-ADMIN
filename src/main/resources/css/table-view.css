@@ -4,6 +4,14 @@
     -fx-font-weight: bold;
 }
 
+.button.detail {
+    -fx-background-color: white;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+    -fx-border-color: #052C65;
+}
+
 .button.edit {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
