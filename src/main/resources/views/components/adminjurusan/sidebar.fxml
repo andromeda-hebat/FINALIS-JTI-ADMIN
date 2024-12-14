@@ -81,7 +81,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnLogAktivitas" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLogAktivitasOnClicked" style="-fx-background-color: #052C65;" text="Log Aktivitas" textFill="WHITE">
+            <Button fx:id="btnLogAktivitas" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #052C65;" text="Log Aktivitas" textFill="WHITE">
                <font>
                   <Font name="Reddit Sans Bold" size="14.0" />
                </font>

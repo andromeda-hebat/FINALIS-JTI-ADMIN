@@ -74,17 +74,24 @@ public class PermintaanVerifAllController {
     }
     private void getAllBerkasTA() {
         String query = """
-                SELECT m.nim, nama_lengkap mahasiswa, 'kosong' keterangan, tanggal_request
-                from USERS.Mahasiswa m
-                INNER JOIN BERKAS.TA p ON p.nim = m.nim
+                SELECT
+                     	M.nim AS NIM,
+                     	M.nama_lengkap AS 'Mahasiswa',
+                     	V.keterangan_verifikasi AS 'Aktivitas',
+                     	T.tanggal_request AS 'Tanggal Request'
+                     FROM USERS.Mahasiswa M
+                     INNER JOIN BERKAS.TA T ON M.nim = T.nim
+                     INNER JOIN VER.VerifikasiBerkas V ON V.id_berkas = T.id_ta
+                     WHERE status_verifikasi = 'Diajukan'
+                     ORDER BY tanggal_request DESC;
            """;
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                String nim = rs.getString("nim");
-                String mahasiswa = rs.getString("mahasiswa");
-                String keterangan = rs.getString("keterangan");
-                String tanggalRequest = rs.getString("tanggal_request");
+                String nim = rs.getString("NIM");
+                String mahasiswa = rs.getString("Mahasiswa");
+                String keterangan = rs.getString("Aktivitas");
+                String tanggalRequest = rs.getString("Tanggal Request");
 
                 berkasTAList.add(new BerkasTA(nim, mahasiswa, keterangan, tanggalRequest));
             }
