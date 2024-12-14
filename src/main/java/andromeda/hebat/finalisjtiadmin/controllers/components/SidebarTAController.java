@@ -3,7 +3,6 @@ package andromeda.hebat.finalisjtiadmin.controllers.components;
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 
 import javafx.fxml.FXML;
-import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 
 public class SidebarTAController extends SidebarController {
@@ -12,14 +11,6 @@ public class SidebarTAController extends SidebarController {
 
     @FXML
     private void initialize() {
-        addMouseEvents(btnDashboard);
-        addMouseEvents(btnRequestVerification);
-    }
-
-    private void addMouseEvents(Button button) {
-        button.setOnMouseEntered(event -> button.setCursor(Cursor.HAND));
-        button.setOnMousePressed(event -> button.setCursor(Cursor.DEFAULT));
-        button.setOnMouseReleased(event -> button.setCursor(Cursor.HAND));
     }
 
     @FXML
