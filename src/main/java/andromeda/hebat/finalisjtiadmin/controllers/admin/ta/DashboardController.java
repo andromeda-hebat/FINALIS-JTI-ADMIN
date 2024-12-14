@@ -55,18 +55,12 @@ public class DashboardController {
         statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatusVerifikasi()));
         tanggalCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTanggalRequest()));
         actionCol.setCellFactory(tc -> new TableCell<BerkasPengajuan, Void>() {
-            private final Button editBtn = new Button("Edit");
-            private final Button deleteBtn = new Button("Hapus");
+            private final Button detailBtn = new Button("Detail");
 
             {
-                editBtn.getStyleClass().add("edit");
-                editBtn.setOnAction(event -> {
-                    openOverlayEdit();
-                });
-
-                deleteBtn.getStyleClass().add("delete");
-                deleteBtn.setOnAction(event -> {
-                    openOverlayDelete();
+                detailBtn.getStyleClass().add("detail");
+                detailBtn.setOnAction(event -> {
+                    System.out.println("Detail button clicked!");
                 });
             }
 
@@ -78,7 +72,7 @@ public class DashboardController {
                     setGraphic(null);
                 } else {
                     HBox hbox = new HBox(5);
-                    hbox.getChildren().addAll(editBtn, deleteBtn);
+                    hbox.getChildren().addAll(detailBtn);
                     setGraphic(hbox);
                 }
             }

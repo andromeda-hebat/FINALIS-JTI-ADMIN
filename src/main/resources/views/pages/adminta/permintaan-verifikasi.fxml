@@ -46,12 +46,12 @@
                </VBox>
             </children>
          </HBox>
-            <TableView fx:id="tableViewBerkasTA" stylesheets="@../../../css/table-view.css" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tableViewBerkasPengajuan" stylesheets="@../../../css/table-view.css" VBox.vgrow="ALWAYS">
                 <columns>
-               <TableColumn fx:id="noCol" editable="false" prefWidth="75.0" text="No" />
+                    <TableColumn fx:id="noCol" editable="false" prefWidth="75.0" text="No" />
                     <TableColumn fx:id="nimCol" editable="false" prefWidth="90.39996337890625" text="NIM" />
                     <TableColumn fx:id="mahasiswaCol" editable="false" prefWidth="136.00003051757812" text="Mahasiswa" />
-               <TableColumn fx:id="statusCol" editable="false" prefWidth="136.00003051757812" sortable="false" text="Status" />
+                    <TableColumn fx:id="statusCol" editable="false" prefWidth="136.00003051757812" sortable="false" text="Status" />
                     <TableColumn fx:id="tanggalCol" editable="false" minWidth="-1.0" prefWidth="-1.0" text="Tanggal Pengajuan" />
                     <TableColumn fx:id="actionCol" editable="false" prefWidth="64.0" sortable="false" text="Aksi" />
                 </columns>
@@ -61,9 +61,9 @@
                 <VBox.margin>
                     <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
                 </VBox.margin>
-            <columnResizePolicy>
-               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
             </TableView>
         </children>
     </VBox>

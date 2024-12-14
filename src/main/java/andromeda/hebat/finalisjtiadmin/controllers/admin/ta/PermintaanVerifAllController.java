@@ -1,22 +1,21 @@
 package andromeda.hebat.finalisjtiadmin.controllers.admin.ta;
 
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
-import andromeda.hebat.finalisjtiadmin.models.BerkasTA;
-import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 public class PermintaanVerifAllController {
-    @FXML private TableView<BerkasPengajuan> tableViewBerkasTA;
+    @FXML
+    private TableView<BerkasPengajuan> tableViewBerkasPengajuan;
     @FXML private TableColumn<BerkasPengajuan, Integer> noCol;
     @FXML private TableColumn<BerkasPengajuan, String> nimCol;
     @FXML private TableColumn<BerkasPengajuan, String> mahasiswaCol;
@@ -24,7 +23,7 @@ public class PermintaanVerifAllController {
     @FXML private TableColumn<BerkasPengajuan, String> tanggalCol;
     @FXML private TableColumn<BerkasPengajuan, Void> actionCol;
 
-    private ObservableList<BerkasPengajuan> pengajuanTAList;
+    private ObservableList<BerkasPengajuan> pengajuanList;
 
     @FXML
     public void initialize() {
@@ -32,12 +31,12 @@ public class PermintaanVerifAllController {
     }
 
     private void tableViewInit() {
-        pengajuanTAList = FXCollections.observableArrayList();
-        pengajuanTAList.addAll(BerkasTARepository.getAllSubmittedBerkas());
+        pengajuanList = FXCollections.observableArrayList();
+        pengajuanList.addAll(BerkasTARepository.getAllSubmittedBerkas());
 
-        tableViewBerkasTA.getColumns().forEach(column -> column.setReorderable(false));
+        tableViewBerkasPengajuan.getColumns().forEach(column -> column.setReorderable(false));
         noCol.setCellValueFactory((TableColumn.CellDataFeatures<BerkasPengajuan, Integer> cellData) -> {
-            int index = tableViewBerkasTA.getItems().indexOf(cellData.getValue()) + 1;
+            int index = tableViewBerkasPengajuan.getItems().indexOf(cellData.getValue()) + 1;
             return new ReadOnlyObjectWrapper<>(index);
         });
         nimCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
@@ -45,18 +44,12 @@ public class PermintaanVerifAllController {
         statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatusVerifikasi()));
         tanggalCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTanggalRequest()));
         actionCol.setCellFactory(tc -> new TableCell<BerkasPengajuan, Void>() {
-            private final Button editBtn = new Button("Edit");
-            private final Button deleteBtn = new Button("Hapus");
+            private final Button detailBtn = new Button("Detail");
 
             {
-                editBtn.getStyleClass().add("edit");
-                editBtn.setOnAction(event -> {
-                    openOverlayEdit();
-                });
-
-                deleteBtn.getStyleClass().add("delete");
-                deleteBtn.setOnAction(event -> {
-                    openOverlayDelete();
+                detailBtn.getStyleClass().add("detail");
+                detailBtn.setOnAction(event -> {
+                    System.out.println("Detail button clicked!");
                 });
             }
 
@@ -68,22 +61,13 @@ public class PermintaanVerifAllController {
                     setGraphic(null);
                 } else {
                     HBox hbox = new HBox(5);
-                    hbox.getChildren().addAll(editBtn, deleteBtn);
+                    hbox.getChildren().addAll(detailBtn);
                     setGraphic(hbox);
                 }
             }
         });
 
-        tableViewBerkasTA.setItems(pengajuanTAList);
-    }
-
-
-    private void openOverlayEdit() {
-
-    }
-
-    private void openOverlayDelete() {
-
+        tableViewBerkasPengajuan.setItems(pengajuanList);
     }
 
 }
