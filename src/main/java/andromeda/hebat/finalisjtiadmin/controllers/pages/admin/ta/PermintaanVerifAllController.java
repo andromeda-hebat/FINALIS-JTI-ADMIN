@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.ta;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta;
 
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;

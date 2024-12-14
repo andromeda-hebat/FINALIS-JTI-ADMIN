@@ -1,11 +1,9 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
-import andromeda.hebat.finalisjtiadmin.models.Admin;
 import andromeda.hebat.finalisjtiadmin.models.LogAktivitas;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

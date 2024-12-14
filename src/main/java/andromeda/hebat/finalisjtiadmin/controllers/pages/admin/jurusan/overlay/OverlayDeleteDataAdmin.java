@@ -1,7 +1,7 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
-import andromeda.hebat.finalisjtiadmin.models.Surat;
+import andromeda.hebat.finalisjtiadmin.models.Admin;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -11,27 +11,25 @@ import javafx.stage.Stage;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+public class OverlayDeleteDataAdmin {
 
-public class OverlayDeleteDataSurat {
     @FXML private VBox overlayDelete;
 
     @FXML private Button btnConfirm;
 
     @FXML private Button btnCancel;
 
-    private Surat surat;
+    private Admin admin;
 
-    public void fillData(Surat surat) {
-        this.surat = surat;
+    public void fillData(Admin admin) {
+        this.admin = admin;
     }
 
-    @FXML
     public void confirmDelete() {
-        String query = "DELETE FROM TEMP.Surat WHERE id_surat = ?";
+        String query = "DELETE FROM USERS.Admin WHERE id_admin = ?";
 
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
-            String suratId = Integer.toString(surat.getIdSurat());
-            stmt.setString(1, suratId);
+            stmt.setString(1, admin.getUserId());
 
             int rowsDeleted = stmt.executeUpdate();
 
@@ -40,7 +38,6 @@ public class OverlayDeleteDataSurat {
                 overlayStage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil menghapus data!");
-                alert.setHeaderText("Surat dengan ID " + suratId + " telah dihapus.");
                 alert.showAndWait();
             }
         } catch (SQLException e) {
@@ -48,7 +45,6 @@ public class OverlayDeleteDataSurat {
         }
     }
 
-    @FXML
     public void cancelDelete() {
         ((Stage) overlayDelete.getScene().getWindow()).close();
     }

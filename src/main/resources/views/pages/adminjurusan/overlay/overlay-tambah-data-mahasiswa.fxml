@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="overlayTambahMahasiswa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay.OverlayTambahDataMahasiswa">
+<VBox fx:id="overlayTambahMahasiswa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayTambahDataMahasiswa">
     <children>
         <Label text="Nama Lengkap" />
         <TextField fx:id="inputNama" prefHeight="26.0" prefWidth="502.0" />

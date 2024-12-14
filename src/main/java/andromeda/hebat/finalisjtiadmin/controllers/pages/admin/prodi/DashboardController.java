@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.prodi;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi;
 
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
 import javafx.fxml.FXML;

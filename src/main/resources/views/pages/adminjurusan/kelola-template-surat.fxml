@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="viewKelolaTemplateSurat" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.KelolaTemplateSuratController">
+<HBox fx:id="viewKelolaTemplateSurat" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.KelolaTemplateSuratController">
     <fx:include source="../../components/adminjurusan/sidebar.fxml" />
     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <fx:include source="../../components/admin/topbar.fxml" />

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="overlayTambahAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="500.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay.OverlayTambahAdmin">
+<VBox fx:id="overlayTambahAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="500.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayTambahAdmin">
    <children>
       <Label layoutX="40.0" layoutY="40.0" text="ID Admin" />
       <TextField fx:id="inputIDAdmin" layoutX="40.0" layoutY="76.0" prefHeight="26.0" prefWidth="502.0" />

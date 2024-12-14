@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="dashboardContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.ta.DashboardController">
+<HBox fx:id="dashboardContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta.DashboardController">
     <fx:include source="../../components/adminta/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>

@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.general;
+package andromeda.hebat.finalisjtiadmin.controllers.components;
 
 import andromeda.hebat.finalisjtiadmin.models.Admin;
 import javafx.fxml.FXML;

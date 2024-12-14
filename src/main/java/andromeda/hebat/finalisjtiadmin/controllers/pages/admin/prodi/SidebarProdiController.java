@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.prodi;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.util.List;
 import java.util.Optional;
 
-public class SidebarController {
+public class SidebarProdiController {
 
     private Stage mainStage;
 

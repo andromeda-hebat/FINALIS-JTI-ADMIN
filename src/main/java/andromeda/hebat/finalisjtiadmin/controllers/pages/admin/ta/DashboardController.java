@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.ta;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta;
 
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;
@@ -8,7 +8,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 

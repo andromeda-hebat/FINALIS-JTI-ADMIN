@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.general;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.general;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;

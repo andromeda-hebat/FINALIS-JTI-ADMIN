@@ -1,8 +1,8 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan;
 
 import andromeda.hebat.finalisjtiadmin.Main;
-import andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay.OverlayDeleteDataAdmin;
-import andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay.OverlayEditDataAdmin;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteDataAdmin;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataAdmin;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
 import andromeda.hebat.finalisjtiadmin.repository.UserRepository;
 import javafx.beans.property.ReadOnlyObjectWrapper;

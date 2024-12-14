@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 
 
-<VBox fx:id="overlayEditDataSurat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay.OverlayEditDataSurat">
+<VBox fx:id="overlayEditDataSurat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataSurat">
     <padding>
         <Insets bottom="20.0" left="30.0" right="40.0" top="30.0" />
     </padding>

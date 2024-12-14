@@ -1,6 +1,5 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.ta;
+package andromeda.hebat.finalisjtiadmin.controllers.components;
 
-import andromeda.hebat.finalisjtiadmin.controllers.admin.general.SidebarController;
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 
 import javafx.fxml.FXML;

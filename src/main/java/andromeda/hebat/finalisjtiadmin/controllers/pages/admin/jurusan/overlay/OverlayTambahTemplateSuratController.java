@@ -1,6 +1,5 @@
-package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay;
 
-import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
