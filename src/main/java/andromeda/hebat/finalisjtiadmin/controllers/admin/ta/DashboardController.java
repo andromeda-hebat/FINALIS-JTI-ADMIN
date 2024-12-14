@@ -8,32 +8,25 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import java.util.HashMap;
 
 public class DashboardController {
-    @FXML
-    private Label totalRequest;
-    @FXML
-    private Label totalApproved;
-    @FXML
-    private Label totalRejected;
-    @FXML
-    private TableView<BerkasPengajuan> tableViewBerkasPengajuan;
-    @FXML
-    private TableColumn<BerkasPengajuan, Integer> noCol;
-    @FXML
-    private TableColumn<BerkasPengajuan, String> nimCol;
-    @FXML
-    private TableColumn<BerkasPengajuan, String> mahasiswaCol;
-    @FXML
-    private TableColumn<BerkasPengajuan, String> statusCol;
-    @FXML
-    private TableColumn<BerkasPengajuan, String> tanggalCol;
-    @FXML
-    private TableColumn<BerkasPengajuan, Void> actionCol;
+    @FXML private HBox dashboardContainer;
+    @FXML private Label totalRequest;
+    @FXML private Label totalApproved;
+    @FXML private Label totalRejected;
+    @FXML private TableView<BerkasPengajuan> tableViewBerkasPengajuan;
+    @FXML private TableColumn<BerkasPengajuan, Integer> noCol;
+    @FXML private TableColumn<BerkasPengajuan, String> nimCol;
+    @FXML private TableColumn<BerkasPengajuan, String> mahasiswaCol;
+    @FXML private TableColumn<BerkasPengajuan, String> statusCol;
+    @FXML private TableColumn<BerkasPengajuan, String> tanggalCol;
+    @FXML private TableColumn<BerkasPengajuan, Void> actionCol;
+
     private ObservableList<BerkasPengajuan> pengajuanTAList;
 
     public void initialize() {
@@ -52,6 +45,7 @@ public class DashboardController {
         pengajuanTAList = FXCollections.observableArrayList();
         pengajuanTAList.addAll(BerkasTARepository.getAllSubmittedBerkas());
 
+        tableViewBerkasPengajuan.getColumns().forEach(column -> column.setReorderable(false));
         noCol.setCellValueFactory((TableColumn.CellDataFeatures<BerkasPengajuan, Integer> cellData) -> {
             int index = tableViewBerkasPengajuan.getItems().indexOf(cellData.getValue()) + 1;
             return new ReadOnlyObjectWrapper<>(index);
