@@ -1,6 +1,9 @@
 package andromeda.hebat.finalisjtiadmin.controllers.admin.ta;
+
+import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
 import andromeda.hebat.finalisjtiadmin.models.BerkasTA;
 import andromeda.hebat.finalisjtiadmin.core.Database;
+import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -13,46 +16,47 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class PermintaanVerifAllController {
-    @FXML
-    private Label judulHalaman;
+    @FXML private TableView<BerkasPengajuan> tableViewBerkasTA;
+    @FXML private TableColumn<BerkasPengajuan, Integer> noCol;
+    @FXML private TableColumn<BerkasPengajuan, String> nimCol;
+    @FXML private TableColumn<BerkasPengajuan, String> mahasiswaCol;
+    @FXML private TableColumn<BerkasPengajuan, String> statusCol;
+    @FXML private TableColumn<BerkasPengajuan, String> tanggalCol;
+    @FXML private TableColumn<BerkasPengajuan, Void> actionCol;
 
-    @FXML private TableView<BerkasTA> tableViewBerkasTA;
-
-    @FXML private TableColumn<BerkasTA, Integer> numberColumn;
-
-    @FXML private TableColumn<BerkasTA, String> idColumn;
-
-    @FXML private TableColumn<BerkasTA, String> nameColumn;
-
-    @FXML private TableColumn<BerkasTA, String> descriptionColumn;
-
-    @FXML private TableColumn<BerkasTA, String> dateColumn;
-
-    @FXML private TableColumn<BerkasTA, Void> actionColumn;
-
-
-    private ObservableList<BerkasTA> berkasTAList;
+    private ObservableList<BerkasPengajuan> pengajuanTAList;
 
     @FXML
     public void initialize() {
-        berkasTAList = FXCollections.observableArrayList();
-        getAllBerkasTA();
+        tableViewInit();
+    }
 
-        numberColumn.setCellValueFactory((TableColumn.CellDataFeatures<BerkasTA, Integer> cellData) -> {
+    private void tableViewInit() {
+        pengajuanTAList = FXCollections.observableArrayList();
+        pengajuanTAList.addAll(BerkasTARepository.getAllSubmittedBerkas());
+
+        tableViewBerkasTA.getColumns().forEach(column -> column.setReorderable(false));
+        noCol.setCellValueFactory((TableColumn.CellDataFeatures<BerkasPengajuan, Integer> cellData) -> {
             int index = tableViewBerkasTA.getItems().indexOf(cellData.getValue()) + 1;
             return new ReadOnlyObjectWrapper<>(index);
         });
-        idColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
-        nameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNamaMahasiswa()));
-        descriptionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKeterangan()));
-        dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTanggalRequest()));
-        actionColumn.setCellFactory(tc -> new TableCell<BerkasTA, Void>() {
-            private final Button detailBtn = new Button("Detail");
+        nimCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
+        mahasiswaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNamaLengkap()));
+        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatusVerifikasi()));
+        tanggalCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTanggalRequest()));
+        actionCol.setCellFactory(tc -> new TableCell<BerkasPengajuan, Void>() {
+            private final Button editBtn = new Button("Edit");
+            private final Button deleteBtn = new Button("Hapus");
 
             {
-                detailBtn.setOnAction(event -> {
-                    BerkasTA BerkasTA = getTableView().getItems().get(getIndex());
-                    System.out.println("detail button telah diklik");
+                editBtn.getStyleClass().add("edit");
+                editBtn.setOnAction(event -> {
+                    openOverlayEdit();
+                });
+
+                deleteBtn.getStyleClass().add("delete");
+                deleteBtn.setOnAction(event -> {
+                    openOverlayDelete();
                 });
             }
 
@@ -64,40 +68,22 @@ public class PermintaanVerifAllController {
                     setGraphic(null);
                 } else {
                     HBox hbox = new HBox(5);
-                    hbox.getChildren().addAll(detailBtn);
+                    hbox.getChildren().addAll(editBtn, deleteBtn);
                     setGraphic(hbox);
                 }
             }
         });
 
-        tableViewBerkasTA.setItems(berkasTAList);
+        tableViewBerkasTA.setItems(pengajuanTAList);
     }
-    private void getAllBerkasTA() {
-        String query = """
-                SELECT
-                     	M.nim AS NIM,
-                     	M.nama_lengkap AS 'Mahasiswa',
-                     	V.keterangan_verifikasi AS 'Aktivitas',
-                     	T.tanggal_request AS 'Tanggal Request'
-                     FROM USERS.Mahasiswa M
-                     INNER JOIN BERKAS.TA T ON M.nim = T.nim
-                     INNER JOIN VER.VerifikasiBerkas V ON V.id_berkas = T.id_ta
-                     WHERE status_verifikasi = 'Diajukan'
-                     ORDER BY tanggal_request DESC;
-           """;
-        try (Statement stmt = Database.getConnection().createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
-            while (rs.next()) {
-                String nim = rs.getString("NIM");
-                String mahasiswa = rs.getString("Mahasiswa");
-                String keterangan = rs.getString("Aktivitas");
-                String tanggalRequest = rs.getString("Tanggal Request");
 
-                berkasTAList.add(new BerkasTA(nim, mahasiswa, keterangan, tanggalRequest));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+    private void openOverlayEdit() {
+
+    }
+
+    private void openOverlayDelete() {
+
     }
 
 }
