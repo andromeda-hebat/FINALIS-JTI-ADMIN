@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class SceneHelper {
     public static void changeScene(Stage stage, String fxmlFile) {
         try {
@@ -44,6 +46,15 @@ public class SceneHelper {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void changeRootNodeScene(Scene scene, String fxmlFile) {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile + ".fxml"));
+        try {
+            scene.setRoot(fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
