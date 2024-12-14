@@ -1,8 +1,8 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan;
 
 import andromeda.hebat.finalisjtiadmin.Main;
-import andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayDeleteDataSurat;
-import andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay.OverlayEditDataSurat;
+import andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay.OverlayDeleteDataSurat;
+import andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay.OverlayEditDataSurat;
 import andromeda.hebat.finalisjtiadmin.models.Surat;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasRepository;
 import javafx.beans.property.SimpleStringProperty;

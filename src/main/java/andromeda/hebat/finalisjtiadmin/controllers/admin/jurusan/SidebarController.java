@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import javafx.fxml.FXML;

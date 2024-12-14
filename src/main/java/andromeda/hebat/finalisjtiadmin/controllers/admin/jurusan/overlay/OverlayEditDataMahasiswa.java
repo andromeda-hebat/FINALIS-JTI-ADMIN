@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;

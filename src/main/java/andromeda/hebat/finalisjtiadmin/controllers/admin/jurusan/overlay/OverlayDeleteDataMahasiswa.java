@@ -1,7 +1,7 @@
-package andromeda.hebat.finalisjtiadmin.controllers.jurusan.overlay;
+package andromeda.hebat.finalisjtiadmin.controllers.admin.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
-import andromeda.hebat.finalisjtiadmin.models.Surat;
+import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -11,28 +11,25 @@ import javafx.stage.Stage;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
-public class OverlayDeleteDataSurat {
+public class OverlayDeleteDataMahasiswa {
     @FXML private VBox overlayDelete;
 
     @FXML private Button btnConfirm;
 
     @FXML private Button btnCancel;
 
-    private Surat surat;
+    private Mahasiswa mahasiswa;
 
-    public void fillData(Surat surat) {
-        this.surat = surat;
+    public void fillData(Mahasiswa mahasiswa) {
+        this.mahasiswa = mahasiswa;
     }
 
     @FXML
     public void confirmDelete() {
-        String query = "DELETE FROM TEMP.Surat WHERE id_surat = ?";
 
+        String query = "DELETE FROM USERS.Mahasiswa WHERE nim = ?";
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
-            String suratId = Integer.toString(surat.getIdSurat());
-            stmt.setString(1, suratId);
-
+            stmt.setString(1, mahasiswa.getNim());
             int rowsDeleted = stmt.executeUpdate();
 
             if (rowsDeleted > 0) {
@@ -40,7 +37,13 @@ public class OverlayDeleteDataSurat {
                 overlayStage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil menghapus data!");
-                alert.setHeaderText("Surat dengan ID " + suratId + " telah dihapus.");
+                alert.showAndWait();
+            } else {
+                // Handle case where no rows were deleted
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Penghapusan Gagal");
+                alert.setHeaderText("Data tidak ditemukan");
+                alert.setContentText("Mahasiswa dengan NIM tersebut tidak ada.");
                 alert.showAndWait();
             }
         } catch (SQLException e) {
@@ -48,8 +51,14 @@ public class OverlayDeleteDataSurat {
         }
     }
 
+
     @FXML
     public void cancelDelete() {
+        if (overlayDelete == null) {
+            System.out.println("overlayDelete is null!");
+            return;
+        }
+
         ((Stage) overlayDelete.getScene().getWindow()).close();
     }
 }
