@@ -43,13 +43,13 @@ public class SidebarController {
     @FXML
     public void btnDashboardOnClicked() {
         Stage mainStage = (Stage) sidebarContainer.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, "/views/adminprodi/dashboard.fxml");
+        SceneHelper.changeScene(mainStage, "/views/pages/adminprodi/dashboard.fxml");
     }
 
     @FXML
     public void btnRequestVerificationOnClicked() {
         mainStage = (Stage) sidebarContainer.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, "/views/adminprodi/permintaan-verif-seluruh.fxml");
+        SceneHelper.changeScene(mainStage, "/views/pages/adminprodi/permintaan-verif-seluruh.fxml");
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class SidebarController {
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
             Stage mainStage = (Stage) sidebarContainer.getScene().getWindow();
-            SceneHelper.changeScene(mainStage, "/views/login.fxml", 600, 400);
+            SceneHelper.changeScene(mainStage, "/views/pages/general/login.fxml", 600, 400);
         }
     }
 }
