@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.ta.StatistikTAController">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.admin.ta.DashboardController">
     <fx:include source="../../components/adminta/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
             <fx:include source="../../components/admin/topbar.fxml" />
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="81.0" prefWidth="661.0">
                 <children>
-                    <Label prefHeight="67.0" prefWidth="295.0" text="Dashboard Admin TA" textFill="#052c65">
+                    <Label prefHeight="67.0" prefWidth="295.0" text="Dashboard" textFill="#052c65">
                         <font>
                             <Font name="Reddit Sans Black" size="24.0" />
                         </font>
@@ -44,7 +40,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Permintaan" textFill="#052c65" />
-                           <Label fx:id="PengajuanTA" text="75" textFill="#052c65">
+                           <Label fx:id="totalRequest" text="175" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -62,8 +58,8 @@
                      </ImageView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
-                           <Label text="Terverifikasi" textFill="#052c65" />
-                           <Label fx:id="TAVerif" text="200" textFill="#052c65">
+                           <Label text="Disetujui" textFill="#052c65" />
+                           <Label fx:id="totalApproved" text="123" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -82,7 +78,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Ditolak" textFill="#052c65" />
-                           <Label fx:id="TADitolak" text="22" textFill="#052c65">
+                           <Label fx:id="totalRejected" text="52" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -112,7 +108,7 @@
                </ImageView>
                <Label text="Aktivitas Terbaru">
                   <font>
-                     <Font name="Reddit Sans Black" size="24.0" />
+                     <Font name="Reddit Sans Black" size="18.0" />
                   </font>
                </Label>
             </children>
@@ -120,13 +116,14 @@
                <Insets left="20.0" right="20.0" top="30.0" />
             </VBox.margin>
          </HBox>
-         <TableView prefHeight="318.0" prefWidth="662.0">
+         <TableView fx:id="tableViewBerkasPengajuan" prefHeight="318.0" prefWidth="662.0" stylesheets="@../../../css/table-view.css">
            <columns>
-             <TableColumn prefWidth="75.0" text="NIM" />
-             <TableColumn prefWidth="75.0" text="Mahasiswa" />
-               <TableColumn prefWidth="75.0" text="Aktivitas" />
-               <TableColumn prefWidth="75.0" text="Tanggal" />
-               <TableColumn prefWidth="75.0" />
+               <TableColumn fx:id="noCol" prefWidth="75.0" text="No" />
+             <TableColumn fx:id="nimCol" prefWidth="75.0" text="NIM" />
+             <TableColumn fx:id="mahasiswaCol" prefWidth="75.0" text="Mahasiswa" />
+               <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status" />
+               <TableColumn fx:id="tanggalCol" prefWidth="75.0" text="Tanggal pengajuan" />
+               <TableColumn fx:id="actionCol" prefWidth="75.0" text="Aksi" />
            </columns>
             <opaqueInsets>
                <Insets />
