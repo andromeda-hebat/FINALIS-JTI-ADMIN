@@ -5,8 +5,10 @@ import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -25,6 +27,10 @@ public class OverlayTambahDataMahasiswa {
     @FXML private TextField inputEmail;
 
     @FXML private PasswordField inputPassword;
+
+    @FXML private TextField inputTahunMasuk;
+
+    @FXML private TextField inputFotoProfil;
 
     @FXML private Button btnTambahkan;
 
@@ -57,8 +63,8 @@ public class OverlayTambahDataMahasiswa {
         }
 
         String query = """
-            INSERT INTO USERS.mahasiswa (nim, nama_lengkap, password, email, jurusan, prodi)
-            VALUES (?, ?, ?, ?, ?, ?);
+            INSERT INTO USERS.mahasiswa (nim, nama_lengkap, password, email, jurusan, prodi, tahun_masuk, foto_profil)
+            VALUES (?, ?, ?, ?, ?, ?, ? , ?);
         """;
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
           
@@ -68,6 +74,8 @@ public class OverlayTambahDataMahasiswa {
             stmt.setString(4, inputEmail.getText());
             stmt.setString(5, inputJurusan.getText());
             stmt.setString(6, inputProdi.getText());
+            stmt.setString(7, inputTahunMasuk.getText());
+            stmt.setString(8, inputFotoProfil.getText());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -89,5 +97,17 @@ public class OverlayTambahDataMahasiswa {
             alert.showAndWait();
         }
       
+    }
+
+    @FXML
+    public void onBrowse() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Cari file foto");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            inputFotoProfil.setText(selectedFile.getName());
+        }
     }
 }

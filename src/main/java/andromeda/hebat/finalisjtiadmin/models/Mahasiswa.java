@@ -7,9 +7,11 @@ public class Mahasiswa {
     private String email;
     private String jurusan;
     private String prodi;
+    private String tahunAngkatan;
+    private String fotoProfil;
 
     public Mahasiswa() { };
-    
+
     public Mahasiswa(String nim, String nama, String password, String email, String jurusan, String prodi) {
         this.nim = nim;
         this.nama = nama;
@@ -67,5 +69,19 @@ public class Mahasiswa {
         this.prodi = prodi;
     }
 
-    
+    public String getTahunAngkatan() {
+        return tahunAngkatan;
+    }
+
+    public void setTahunAngkatan(String tahunAngkatan) {
+        this.tahunAngkatan = tahunAngkatan;
+    }
+
+    public String getFotoProfil() {
+        return fotoProfil;
+    }
+
+    public void setFotoProfil(String fotoProfil) {
+        this.fotoProfil = fotoProfil;
+    }
 }

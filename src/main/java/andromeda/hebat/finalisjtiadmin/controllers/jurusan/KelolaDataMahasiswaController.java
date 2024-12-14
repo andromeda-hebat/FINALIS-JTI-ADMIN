@@ -106,7 +106,7 @@ public class KelolaDataMahasiswaController {
     }
 
     private void getAllMahasiswa() {
-        String query = "SELECT * FROM USERS.mahasiswa";
+        String query = "SELECT * FROM USERS.Mahasiswa";
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {

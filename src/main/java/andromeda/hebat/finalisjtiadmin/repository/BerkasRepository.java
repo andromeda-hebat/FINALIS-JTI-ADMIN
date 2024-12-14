@@ -16,7 +16,7 @@ public class BerkasRepository {
         try (Statement stmt = Database.getConnection().createStatement();
             ResultSet rs = stmt.executeQuery("""
             SELECT id_surat, nama_surat, keperluan_surat, file_surat
-            FROM BERKAS.Surat
+            FROM TEMP.Surat
             """)) {
             while (rs.next()) {
                 result.add(new Surat(
@@ -36,7 +36,7 @@ public class BerkasRepository {
     public static String addNewTemplateSurat(String namaSurat, String keperluanSurat, String fileSurat) {
         String result = "failed";
         try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
-            INSERT INTO BERKAS.Surat (nama_surat, keperluan_surat, file_surat) 
+            INSERT INTO TEMP.Surat (nama_surat, keperluan_surat, file_surat) 
             VALUES (?, ?, ?) 
             """)) {
             stmt.setString(1, namaSurat);
