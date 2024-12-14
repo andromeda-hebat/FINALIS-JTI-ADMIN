@@ -38,7 +38,7 @@
                   <children>
                      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../img/arrow-down-circle.png" />
+                           <Image url="@../../../img/arrow-down-circle.png" />
                         </image>
                      </ImageView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -57,7 +57,7 @@
                   <children>
                      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../img/check-circle.png" />
+                           <Image url="@../../../img/check-circle.png" />
                         </image>
                      </ImageView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -76,7 +76,7 @@
                   <children>
                      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../img/arrow-up-circle.png" />
+                           <Image url="@../../../img/arrow-up-circle.png" />
                         </image>
                      </ImageView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -104,7 +104,7 @@
             <children>
                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@../../img/arrow-down-left-square.png" />
+                     <Image url="@../../../img/arrow-down-left-square.png" />
                   </image>
                   <HBox.margin>
                      <Insets right="20.0" />
