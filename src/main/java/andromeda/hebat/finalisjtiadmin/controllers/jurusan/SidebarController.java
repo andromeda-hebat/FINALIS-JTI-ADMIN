@@ -82,4 +82,10 @@ public class SidebarController {
             SceneHelper.changeScene(mainStage, "/views/pages/general/login.fxml", 600, 400);
         }
     }
+
+    @FXML
+    public void btnLogAktivitasOnClicked() {
+        Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
+        SceneHelper.changeScene(mainStage, "/views/adminjurusan/log-aktivitas.fxml");
+    }
 }
