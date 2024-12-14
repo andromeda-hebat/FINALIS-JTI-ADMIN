@@ -12,7 +12,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/finalis-jti-logo.png" />
+                  <Image url="@../../../img/finalis-jti-logo.png" />
                </image>
                <HBox.margin>
                   <Insets left="30.0" right="10.0" />
@@ -99,7 +99,7 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../icons/logout.png" />
+                        <Image url="@../../../icons/logout.png" />
                      </image>
                   </ImageView>
                </graphic>

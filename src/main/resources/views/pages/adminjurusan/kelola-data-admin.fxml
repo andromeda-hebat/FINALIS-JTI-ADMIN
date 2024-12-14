@@ -25,13 +25,13 @@
                   <graphic>
                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../icons/plus-square.png" />
+                           <Image url="@../../../icons/plus-square.png" />
                         </image></ImageView>
                   </graphic>
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding></Button>
-               <TableView fx:id="tableViewAdmin" style="-fx-border-color: #E4EEFF; -fx-border-width: 2px;" stylesheets="@../../css/table-view.css">
+               <TableView fx:id="tableViewAdmin" style="-fx-border-color: #E4EEFF; -fx-border-width: 2px;" stylesheets="@../../../css/table-view.css">
                  <columns>
                    <TableColumn fx:id="numberColumn" prefWidth="75.0" text="No" />
                      <TableColumn fx:id="adminIDColumn" prefWidth="120.20004272460938" styleClass=".table-header" text="ID" />
