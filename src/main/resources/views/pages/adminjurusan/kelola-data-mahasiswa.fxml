@@ -30,7 +30,7 @@
                         <graphic>
                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../../icons/plus-square.png" />
+                                    <Image url="@../../../icons/plus-square.png" />
                                 </image></ImageView>
                         </graphic>
                         <padding>
