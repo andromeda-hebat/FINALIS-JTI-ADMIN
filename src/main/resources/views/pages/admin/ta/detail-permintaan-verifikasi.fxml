@@ -154,7 +154,7 @@
                      <Insets left="20.0" right="20.0" top="20.0" />
                   </VBox.margin>
                </HBox>
-               <HBox fx:id="card11" prefHeight="358.0" prefWidth="560.0" style="-fx-border-radius: 15; -fx-border-color: black;">
+               <HBox fx:id="detailInfo" prefHeight="358.0" prefWidth="560.0" style="-fx-border-radius: 15; -fx-border-color: black;" stylesheets="@../../../../css/form.css">
                   <effect>
                      <DropShadow>
                         <color>
@@ -189,40 +189,46 @@
                                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                               </VBox.margin>
                            </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="distribusilaporanskripsi.pdf">
+                           <TextField fx:id="inputLaporanTA" disable="true" editable="false" styleClass="input-field" text="laporan-tugas-akhir-fajar.pdf">
                               <VBox.margin>
-                                 <Insets bottom="20.0" left="15.0" right="15.0" />
+                                 <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
-                              <padding>
-                                 <Insets left="5.0" />
-                              </padding>
-                           </Label>
+                           </TextField>
+                           <Button mnemonicParsing="false" text="Buka file">
+                              <VBox.margin>
+                                 <Insets bottom="20.0" left="15.0" />
+                              </VBox.margin>
+                           </Button>
                            <Label prefHeight="10.0" prefWidth="251.0" text="Program/aplikasi" textFill="#7e7e7e">
                               <VBox.margin>
                                  <Insets bottom="5.0" left="15.0" right="15.0" />
                               </VBox.margin>
                            </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="distribusilaporanmagang.pdf">
-                              <padding>
-                                 <Insets left="5.0" />
-                              </padding>
+                           <TextField fx:id="inputAplikasi" disable="true" editable="false" layoutX="36.0" layoutY="102.0" styleClass="input-field" text="aplikasi-fajar.zip">
                               <VBox.margin>
-                                 <Insets bottom="20.0" left="15.0" right="15.0" />
+                                 <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
-                           </Label>
+                           </TextField>
+                           <Button layoutX="36.0" layoutY="130.0" mnemonicParsing="false" text="Buka file">
+                              <VBox.margin>
+                                 <Insets bottom="20.0" left="15.0" />
+                              </VBox.margin>
+                           </Button>
                            <Label prefHeight="10.0" prefWidth="251.0" text="Bukti publikasi" textFill="#7e7e7e">
                               <VBox.margin>
                                  <Insets bottom="5.0" left="15.0" right="15.0" />
                               </VBox.margin>
                            </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="buktibebaskompensasi.pdf">
-                              <padding>
-                                 <Insets left="5.0" />
-                              </padding>
+                           <TextField fx:id="inputBuktiPublikasi" disable="true" editable="false" layoutX="36.0" layoutY="202.0" styleClass="input-field" text="publikasi-fajar.pdf">
                               <VBox.margin>
-                                 <Insets bottom="20.0" left="15.0" right="15.0" />
+                                 <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
-                           </Label>
+                           </TextField>
+                           <Button layoutX="20.0" layoutY="237.0" mnemonicParsing="false" text="Buka file">
+                              <VBox.margin>
+                                 <Insets bottom="20.0" left="15.0" />
+                              </VBox.margin>
+                           </Button>
                         </children>
                         <padding>
                            <Insets left="10.0" top="10.0" />
@@ -256,7 +262,7 @@
                                  <Insets top="15.0" />
                               </VBox.margin>
                            </Label>
-                           <TextArea prefHeight="158.0" prefWidth="239.0">
+                           <TextArea prefHeight="158.0" prefWidth="239.0" promptText="Tambahkan pesan verifikasi">
                               <VBox.margin>
                                  <Insets bottom="20.0" right="20.0" top="5.0" />
                               </VBox.margin>
