@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="overlayTambahMahasiswa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayTambahDataMahasiswa">
+    <children>
+        <Label text="Nama Lengkap" />
+        <TextField fx:id="inputNama" prefHeight="26.0" prefWidth="502.0" />
+
+        <Label text="NIM" />
+        <TextField fx:id="inputNim" prefHeight="26.0" prefWidth="502.0" />
+
+        <Label text="Jurusan" />
+        <TextField fx:id="inputJurusan" prefHeight="26.0" prefWidth="502.0" />
+
+        <Label text="Prodi" />
+        <TextField fx:id="inputProdi" prefHeight="26.0" prefWidth="502.0" />
+
+        <Label text="Email" />
+        <TextField fx:id="inputEmail" prefHeight="26.0" prefWidth="502.0" />
+
+        <Label text="Password" />
+        <PasswordField fx:id="inputPassword" prefHeight="26.0" prefWidth="502.0" />
+      <Label layoutX="40.0" layoutY="260.0" text="Tahun Masuk" />
+      <PasswordField fx:id="inputTahunMasuk" layoutX="40.0" layoutY="278.0" prefHeight="26.0" prefWidth="502.0" />
+      <Label layoutX="40.0" layoutY="304.0" text="Foto Profil" />
+      <TextField fx:id="inputFotoProfil" layoutX="40.0" layoutY="322.0" prefHeight="26.0" prefWidth="502.0" />
+      <Button fx:id="btnFileChooser" mnemonicParsing="false" onAction="#onBrowse" text="Unggah File" textFill="#052c65">
+         <font>
+            <Font name="Reddit Sans Regular" size="12.0" />
+         </font>
+      </Button>
+
+        <HBox alignment="CENTER" prefHeight="77.0" prefWidth="430.0">
+            <children>
+                <Button fx:id="btnTambahkan" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#handleBtnTambahkan" style="-fx-background-color: #052C65;" text="Tambahkan" textFill="WHITE" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="30.0" right="40.0" top="30.0" />
+    </padding>
+</VBox>

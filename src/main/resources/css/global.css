@@ -1,0 +1,7 @@
+.root {
+    -fx-font-family: "Reddit Sans";
+}
+
+.button {
+    -fx-cursor: hand;
+}
