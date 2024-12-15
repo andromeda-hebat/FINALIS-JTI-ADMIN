@@ -1,6 +1,8 @@
-package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta;
+package andromeda.hebat.finalisjtiadmin.controllers.components.admin;
 
+import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
+import andromeda.hebat.finalisjtiadmin.repository.BerkasProdiRepository;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,9 +15,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 
-public class PermintaanVerifAllController {
-    @FXML
-    private TableView<BerkasPengajuan> tableViewBerkasPengajuan;
+import java.util.ArrayList;
+
+public class TabelPengajuanController {
+    @FXML private TableView<BerkasPengajuan> tabelBerkasPengajuan;
     @FXML private TableColumn<BerkasPengajuan, Integer> noCol;
     @FXML private TableColumn<BerkasPengajuan, String> nimCol;
     @FXML private TableColumn<BerkasPengajuan, String> mahasiswaCol;
@@ -23,20 +26,38 @@ public class PermintaanVerifAllController {
     @FXML private TableColumn<BerkasPengajuan, String> tanggalCol;
     @FXML private TableColumn<BerkasPengajuan, Void> actionCol;
 
+    private String fileCategory;
+    private boolean isAllData;
+
     private ObservableList<BerkasPengajuan> pengajuanList;
 
     @FXML
-    public void initialize() {
+    private void initialize() {
+    }
+
+    public void setFileType(String fileCategory, boolean isAllData) {
+        this.fileCategory = fileCategory;
+        this.isAllData = isAllData;
         tableViewInit();
     }
 
     private void tableViewInit() {
         pengajuanList = FXCollections.observableArrayList();
-        pengajuanList.addAll(BerkasTARepository.getAllSubmittedBerkas());
 
-        tableViewBerkasPengajuan.getColumns().forEach(column -> column.setReorderable(false));
+        ArrayList<BerkasPengajuan> dataInit = new ArrayList<>();
+        if (this.fileCategory.equalsIgnoreCase("Berkas TA") && this.isAllData) {
+            pengajuanList.addAll(BerkasTARepository.getAllBerkas());
+        } else if (this.fileCategory.equalsIgnoreCase("Berkas Prodi") && this.isAllData) {
+            pengajuanList.addAll(BerkasProdiRepository.getAllBerkas());
+        } else if (this.fileCategory.equalsIgnoreCase("Berkas TA") && !this.isAllData) {
+            pengajuanList.addAll(BerkasTARepository.getAllSubmittedBerkas());
+        } else if (this.fileCategory.equalsIgnoreCase("Berkas Prodi") && !this.isAllData) {
+            pengajuanList.addAll(BerkasProdiRepository.getAllSubmittedBerkas());
+        }
+
+        tabelBerkasPengajuan.getColumns().forEach(column -> column.setReorderable(false));
         noCol.setCellValueFactory((TableColumn.CellDataFeatures<BerkasPengajuan, Integer> cellData) -> {
-            int index = tableViewBerkasPengajuan.getItems().indexOf(cellData.getValue()) + 1;
+            int index = tabelBerkasPengajuan.getItems().indexOf(cellData.getValue()) + 1;
             return new ReadOnlyObjectWrapper<>(index);
         });
         nimCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
@@ -49,7 +70,7 @@ public class PermintaanVerifAllController {
             {
                 detailBtn.getStyleClass().add("detail");
                 detailBtn.setOnAction(event -> {
-                    System.out.println("Detail button clicked!");
+                    SceneHelper.changeRootNodeScene(tabelBerkasPengajuan.getScene(), "/views/pages/admin/ta/detail-permintaan-verifikasi.fxml");
                 });
             }
 
@@ -67,7 +88,6 @@ public class PermintaanVerifAllController {
             }
         });
 
-        tableViewBerkasPengajuan.setItems(pengajuanList);
+        tabelBerkasPengajuan.setItems(pengajuanList);
     }
-
 }

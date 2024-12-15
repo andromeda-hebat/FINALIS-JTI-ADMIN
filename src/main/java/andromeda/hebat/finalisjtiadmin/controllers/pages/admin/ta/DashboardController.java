@@ -1,12 +1,9 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta;
 
+import andromeda.hebat.finalisjtiadmin.controllers.components.admin.TabelPengajuanController;
 import andromeda.hebat.finalisjtiadmin.helper.CSSHelper;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
-import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;
 import andromeda.hebat.finalisjtiadmin.repository.StatistikRepository;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,20 +16,17 @@ public class DashboardController {
     @FXML private Label totalRequest;
     @FXML private Label totalApproved;
     @FXML private Label totalRejected;
-    @FXML private TableView<BerkasPengajuan> tableViewBerkasPengajuan;
-    @FXML private TableColumn<BerkasPengajuan, Integer> noCol;
-    @FXML private TableColumn<BerkasPengajuan, String> nimCol;
-    @FXML private TableColumn<BerkasPengajuan, String> mahasiswaCol;
-    @FXML private TableColumn<BerkasPengajuan, String> statusCol;
-    @FXML private TableColumn<BerkasPengajuan, String> tanggalCol;
-    @FXML private TableColumn<BerkasPengajuan, Void> actionCol;
+    @FXML private TableView<BerkasPengajuan> tabelPengajuan;
+    @FXML private TabelPengajuanController tabelPengajuanController;
 
     private ObservableList<BerkasPengajuan> pengajuanTAList;
 
+    @FXML
     public void initialize() {
         CSSHelper.loadCSS(dashboardContainer, "global");
         statisticRequestInit();
-        tableViewInit();
+
+        tabelPengajuanController.setFileType("Berkas TA", false);
     }
 
     private void statisticRequestInit() {
@@ -40,46 +34,6 @@ public class DashboardController {
         totalRequest.setText(String.valueOf(requestStats.get("total_pengajuan")));
         totalApproved.setText(String.valueOf(requestStats.get("total_disetujui")));
         totalRejected.setText(String.valueOf(requestStats.get("total_ditolak")));
-    }
-
-    private void tableViewInit() {
-        pengajuanTAList = FXCollections.observableArrayList();
-        pengajuanTAList.addAll(BerkasTARepository.getAllSubmittedBerkas());
-
-        tableViewBerkasPengajuan.getColumns().forEach(column -> column.setReorderable(false));
-        noCol.setCellValueFactory((TableColumn.CellDataFeatures<BerkasPengajuan, Integer> cellData) -> {
-            int index = tableViewBerkasPengajuan.getItems().indexOf(cellData.getValue()) + 1;
-            return new ReadOnlyObjectWrapper<>(index);
-        });
-        nimCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
-        mahasiswaCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNamaLengkap()));
-        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatusVerifikasi()));
-        tanggalCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTanggalRequest()));
-        actionCol.setCellFactory(tc -> new TableCell<BerkasPengajuan, Void>() {
-            private final Button detailBtn = new Button("Detail");
-
-            {
-                detailBtn.getStyleClass().add("detail");
-                detailBtn.setOnAction(event -> {
-                    System.out.println("Detail button clicked!");
-                });
-            }
-
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    HBox hbox = new HBox(5);
-                    hbox.getChildren().addAll(detailBtn);
-                    setGraphic(hbox);
-                }
-            }
-        });
-
-        tableViewBerkasPengajuan.setItems(pengajuanTAList);
     }
 
     public void openOverlayEdit() {
