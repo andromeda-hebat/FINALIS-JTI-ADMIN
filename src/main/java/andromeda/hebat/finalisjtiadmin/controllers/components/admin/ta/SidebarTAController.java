@@ -16,11 +16,11 @@ public class SidebarTAController extends SidebarController {
 
     @FXML
     private void btnDashboardOnClicked() {
-        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/ta/dashboard");
+        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/ta/dashboard.fxml");
     }
 
     @FXML
     private void btnRequestVerificationOnClicked() {
-        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/ta/daftar-permintaan-verifikasi");
+        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/ta/daftar-permintaan-verifikasi.fxml");
     }
 }

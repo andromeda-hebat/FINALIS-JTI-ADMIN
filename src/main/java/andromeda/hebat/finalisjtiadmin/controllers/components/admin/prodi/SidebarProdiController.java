@@ -15,11 +15,11 @@ public class SidebarProdiController extends SidebarController {
 
     @FXML
     private void btnDashboardOnClicked() {
-        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/prodi/dashboard");
+        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/prodi/dashboard.fxml");
     }
 
     @FXML
     private void btnRequestVerificationOnClicked() {
-        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/prodi/daftar-permintaan-verifikasi");
+        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/prodi/daftar-permintaan-verifikasi.fxml");
     }
 }

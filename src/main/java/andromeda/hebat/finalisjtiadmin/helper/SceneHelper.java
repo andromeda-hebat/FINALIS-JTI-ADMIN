@@ -50,7 +50,7 @@ public class SceneHelper {
     }
 
     public static void changeRootNodeScene(Scene scene, String fxmlFile) {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile));
         try {
             scene.setRoot(fxmlLoader.load());
         } catch (IOException e) {
