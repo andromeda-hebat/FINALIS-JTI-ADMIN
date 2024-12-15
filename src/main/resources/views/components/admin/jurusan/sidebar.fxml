@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="sidebarJurusan" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="700.0" prefWidth="300.0" style="-fx-background-color: #052C65;" stylesheets="@../../../../css/sidebar.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.components.admin.jurusan.SidebarJurusanController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../img/finalis-jti-logo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="30.0" right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label text="FINALIS JTI" textFill="#f7de00">
+               <font>
+                  <Font name="Reddit Sans Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
+      </HBox>
+      <VBox prefWidth="100.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="btnDashboard" alignment="TOP_LEFT" layoutX="10.0" layoutY="20.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnDashboardOnClicked" styleClass="button-nav" text="Dashboard">
+               <font>
+                  <Font name="Reddit Sans Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="15.0" left="50.0" top="15.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnKelolaData" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="button-nav" text="Kelola Data">
+               <font>
+                  <Font name="Reddit Sans Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="15.0" left="50.0" top="15.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnAdmin" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAdminOnClicked" styleClass="button-nav" text="Admin">
+               <font>
+                  <Font name="Reddit Sans Regular" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="80.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnMahasiswa" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnMahasiswaOnClicked" styleClass="button-nav" text="Mahasiswa">
+               <font>
+                  <Font name="Reddit Sans Regular" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="80.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnTemplateSurat" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnTemplateSuratOnClicked" styleClass="button-nav" text="Template Surat">
+               <font>
+                  <Font name="Reddit Sans Regular" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="80.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnLogAktivitas" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLogAktivitasOnClicked" styleClass="button-nav" text="Log Aktivitas">
+               <font>
+                  <Font name="Reddit Sans Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="15.0" left="50.0" top="15.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnLogout" alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLogoutOnClicked" styleClass="button-nav" text="Keluar" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Reddit Sans Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="20.0" left="50.0" top="20.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../icons/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</VBox>
