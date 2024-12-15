@@ -35,8 +35,8 @@ public class KelolaDataMahasiswaController {
     @FXML
     private TableColumn<Mahasiswa, String> columnNama;
 
-    @FXML
-    private TableColumn<Mahasiswa, String> columnPassword;
+//    @FXML
+//    private TableColumn<Mahasiswa, String> columnPassword;
 
     @FXML
     private TableColumn<Mahasiswa, String> columnEmail;
@@ -65,7 +65,7 @@ public class KelolaDataMahasiswaController {
         });
         columnNim.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
         columnNama.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
-        columnPassword.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPassword()));
+        //columnPassword.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPassword()));
         columnEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
         columnJurusan.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getJurusan()));
         columnProdi.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProdi()));
@@ -163,6 +163,10 @@ public class KelolaDataMahasiswaController {
 
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-hapus-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 450);
+
+            OverlayDeleteDataMahasiswa overlayController = fxmlLoader.getController();
+            overlayController.fillData(mahasiswa);
+
             overlay.setScene(scene);
             overlay.show();
         } catch (Exception e) {

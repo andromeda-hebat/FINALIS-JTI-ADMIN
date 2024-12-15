@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="notifikasiJurusan" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <fx:include source="../../../components/admin/jurusan/sidebar.fxml" />
+    <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" style="-fx-background-color: FFFFFF;" HBox.hgrow="ALWAYS">
+        <children>
+            <fx:include source="../../../components/admin/topbar.fxml" />
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="81.0" prefWidth="661.0">
+                <children>
+                    <Label prefHeight="67.0" prefWidth="295.0" text="Notifikasi" textFill="#052c65">
+                        <font>
+                            <Font name="Reddit Sans Black" size="36.0" />
+                        </font>
+                    </Label>
+                </children>
+                <VBox.margin>
+                    <Insets left="20.0" right="20.0" top="20.0" />
+                </VBox.margin>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-radius: 6; -fx-background-color: FFFFFF;">
+                <VBox.margin>
+                    <Insets left="20.0" right="20.0" />
+                </VBox.margin>
+                <effect>
+                    <DropShadow offsetY="7.0">
+                        <color>
+                            <Color opacity="0.22335022687911987" />
+                        </color>
+                    </DropShadow>
+                </effect>
+            <children>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vladimir Putin / 2341720000">
+                              <font>
+                                 <Font name="System Bold" size="20.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets left="10.0" top="15.0" />
+                              </VBox.margin>
+                           </Text>
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Submit form administrasi prodi">
+                              <font>
+                                 <Font size="20.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets left="10.0" top="10.0" />
+                              </VBox.margin>
+                           </Text>
+                        </children>
+                        <HBox.margin>
+                           <Insets right="100.0" />
+                        </HBox.margin>
+                     </VBox>
+                  </children>
+               </HBox>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="12:00 PM" textAlignment="RIGHT">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets bottom="45.0" left="125.0" top="10.0" />
+                        </HBox.margin>
+                     </Text>
+                  </children>
+               </HBox>
+            </children>
+            </HBox>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-radius: 6; -fx-background-color: FFFFFF;">
+            <effect>
+               <DropShadow offsetY="7.0">
+                  <color>
+                     <Color opacity="0.22335022687911987" />
+                  </color>
+               </DropShadow>
+            </effect>
+            <children>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Anggi/Verifikator TA">
+                              <font>
+                                 <Font name="System Bold" size="20.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets left="10.0" top="15.0" />
+                              </VBox.margin>
+                           </Text>
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Melakukan verifikasi...">
+                              <font>
+                                 <Font size="20.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets left="10.0" top="10.0" />
+                              </VBox.margin>
+                           </Text>
+                        </children>
+                        <HBox.margin>
+                           <Insets right="100.0" />
+                        </HBox.margin>
+                     </VBox>
+                  </children>
+                  <HBox.margin>
+                     <Insets right="75.0" />
+                  </HBox.margin>
+               </HBox>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="08:00 PM" textAlignment="RIGHT">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets bottom="45.0" left="125.0" top="10.0" />
+                        </HBox.margin>
+                     </Text>
+                  </children>
+               </HBox>
+            </children>
+            <VBox.margin>
+               <Insets left="20.0" right="20.0" top="20.0" />
+            </VBox.margin>
+         </HBox>
+        </children>
+    </VBox>
+</HBox>
