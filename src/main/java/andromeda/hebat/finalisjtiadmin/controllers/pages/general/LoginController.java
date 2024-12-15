@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.general;
+package andromeda.hebat.finalisjtiadmin.controllers.pages.general;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
@@ -6,6 +6,7 @@ import andromeda.hebat.finalisjtiadmin.repository.UserRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -31,19 +32,22 @@ public class LoginController {
             switch (currentAdmin.getJabatan()) {
                 case "Admin Jurusan":
                     System.out.println("Selamat datang admin jurusan!");
-                    fxmlFile = "/views/pages/adminjurusan/kelola-data-admin.fxml";
+                    fxmlFile = "/views/pages/admin/jurusan/kelola-data-admin.fxml";
                     break;
                 case "Admin Prodi":
                     System.out.println("Selamat datang admin prodi!");
-                    fxmlFile = "/views/pages/adminprodi/dashboard.fxml";
+                    fxmlFile = "/views/pages/admin/prodi/dashboard.fxml";
                     break;
                 case "Admin TA":
                     System.out.println("Selamat datang admin TA!");
-                    fxmlFile = "/views/pages/adminta/dashboard.fxml";
+                    fxmlFile = "/views/pages/admin/ta/dashboard.fxml";
                     break;
             }
 
-            Stage mainStage = (Stage) loginScene.getScene().getWindow();
+            ((Stage) loginScene.getScene().getWindow()).close();
+            Stage mainStage = new Stage();
+            mainStage.setTitle("FINALIS JTI");
+            mainStage.getIcons().add(new Image(getClass().getResource("/icons/finalis-jti.png").toExternalForm()));
             SceneHelper.changeScene(mainStage, fxmlFile);
         } else {
             System.out.println("Tidak ditemukan username yang cocok dengan data pengguna!");

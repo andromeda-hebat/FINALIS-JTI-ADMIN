@@ -1,4 +1,4 @@
-package andromeda.hebat.finalisjtiadmin.controllers.components;
+package andromeda.hebat.finalisjtiadmin.controllers.components.admin;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import javafx.fxml.FXML;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.util.Optional;
 
-public class SidebarController {
+abstract public class SidebarController {
     @FXML protected VBox sidebarContainer;
 
     @FXML
@@ -22,7 +22,8 @@ public class SidebarController {
         Optional<ButtonType> result = confirmationAlert.showAndWait();
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            Stage mainStage = (Stage) sidebarContainer.getScene().getWindow();
+            ((Stage) sidebarContainer.getScene().getWindow()).close();
+            Stage mainStage = new Stage();
             SceneHelper.changeScene(mainStage, "/views/pages/general/login.fxml", 600, 400);
         }
     }
