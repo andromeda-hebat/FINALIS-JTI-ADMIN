@@ -21,23 +21,14 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class KelolaDataAdminController {
-
     @FXML private Button btnTambahkan;
-
     @FXML private TableView<Admin> tableViewAdmin;
-
     @FXML private TableColumn<Admin, Integer> numberColumn;
-
     @FXML private TableColumn<Admin, String> adminIDColumn;
-
     @FXML private TableColumn<Admin, String> fullNameColumn;
-
     @FXML private TableColumn<Admin, String> emailColumn;
-
     @FXML private TableColumn<Admin, String> positionColumn;
-
     @FXML private TableColumn<Admin, Void> actionColumn;
-
     private ObservableList<Admin> adminList;
 
     @FXML

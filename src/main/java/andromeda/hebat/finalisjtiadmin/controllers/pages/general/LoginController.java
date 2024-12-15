@@ -32,7 +32,7 @@ public class LoginController {
             switch (currentAdmin.getJabatan()) {
                 case "Admin Jurusan":
                     System.out.println("Selamat datang admin jurusan!");
-                    fxmlFile = "/views/pages/admin/jurusan/kelola-data-admin.fxml";
+                    fxmlFile = "/views/pages/admin/jurusan/dashboard.fxml";
                     break;
                 case "Admin Prodi":
                     System.out.println("Selamat datang admin prodi!");
