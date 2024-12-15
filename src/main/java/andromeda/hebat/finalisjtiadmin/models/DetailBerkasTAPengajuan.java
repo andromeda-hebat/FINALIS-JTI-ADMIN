@@ -5,6 +5,9 @@ public class DetailBerkasTAPengajuan extends BerkasPengajuan {
     private String aplikasi;
     private String buktiPublikasi;
 
+    public DetailBerkasTAPengajuan() {
+    }
+
     public DetailBerkasTAPengajuan(int idVerifikasi, String idBerkas, String statusVerifikasi, String nim, String namaLengkap, String tanggalRequest, String laporanTA, String aplikasi, String buktiPublikasi) {
         super(idVerifikasi, idBerkas, statusVerifikasi, nim, namaLengkap, tanggalRequest);
         this.laporanTA = laporanTA;

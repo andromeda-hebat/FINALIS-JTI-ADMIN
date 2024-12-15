@@ -8,6 +8,9 @@ public class BerkasPengajuan {
     private String namaLengkap;
     private String tanggalRequest;
 
+    public BerkasPengajuan() {
+    }
+
     public BerkasPengajuan(int idVerifikasi, String idBerkas, String statusVerifikasi, String nim, String namaLengkap, String tanggalRequest) {
         this.idVerifikasi = idVerifikasi;
         this.idBerkas = idBerkas;
