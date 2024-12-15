@@ -1,5 +1,6 @@
-package andromeda.hebat.finalisjtiadmin.controllers.components;
+package andromeda.hebat.finalisjtiadmin.controllers.components.admin.ta;
 
+import andromeda.hebat.finalisjtiadmin.controllers.components.admin.SidebarController;
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 
 import javafx.fxml.FXML;
@@ -15,11 +16,11 @@ public class SidebarTAController extends SidebarController {
 
     @FXML
     private void btnDashboardOnClicked() {
-        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/adminta/dashboard");
+        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/ta/dashboard");
     }
 
     @FXML
     private void btnRequestVerificationOnClicked() {
-        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/adminta/permintaan-verifikasi");
+        SceneHelper.changeRootNodeScene(sidebarContainer.getScene(), "/views/pages/admin/ta/daftar-permintaan-verifikasi");
     }
 }

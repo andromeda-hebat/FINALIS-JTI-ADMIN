@@ -128,7 +128,7 @@ public class KelolaDataMahasiswaController {
             Stage overlay = new Stage();
             overlay.setTitle("Tambah Data Mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/adminjurusan/overlay/overlay-tambah-data-mahasiswa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-tambah-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
             overlay.setScene(scene);
             overlay.show();
@@ -142,7 +142,7 @@ public class KelolaDataMahasiswaController {
             Stage overlay = new Stage();
             overlay.setTitle("Edit Data mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/adminjurusan/overlay/overlay-edit-data-mahasiswa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-edit-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
             overlay.setScene(scene);
 
@@ -161,7 +161,7 @@ public class KelolaDataMahasiswaController {
             Stage overlay = new Stage();
             overlay.setTitle("Hapus Data Mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/adminjurusan/overlay/overlay-hapus-data-mahasiswa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-hapus-data-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 450);
             overlay.setScene(scene);
             overlay.show();

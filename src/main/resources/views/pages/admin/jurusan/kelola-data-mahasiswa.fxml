@@ -12,10 +12,10 @@
 <?import javafx.scene.text.Font?>
 
 <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.KelolaDataMahasiswaController">
-    <fx:include source="../../components/adminjurusan/sidebar.fxml" />
+    <fx:include source="../../../components/admin/jurusan/sidebar.fxml" />
     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" style="-fx-cursor: hand;" HBox.hgrow="ALWAYS">
         <children>
-            <fx:include source="../../components/admin/topbar.fxml" />
+            <fx:include source="../../../components/admin/topbar.fxml" />
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" VBox.vgrow="ALWAYS">
                 <children>
                     <Label text="Kelola Data Mahasiswa" textFill="#052c65">
@@ -30,7 +30,7 @@
                         <graphic>
                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../../../icons/plus-square.png" />
+                                    <Image url="@../../../../icons/plus-square.png" />
                                 </image></ImageView>
                         </graphic>
                         <padding>

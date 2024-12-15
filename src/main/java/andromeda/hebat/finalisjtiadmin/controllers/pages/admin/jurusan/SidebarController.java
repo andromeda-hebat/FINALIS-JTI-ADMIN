@@ -53,19 +53,19 @@ public class SidebarController {
     @FXML
     public void btnAdminOnClicked() {
         Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, "/views/pages/adminjurusan/kelola-data-admin.fxml");
+        SceneHelper.changeScene(mainStage, "/views/pages/admin/jurusan/kelola-data-admin.fxml");
     }
 
     @FXML
     public void btnTemplateSuratOnClicked() {
         Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, "/views/pages/adminjurusan/kelola-template-surat.fxml");
+        SceneHelper.changeScene(mainStage, "/views/pages/admin/jurusan/kelola-template-surat.fxml");
     }
 
     @FXML
     public void btnMahasiswaOnClicked() {
         Stage mainStage = (Stage) sidebarJurusan.getScene().getWindow();
-        SceneHelper.changeScene(mainStage, "/views/pages/adminjurusan/kelola-data-mahasiswa.fxml");
+        SceneHelper.changeScene(mainStage, "/views/pages/admin/jurusan/kelola-data-mahasiswa.fxml");
     }
 
     @FXML

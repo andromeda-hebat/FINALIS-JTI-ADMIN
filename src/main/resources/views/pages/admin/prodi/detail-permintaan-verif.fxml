@@ -15,15 +15,15 @@
 <?import javafx.scene.text.Font?>
 
 <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.prodi.PermintaanVerifSeluruh">
-    <fx:include source="../../components/adminprodi/sidebar.fxml" />
+    <fx:include source="../../../components/admin/prodi/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
-            <fx:include source="../../components/admin/topbar.fxml" />
+            <fx:include source="../../../components/admin/topbar.fxml" />
             <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                 <children>
                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../img/arrow-left-square.png" />
+                            <Image url="@../../../../img/arrow-left-square.png" />
                         </image>
                         <HBox.margin>
                             <Insets right="20.0" />
@@ -54,7 +54,7 @@
                                              <Label prefHeight="18.0" prefWidth="122.0" text="Informasi Mahasiswa " />
                                              <ImageView fitHeight="25.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
-                                                   <Image url="@../../../img/info-circle.png" />
+                                                   <Image url="@../../../../img/info-circle.png" />
                                                 </image>
                                              </ImageView>
                                           </children>
@@ -100,7 +100,7 @@
                                              <Label prefHeight="18.0" prefWidth="122.0" text="Informasi Permintaan" />
                                              <ImageView fitHeight="25.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
-                                                   <Image url="@../../../img/info-circle.png" />
+                                                   <Image url="@../../../../img/info-circle.png" />
                                                 </image>
                                              </ImageView>
                                           </children>
@@ -176,7 +176,7 @@
                                  <Label prefHeight="18.0" prefWidth="122.0" text="Detail Informasi" />
                                  <ImageView fitHeight="25.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../../../img/info-circle.png" />
+                                       <Image url="@../../../../img/info-circle.png" />
                                     </image>
                                  </ImageView>
                               </children>

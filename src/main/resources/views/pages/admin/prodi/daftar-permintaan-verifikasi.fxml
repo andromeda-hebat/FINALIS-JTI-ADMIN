@@ -11,15 +11,15 @@
 <?import javafx.scene.text.Font?>
 
 <HBox fx:id="halamanPermintaanVerif" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.PermintaanVerifAllController">
-    <fx:include source="../../components/adminprodi/sidebar.fxml" />
+    <fx:include source="../../../components/admin/prodi/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
-            <fx:include source="../../components/admin/topbar.fxml" />
+            <fx:include source="../../../components/admin/topbar.fxml" />
             <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                 <children>
                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../../img/arrow-left-square.png" />
+                            <Image url="@../../../../img/arrow-left-square.png" />
                         </image>
                         <HBox.margin>
                             <Insets right="20.0" />
@@ -56,7 +56,7 @@
                         </font></Label>
                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                         <image>
-                           <Image url="@../../../img/arrow-down-up.png" />
+                           <Image url="@../../../../img/arrow-down-up.png" />
                         </image>
                      </ImageView>
                   </children>
