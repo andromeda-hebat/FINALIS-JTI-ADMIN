@@ -1,7 +1,11 @@
 package andromeda.hebat.finalisjtiadmin.controllers.components.admin;
 
+import andromeda.hebat.finalisjtiadmin.Main;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataAdmin;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta.DetailPermintaanTAVerifikasiController;
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
+import andromeda.hebat.finalisjtiadmin.models.JenisBerkas;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasProdiRepository;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasTARepository;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -9,12 +13,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class TabelPengajuanController {
@@ -26,7 +33,7 @@ public class TabelPengajuanController {
     @FXML private TableColumn<BerkasPengajuan, String> tanggalCol;
     @FXML private TableColumn<BerkasPengajuan, Void> actionCol;
 
-    private String fileCategory;
+    private JenisBerkas fileCategory;
     private boolean isAllData;
 
     private ObservableList<BerkasPengajuan> pengajuanList;
@@ -35,7 +42,7 @@ public class TabelPengajuanController {
     private void initialize() {
     }
 
-    public void setFileType(String fileCategory, boolean isAllData) {
+    public void setFileType(JenisBerkas fileCategory, boolean isAllData) {
         this.fileCategory = fileCategory;
         this.isAllData = isAllData;
         tableViewInit();
@@ -45,13 +52,13 @@ public class TabelPengajuanController {
         pengajuanList = FXCollections.observableArrayList();
 
         ArrayList<BerkasPengajuan> dataInit = new ArrayList<>();
-        if (this.fileCategory.equalsIgnoreCase("Berkas TA") && this.isAllData) {
+        if (this.fileCategory == JenisBerkas.BERKAS_TA && this.isAllData) {
             pengajuanList.addAll(BerkasTARepository.getAllBerkas());
-        } else if (this.fileCategory.equalsIgnoreCase("Berkas Prodi") && this.isAllData) {
+        } else if (this.fileCategory == JenisBerkas.BERKAS_PRODI && this.isAllData) {
             pengajuanList.addAll(BerkasProdiRepository.getAllBerkas());
-        } else if (this.fileCategory.equalsIgnoreCase("Berkas TA") && !this.isAllData) {
+        } else if (this.fileCategory == JenisBerkas.BERKAS_TA && !this.isAllData) {
             pengajuanList.addAll(BerkasTARepository.getAllSubmittedBerkas());
-        } else if (this.fileCategory.equalsIgnoreCase("Berkas Prodi") && !this.isAllData) {
+        } else if (this.fileCategory == JenisBerkas.BERKAS_PRODI && !this.isAllData) {
             pengajuanList.addAll(BerkasProdiRepository.getAllSubmittedBerkas());
         }
 
@@ -70,7 +77,26 @@ public class TabelPengajuanController {
             {
                 detailBtn.getStyleClass().add("detail");
                 detailBtn.setOnAction(event -> {
-                    SceneHelper.changeRootNodeScene(tabelBerkasPengajuan.getScene(), "/views/pages/admin/ta/detail-permintaan-verifikasi.fxml");
+                    String folderName = null;
+                    switch (TabelPengajuanController.this.fileCategory) {
+                        case BERKAS_TA:
+                            folderName = "ta";
+                            break;
+                        case BERKAS_PRODI:
+                            folderName = "prodi";
+                            break;
+                    }
+
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/"+folderName+"/detail-permintaan-verifikasi.fxml"));
+                        Parent root = fxmlLoader.load();
+
+                        DetailPermintaanTAVerifikasiController controller = fxmlLoader.getController();
+                        controller.setDataBerkas(BerkasTARepository.getSingleBerkasTA(getTableView().getItems().get(getIndex()).getIdVerifikasi()));
+                        TabelPengajuanController.this.tabelBerkasPengajuan.getScene().setRoot(root);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 

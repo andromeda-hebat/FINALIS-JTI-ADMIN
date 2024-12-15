@@ -2,7 +2,9 @@ package andromeda.hebat.finalisjtiadmin.repository;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
+import andromeda.hebat.finalisjtiadmin.models.DetailBerkasTAPengajuan;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -83,5 +85,47 @@ public class BerkasTARepository {
         }
 
         return result;
+    }
+
+    public static DetailBerkasTAPengajuan getSingleBerkasTA(int idVerifikasi) {
+        DetailBerkasTAPengajuan data = null;
+
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+                    SELECT
+                        vb.id_verifikasi,
+                        ta.id_ta AS id_berkas,
+                        m.nim,
+                        m.nama_lengkap,
+                        ta.tanggal_request,
+                        vb.status_verifikasi,
+                        ta.laporan_TA AS laporan_ta,
+                        ta.aplikasi,
+                        ta.bukti_publikasi
+                    FROM VER.VerifikasiBerkas vb
+                    INNER JOIN BERKAS.TA ta ON vb.id_berkas = ta.id_ta
+                    INNER JOIN USERS.Mahasiswa m ON ta.nim = m.nim
+                    WHERE vb.id_verifikasi = ?
+                """)) {
+            stmt.setInt(1, idVerifikasi);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                data = new DetailBerkasTAPengajuan();
+                data.setIdVerifikasi(rs.getInt("id_verifikasi"));
+                data.setIdBerkas(rs.getString("id_berkas"));
+                data.setStatusVerifikasi(rs.getString("status_verifikasi"));
+                data.setNim(rs.getString("nim"));
+                data.setNamaLengkap(rs.getString("nama_lengkap"));
+                data.setTanggalRequest(rs.getString("tanggal_request"));
+                data.setLaporanTA(rs.getString("laporan_ta"));
+                data.setAplikasi(rs.getString("aplikasi"));
+                data.setBuktiPublikasi(rs.getString("bukti_publikasi"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return data;
     }
 }

@@ -3,6 +3,7 @@ package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta;
 import andromeda.hebat.finalisjtiadmin.controllers.components.admin.TabelPengajuanController;
 import andromeda.hebat.finalisjtiadmin.helper.CSSHelper;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
+import andromeda.hebat.finalisjtiadmin.models.JenisBerkas;
 import andromeda.hebat.finalisjtiadmin.repository.StatistikRepository;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,7 +27,7 @@ public class DashboardController {
         CSSHelper.loadCSS(dashboardContainer, "global");
         statisticRequestInit();
 
-        tabelPengajuanController.setFileType("Berkas TA", false);
+        tabelPengajuanController.setFileType(JenisBerkas.BERKAS_TA, false);
     }
 
     private void statisticRequestInit() {
