@@ -70,7 +70,12 @@ public class TabelPengajuanController {
             {
                 detailBtn.getStyleClass().add("detail");
                 detailBtn.setOnAction(event -> {
-                    SceneHelper.changeRootNodeScene(tabelBerkasPengajuan.getScene(), "/views/pages/admin/ta/detail-permintaan-verifikasi.fxml");
+                    String folderName = null;
+                    switch (TabelPengajuanController.this.fileCategory) {
+                        case "Berkas TA": folderName = "ta"; break;
+                        case "Berkas Prodi": folderName = "prodi"; break;
+                    }
+                    SceneHelper.changeRootNodeScene(tabelBerkasPengajuan.getScene(), "/views/pages/admin/"+folderName+"/detail-permintaan-verifikasi.fxml");
                 });
             }
 
