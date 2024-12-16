@@ -15,6 +15,6 @@ public class TopbarController {
         this.adminObj = adminObj;
 
         username.setText(adminObj.getName());
-        userRole.setText(adminObj.getJabatan());
+        userRole.setText(adminObj.getJabatan().getJenisAdminStr());
     }
 }
