@@ -2,6 +2,7 @@ package andromeda.hebat.finalisjtiadmin.repository;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
+import andromeda.hebat.finalisjtiadmin.models.DetailBerkasProdiPengajuan;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

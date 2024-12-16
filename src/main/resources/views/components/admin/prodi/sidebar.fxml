@@ -28,9 +28,9 @@
             <Insets right="25.0" />
          </padding>
         </HBox>
-        <Button fx:id="btnDashboard" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnDashboardOnClicked" styleClass="button-nav" text="Dashboard" textFill="WHITE">
+        <Button fx:id="btnDashboard" alignment="TOP_LEFT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnDashboardOnClicked" styleClass="button-nav" text="Dashboard">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="Reddit Sans Bold" size="14.0" />
             </font>
             <padding>
                 <Insets bottom="15.0" left="50.0" top="15.0" />
@@ -39,7 +39,7 @@
                 <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="btnRequestVerification" alignment="TOP_LEFT" layoutX="10.0" layoutY="273.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnRequestVerificationOnClicked" styleClass="button-nav" text="Permintaan Verifikasi" textFill="WHITE">
+        <Button fx:id="btnRequestVerification" alignment="TOP_LEFT" layoutX="10.0" layoutY="273.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnRequestVerificationOnClicked" styleClass="button-nav" text="Permintaan Verifikasi">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -51,7 +51,7 @@
             </VBox.margin>
         </Button>
         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-        <Button fx:id="btnLogout" alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLogoutOnClicked" styleClass="button-nav" text="Keluar" textFill="WHITE" VBox.vgrow="ALWAYS">
+        <Button fx:id="btnLogout" alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnLogoutOnClicked" styleClass="button-nav" text="Keluar" VBox.vgrow="ALWAYS">
             <font>
                 <Font name="Reddit Sans Bold" size="14.0" />
             </font>
