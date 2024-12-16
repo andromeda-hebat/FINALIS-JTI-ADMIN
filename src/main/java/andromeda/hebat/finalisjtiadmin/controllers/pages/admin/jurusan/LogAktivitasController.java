@@ -15,29 +15,14 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 public class LogAktivitasController {
-    @FXML
-    private TableView<LogAktivitas> tableViewLogAktivitas;
-
-    @FXML
-    private TableColumn<LogAktivitas, Integer> columnID;
-
-    @FXML
-    private TableColumn<LogAktivitas, String> columnIDAdmin;
-
-    @FXML
-    private TableColumn<LogAktivitas, String> columnIDBerkas;
-
-    @FXML
-    private TableColumn<LogAktivitas, String> columnStatusSebelum;
-
-    @FXML
-    private TableColumn<LogAktivitas, String> columnStatusSesudah;
-
-    @FXML
-    private TableColumn<LogAktivitas, String> columnWaktu;
-
-    @FXML
-    private ObservableList<LogAktivitas> logAktivitasList = FXCollections.observableArrayList();
+    @FXML private TableView<LogAktivitas> tableViewLogAktivitas;
+    @FXML private TableColumn<LogAktivitas, Integer> columnID;
+    @FXML private TableColumn<LogAktivitas, String> columnIDAdmin;
+    @FXML private TableColumn<LogAktivitas, String> columnIDBerkas;
+    @FXML private TableColumn<LogAktivitas, String> columnStatusSebelum;
+    @FXML private TableColumn<LogAktivitas, String> columnStatusSesudah;
+    @FXML private TableColumn<LogAktivitas, String> columnWaktu;
+    @FXML private ObservableList<LogAktivitas> logAktivitasList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize(){

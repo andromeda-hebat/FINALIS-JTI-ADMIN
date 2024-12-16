@@ -1,5 +1,6 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan;
 
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteDataMahasiswa;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataMahasiswa;
 import andromeda.hebat.finalisjtiadmin.Main;
 import andromeda.hebat.finalisjtiadmin.core.Database;
@@ -20,36 +21,15 @@ import java.sql.Statement;
 
 
 public class KelolaDataMahasiswaController {
-    @FXML
-    private Button btnTambahkanMhs;
-
-    @FXML
-    private TableView<Mahasiswa> tableViewMahasiswa;
-
-    @FXML
-    private TableColumn<Mahasiswa, Integer> columnNo;
-
-    @FXML
-    private TableColumn<Mahasiswa, String> columnNim;
-
-    @FXML
-    private TableColumn<Mahasiswa, String> columnNama;
-
-//    @FXML
-//    private TableColumn<Mahasiswa, String> columnPassword;
-
-    @FXML
-    private TableColumn<Mahasiswa, String> columnEmail;
-
-    @FXML
-    private TableColumn<Mahasiswa, String> columnJurusan;
-
-    @FXML
-    private TableColumn<Mahasiswa, String> columnProdi;
-
-    @FXML
-    private TableColumn<Mahasiswa, Void> columnAction;
-
+    @FXML private Button btnTambahkanMhs;
+    @FXML private TableView<Mahasiswa> tableViewMahasiswa;
+    @FXML private TableColumn<Mahasiswa, Integer> columnNo;
+    @FXML private TableColumn<Mahasiswa, String> columnNim;
+    @FXML private TableColumn<Mahasiswa, String> columnNama;
+    @FXML private TableColumn<Mahasiswa, String> columnEmail;
+    @FXML private TableColumn<Mahasiswa, String> columnJurusan;
+    @FXML private TableColumn<Mahasiswa, String> columnProdi;
+    @FXML private TableColumn<Mahasiswa, Void> columnAction;
     private ObservableList<Mahasiswa> mahasiswaList = FXCollections.observableArrayList();
     private ComboBox<Object> actionColumn;
 
@@ -65,7 +45,6 @@ public class KelolaDataMahasiswaController {
         });
         columnNim.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNim()));
         columnNama.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNama()));
-        //columnPassword.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPassword()));
         columnEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
         columnJurusan.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getJurusan()));
         columnProdi.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProdi()));

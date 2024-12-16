@@ -13,9 +13,7 @@ import java.sql.SQLException;
 
 public class OverlayDeleteDataMahasiswa {
     @FXML private VBox overlayDelete;
-
     @FXML private Button btnConfirm;
-
     @FXML private Button btnCancel;
 
     private Mahasiswa mahasiswa;

@@ -12,11 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayDeleteDataAdmin {
-
     @FXML private VBox overlayDelete;
-
     @FXML private Button btnConfirm;
-
     @FXML private Button btnCancel;
 
     private Admin admin;
