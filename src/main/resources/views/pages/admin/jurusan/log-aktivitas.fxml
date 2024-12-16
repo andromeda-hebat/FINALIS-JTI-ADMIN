@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" />
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.LogAktivitasController">
+    <fx:include source="../../../components/admin/jurusan/sidebar.fxml" />
+   <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" style="-fx-cursor: hand;" HBox.hgrow="ALWAYS">
+      <children>
+          <fx:include source="../../../components/admin/topbar.fxml" />
+         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" VBox.vgrow="ALWAYS">
+            <children>
+               <Label text="Log Aktivitas Admin" textFill="#052c65">
+                  <font>
+                     <Font name="Reddit Sans Black" size="24.0" />
+                  </font>
+               </Label>
+               <TableView fx:id="tableViewLogAktivitas" style="-fx-border-color: #E4EEFF; -fx-border-width: 2px;" stylesheets="@../../../../css/table-view.css">
+                 <columns>
+                   <TableColumn fx:id="columnID" prefWidth="43.20001220703125" text="ID" />
+                     <TableColumn fx:id="columnIDAdmin" prefWidth="96.0" styleClass=".table-header" text="ID Admin" />
+                   <TableColumn fx:id="columnIDBerkas" prefWidth="83.20001220703125" text="ID Berkas" />
+                     <TableColumn fx:id="columnStatusSebelum" prefWidth="148.0" text="Status Sebelum" />
+                     <TableColumn fx:id="columnStatusSesudah" prefWidth="112.7999267578125" text="Status Sesudah" />
+                     <TableColumn fx:id="columnWaktu" prefWidth="184.800048828125" text="Waktu" />
+                 </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+               </TableView>
+            </children>
+            <VBox.margin>
+               <Insets left="20.0" right="20.0" top="20.0" />
+            </VBox.margin>
+         </VBox>
+      </children>
+   </VBox>
+</HBox>
