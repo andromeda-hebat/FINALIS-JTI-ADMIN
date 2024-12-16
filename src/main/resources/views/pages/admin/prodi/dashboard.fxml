@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="dashboardContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.DashboardController">
+<HBox fx:id="dashboardContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.DashboardController">
     <fx:include source="../../../components/admin/prodi/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
@@ -25,7 +25,7 @@
                     <Insets left="20.0" right="20.0" top="20.0" />
                 </VBox.margin>
             </VBox>
-         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-color: E4EEFF; -fx-background-radius: 6;">
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: E4EEFF; -fx-background-radius: 6;">
             <VBox.margin>
                <Insets left="20.0" right="20.0" />
             </VBox.margin>
@@ -40,7 +40,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Permintaan" textFill="#052c65" />
-                           <Label fx:id="PengajuanProdi" text="175" textFill="#052c65">
+                           <Label fx:id="totalRequest" text="175" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -59,7 +59,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Disetujui" textFill="#052c65" />
-                           <Label fx:id="ProdiVerif" text="123" textFill="#052c65">
+                           <Label fx:id="totalApproved" text="123" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -78,7 +78,7 @@
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label text="Ditolak" textFill="#052c65" />
-                           <Label fx:id="ProdiDitolak" text="52" textFill="#052c65">
+                           <Label fx:id="totalRejected" text="52" textFill="#052c65">
                               <font>
                                  <Font name="Reddit Sans Black" size="40.0" />
                               </font>
@@ -97,49 +97,33 @@
             </effect>
          </HBox>
          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+            <children>
+               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../../img/arrow-down-left-square.png" />
+                  </image>
+                  <HBox.margin>
+                     <Insets right="20.0" />
+                  </HBox.margin>
+               </ImageView>
+               <Label text="Aktivitas Terbaru">
+                  <font>
+                     <Font name="Reddit Sans Black" size="18.0" />
+                  </font>
+               </Label>
+            </children>
             <VBox.margin>
                <Insets left="20.0" right="20.0" top="30.0" />
             </VBox.margin>
-            <children>
-               <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="286.0">
-                  <children>
-                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../../../img/arrow-down-left-square.png" />
-                        </image>
-                        <HBox.margin>
-                           <Insets right="20.0" />
-                        </HBox.margin>
-                     </ImageView>
-                     <Label text="Aktivitas Terbaru">
-                        <font>
-                           <Font name="Reddit Sans Black" size="24.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </HBox>
-            </children>
          </HBox>
-         <TableView fx:id="tableViewBerkasPengajuan" prefHeight="310.0" prefWidth="662.0">
-           <columns>
-               <TableColumn prefWidth="75.0" text="No" />
-             <TableColumn prefWidth="75.0" text="NIM" />
-             <TableColumn prefWidth="75.0" text="Mahasiswa" />
-               <TableColumn prefWidth="75.0" text="Status" />
-               <TableColumn prefWidth="75.0" text="Tanggal pengajuan" />
-               <TableColumn prefWidth="75.0" text="Keterangan" />
-               <TableColumn prefWidth="75.0" text="Aksi" />
-           </columns>
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
+         <BorderPane maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <center>
+                  <fx:include fx:id="tabelPengajuan" source="../../../components/admin/tabel-pengajuan.fxml" />
+            </center>
             <VBox.margin>
-               <Insets bottom="20.0" left="20.0" right="20.0" />
+               <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
             </VBox.margin>
-            <columnResizePolicy>
-               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
-         </TableView>
+         </BorderPane>
         </children>
     </VBox>
 </HBox>
