@@ -43,7 +43,7 @@ public class KelolaDataAdminController {
         adminIDColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUserId()));
         fullNameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
         emailColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
-        positionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getJabatan()));
+        positionColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getJabatan().getJenisAdminStr()));
         actionColumn.setCellFactory(tc -> new TableCell<Admin, Void>() {
             private final Button editBtn = new Button("Edit");
             private final Button deleteBtn = new Button("Hapus");
@@ -91,7 +91,7 @@ public class KelolaDataAdminController {
         }
     }
 
-    public void openOverlayEditAdmin(Admin admin){
+    public void openOverlayEditAdmin(Admin admin) {
         try {
             Stage overlay = new Stage();
             overlay.setTitle("Edit data admin");

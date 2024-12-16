@@ -5,7 +5,7 @@ public class Admin {
     private String name;
     private String password;
     private String email;
-    private String jabatan;
+    private JenisAdmin jabatan;
     private String fotoProfil;
 
     public Admin() { }
@@ -15,7 +15,11 @@ public class Admin {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.jabatan = jabatan;
+        switch (jabatan) {
+            case "Admin Jurusan": this.jabatan = JenisAdmin.ADMIN_JURUSAN; break;
+            case "Admin Prodi": this.jabatan = JenisAdmin.ADMIN_PRODI; break;
+            case "Admin TA": this.jabatan = JenisAdmin.ADMIN_TA; break;
+        }
     }
 
     public String getUserId() {
@@ -50,12 +54,16 @@ public class Admin {
         this.email = email;
     }
 
-    public String getJabatan() {
+    public JenisAdmin getJabatan() {
         return jabatan;
     }
 
-    public void setJabatan(String role) {
-        this.jabatan = role;
+    public void setJabatan(String jabatan) {
+        switch (jabatan) {
+            case "Admin Jurusan": this.jabatan = JenisAdmin.ADMIN_JURUSAN; break;
+            case "Admin Prodi": this.jabatan = JenisAdmin.ADMIN_PRODI; break;
+            case "Admin TA": this.jabatan = JenisAdmin.ADMIN_TA; break;
+        }
     }
 
     public String getFotoProfil() {
