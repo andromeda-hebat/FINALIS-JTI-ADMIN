@@ -46,8 +46,3 @@ public class DetailPermintaanProdiVerifikasiController {
         this.inputSuratKompen.setText(String.valueOf(this.databerkas.getBebasKompen()));
     }
 }
-
-
-
-
-
