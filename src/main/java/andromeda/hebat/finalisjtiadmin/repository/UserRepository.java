@@ -5,6 +5,7 @@ import andromeda.hebat.finalisjtiadmin.helper.JsonHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -26,23 +27,27 @@ public class UserRepository {
      * @return an {@code Admin} object representing the verified admin user if
      *          credentials are valid; otherwise, returns {@code null}.
      */
-    public static Admin checkUser(String userID, String password) {
-        String query = "SELECT * FROM USERS.Admin WHERE id_admin = ? AND password = ?";
+    public static Admin getUserByIDAndPassword(String userID, String password) {
+        String query = "SELECT * FROM USERS.Admin WHERE id_admin = ?";
         Admin admin = null;
 
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
             stmt.setString(1, userID);
-            stmt.setString(2, password);
 
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                admin = new Admin();
-                admin.setUserId(rs.getString("id_admin"));
-                admin.setName(rs.getString("nama_lengkap"));
-                admin.setPassword(rs.getString("password"));
-                admin.setEmail(rs.getString("email"));
-                admin.setJabatan(rs.getString("jabatan"));
+                String hashedPassword = rs.getString("password");
+                boolean isPasswordMatch = BCrypt.checkpw(password, hashedPassword);
+
+                if (isPasswordMatch) {
+                    admin = new Admin();
+                    admin.setUserId(rs.getString("id_admin"));
+                    admin.setName(rs.getString("nama_lengkap"));
+                    admin.setPassword(rs.getString("password"));
+                    admin.setEmail(rs.getString("email"));
+                    admin.setJabatan(rs.getString("jabatan"));
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

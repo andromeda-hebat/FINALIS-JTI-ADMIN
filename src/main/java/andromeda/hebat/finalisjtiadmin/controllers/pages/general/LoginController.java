@@ -4,6 +4,8 @@ import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
 import andromeda.hebat.finalisjtiadmin.repository.UserRepository;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -11,15 +13,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class LoginController {
-
-    @FXML
-    private VBox loginScene;
-
-    @FXML
-    private TextField inputFieldUserID;
-
-    @FXML
-    private PasswordField inputFieldPassword;
+    @FXML private VBox loginScene;
+    @FXML private TextField inputFieldUserID;
+    @FXML private PasswordField inputFieldPassword;
 
     @FXML
     private void enterDashboard() {
@@ -27,18 +23,18 @@ public class LoginController {
         final String password = inputFieldPassword.getText();
         String fxmlFile = null;
 
-        Admin currentAdmin = UserRepository.checkUser(userID, password);
+        Admin currentAdmin = UserRepository.getUserByIDAndPassword(userID, password);
         if (currentAdmin != null) {
             switch (currentAdmin.getJabatan()) {
-                case "Admin Jurusan":
+                case ADMIN_JURUSAN:
                     System.out.println("Selamat datang admin jurusan!");
                     fxmlFile = "/views/pages/admin/jurusan/dashboard.fxml";
                     break;
-                case "Admin Prodi":
+                case ADMIN_PRODI:
                     System.out.println("Selamat datang admin prodi!");
                     fxmlFile = "/views/pages/admin/prodi/dashboard.fxml";
                     break;
-                case "Admin TA":
+                case ADMIN_TA:
                     System.out.println("Selamat datang admin TA!");
                     fxmlFile = "/views/pages/admin/ta/dashboard.fxml";
                     break;
@@ -50,7 +46,12 @@ public class LoginController {
             mainStage.getIcons().add(new Image(getClass().getResource("/icons/finalis-jti.png").toExternalForm()));
             SceneHelper.changeScene(mainStage, fxmlFile);
         } else {
-            System.out.println("Tidak ditemukan username yang cocok dengan data pengguna!");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "You are not authenticated. Please log in to continue.",
+                    ButtonType.OK);
+            alert.setTitle("Authentication Required");
+            alert.setHeaderText("Access Denied");
+
+            alert.showAndWait();
         }
     }
 }
