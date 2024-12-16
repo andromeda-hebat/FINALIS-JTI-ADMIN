@@ -13,19 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayEditDataSurat {
+    @FXML private VBox overlayEdit;
+    @FXML private TextField editNamaSurat;
+    @FXML private TextField editKeterangan;
+    @FXML private TextField editFilePath;
+    @FXML private Button btnEdit;
+
     public Button btnFileChooser;
     public VBox overlayEditDataSurat;
     private Surat surat;
-
-    @FXML private VBox overlayEdit;
-
-    @FXML private TextField editNamaSurat;
-
-    @FXML private TextField editKeterangan;
-
-    @FXML private TextField editFilePath;
-
-    @FXML private Button btnEdit;
 
     @FXML
     public void initialize() {

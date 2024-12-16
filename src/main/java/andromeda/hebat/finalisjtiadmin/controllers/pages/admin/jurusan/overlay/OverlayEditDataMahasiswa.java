@@ -13,29 +13,19 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayEditDataMahasiswa {
-
-    public Button btnFileChooser;
     @FXML private VBox overlayEditDataMahasiswa;
-
     @FXML private TextField editNama;
-
     @FXML private TextField editNim;
-
     @FXML private TextField editJurusan;
-
     @FXML private TextField editProdi;
-
     @FXML private TextField editEmail;
-
     @FXML private PasswordField editPassword;
-
     @FXML private Button btnEdit;
-
     @FXML private TextField editTahunMasuk;
-
     @FXML private TextField editFotoProfil;
 
     private Mahasiswa mahasiswa;
+    public Button btnFileChooser;
 
    
     @FXML

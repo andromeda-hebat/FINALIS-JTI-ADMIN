@@ -13,25 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayTambahDataMahasiswa {
-
     @FXML private VBox overlayTambahMahasiswa;
-
     @FXML private TextField inputNama;
-
     @FXML private TextField inputNim;
-
     @FXML private TextField inputJurusan;
-
     @FXML private TextField inputProdi;
-
     @FXML private TextField inputEmail;
-
     @FXML private PasswordField inputPassword;
-
     @FXML private TextField inputTahunMasuk;
-
     @FXML private TextField inputFotoProfil;
-
     @FXML private Button btnTambahkan;
 
     private Mahasiswa mahasiswa;

@@ -19,21 +19,13 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class KelolaTemplateSuratController {
-
     @FXML private Button btnTambahSuratBaru;
-
     @FXML private TableView<Surat> tableViewSurat;
-
     @FXML private TableColumn<Surat, Integer> idSuratColumn;
-
     @FXML private  TableColumn<Surat, String> namaSuratColumn;
-
     @FXML private TableColumn<Surat, String> keperluanColumn;
-
     @FXML private TableColumn<Surat, String> filePathColumn;
-
     @FXML private TableColumn<Surat, Void> actionColumn;
-
     private ObservableList<Surat> suratList;
 
     public void initialize() {

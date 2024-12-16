@@ -14,23 +14,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayTambahAdmin {
-
     @FXML private VBox overlayTambahAdmin;
-
     @FXML private TextField inputIDAdmin;
-
     @FXML private TextField inputFullName;
-
     @FXML private TextField inputEmail;
-
     @FXML private ChoiceBox<String> inputPosition;
-
     @FXML private PasswordField inputPassword;
-
     @FXML private PasswordField inputConfirmedPassword;
-
     @FXML private TextField inputFotoProfil;
-
     @FXML private Button btnSubmitForm;
 
     private ObservableList positionList = FXCollections.observableArrayList();

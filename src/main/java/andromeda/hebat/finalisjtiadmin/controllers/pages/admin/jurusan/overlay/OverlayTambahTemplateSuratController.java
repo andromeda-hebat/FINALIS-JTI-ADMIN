@@ -12,17 +12,11 @@ import javafx.stage.Stage;
 import java.io.File;
 
 public class OverlayTambahTemplateSuratController {
-
     @FXML private VBox mainContainer;
-
     @FXML private TextField inputNamaSurat;
-
     @FXML private TextField inputKeterangan;
-
     @FXML private TextField inputFilePath;
-
     @FXML private Button btnFileChooser;
-
     @FXML private Button btnTambahkan;
 
     @FXML
