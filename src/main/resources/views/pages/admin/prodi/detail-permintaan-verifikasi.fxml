@@ -2,85 +2,86 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.DetailPermintaanProdiVerifikasiController">
-    <fx:include source="../../../components/admin/prodi/sidebar.fxml" />
-    <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
-        <children>
-            <fx:include source="../../../components/admin/topbar.fxml" />
-            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
-                <children>
-                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../img/arrow-left-square.png" />
-                        </image>
-                        <HBox.margin>
-                            <Insets right="20.0" />
-                        </HBox.margin>
-                    </ImageView>
-                    <Label fx:id="judulHalaman" text="Detail Permintaan">
-                        <font>
-                            <Font name="Reddit Sans Black" size="24.0" />
-                        </font>
-                    </Label>
-                </children>
-                <VBox.margin>
-                    <Insets left="20.0" right="20.0" top="30.0" />
-                </VBox.margin>
-            </HBox>
-         <VBox prefHeight="568.0" prefWidth="600.0">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.DetailPermintaanProdiVerifikasiController">
+   <fx:include source="../../../components/admin/prodi/sidebar.fxml" />
+   <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
+      <children>
+         <fx:include source="../../../components/admin/topbar.fxml" />
+         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+            <children>
+               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../../img/arrow-left-square.png" />
+                  </image>
+                  <HBox.margin>
+                     <Insets right="20.0" />
+                  </HBox.margin>
+               </ImageView>
+               <Label fx:id="judulHalaman" text="Detail Permintaan">
+                  <font>
+                     <Font name="Reddit Sans Black" size="24.0" />
+                  </font>
+               </Label>
+            </children>
+            <VBox.margin>
+               <Insets left="20.0" right="20.0" top="30.0" />
+            </VBox.margin>
+         </HBox>
+         <VBox prefHeight="568.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
             <children>
                <HBox fx:id="card1" prefHeight="100.0" prefWidth="200.0" style="-fx-border-radius: 15; -fx-border-color: black;">
                   <children>
-                     <VBox prefHeight="118.0" prefWidth="225.0">
+                     <VBox prefHeight="120.0" prefWidth="264.0" HBox.hgrow="ALWAYS">
                         <children>
+                           <HBox prefHeight="51.0" prefWidth="159.0">
+                              <children>
+                                 <Label prefHeight="26.0" prefWidth="167.0" text="Informasi Mahasiswa " HBox.hgrow="ALWAYS">
+                                    <font>
+                                       <Font name="Reddit Sans Bold" size="16.0" />
+                                    </font></Label>
+                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../img/info-circle.png" />
+                                    </image>
+                                 </ImageView>
+                              </children>
+                           </HBox>
                            <HBox prefHeight="100.0" prefWidth="200.0">
                               <children>
-                                 <VBox prefHeight="80.0" prefWidth="276.0">
+                                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../img/dummy-photo.jpg" />
+                                    </image>
+                                    <clip>
+                                       <Circle centerX="25" centerY="25" radius="25" />
+                                    </clip>
+
+                                    <HBox.margin>
+                                       <Insets bottom="10.0" right="10.0" top="10.0" />
+                                    </HBox.margin>
+                                 </ImageView>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="210.0">
                                     <children>
-                                       <HBox prefHeight="51.0" prefWidth="159.0">
-                                          <children>
-                                             <Label prefHeight="18.0" prefWidth="122.0" text="Informasi Mahasiswa " />
-                                             <ImageView fitHeight="25.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                   <Image url="@../../../../img/info-circle.png" />
-                                                </image>
-                                             </ImageView>
-                                          </children>
-                                       </HBox>
-                                       <HBox prefHeight="100.0" prefWidth="200.0">
-                                          <children>
-                                             <ImageView fitHeight="54.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                   <Image url="@../../img/Component%2051.png" />
-                                                </image>
-                                                <HBox.margin>
-                                                   <Insets bottom="10.0" right="10.0" top="10.0" />
-                                                </HBox.margin>
-                                             </ImageView>
-                                             <VBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="210.0">
-                                                <children>
-                                                   <Label prefHeight="18.0" prefWidth="210.0" text="Vladimir Putin" />
-                                                   <Label text="NIM 2341720101" />
-                                                </children>
-                                                <HBox.margin>
-                                                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                </HBox.margin>
-                                             </VBox>
-                                          </children>
-                                       </HBox>
+                                       <Label fx:id="textNamaLengkap" prefHeight="18.0" prefWidth="210.0" text="Sulaiman" />
+                                       <Label fx:id="textNim" text="NIM 2341720101" />
                                     </children>
+                                    <HBox.margin>
+                                       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </HBox.margin>
                                  </VBox>
                               </children>
                            </HBox>
@@ -89,7 +90,7 @@
                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                         </padding>
                      </VBox>
-                     <VBox prefHeight="110.0" prefWidth="384.0">
+                     <VBox prefHeight="110.0" prefWidth="384.0" HBox.hgrow="ALWAYS">
                         <children>
                            <HBox prefHeight="100.0" prefWidth="352.0">
                               <children>
@@ -97,8 +98,11 @@
                                     <children>
                                        <HBox prefHeight="51.0" prefWidth="159.0">
                                           <children>
-                                             <Label prefHeight="18.0" prefWidth="122.0" text="Informasi Permintaan" />
-                                             <ImageView fitHeight="25.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                             <Label prefHeight="26.0" prefWidth="180.0" text="Informasi Permintaan">
+                                                <font>
+                                                   <Font name="Reddit Sans Bold" size="16.0" />
+                                                </font></Label>
+                                             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
                                                    <Image url="@../../../../img/info-circle.png" />
                                                 </image>
@@ -119,7 +123,7 @@
                                              <VBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="233.0">
                                                 <children>
                                                    <Label prefHeight="18.0" prefWidth="210.0" text="ID" />
-                                                   <Label text="REQ-0100145" />
+                                                   <Label fx:id="textIDVerifikasi" text="REQ-0100145" />
                                                 </children>
                                                 <HBox.margin>
                                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -128,7 +132,7 @@
                                              <VBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="210.0">
                                                 <children>
                                                    <Label prefHeight="18.0" prefWidth="210.0" text="Status" />
-                                                   <Label text="Proses" />
+                                                   <Label fx:id="textStatus" text="Proses" />
                                                 </children>
                                              </VBox>
                                           </children>
@@ -157,7 +161,7 @@
                      <Insets left="20.0" right="20.0" top="20.0" />
                   </VBox.margin>
                </HBox>
-               <HBox fx:id="card11" prefHeight="358.0" prefWidth="560.0" style="-fx-border-radius: 15; -fx-border-color: black;">
+               <HBox fx:id="detailInfo" prefHeight="100.0" prefWidth="560.0" style="-fx-border-radius: 15; -fx-border-color: black;" stylesheets="@../../../../css/form.css" VBox.vgrow="ALWAYS">
                   <effect>
                      <DropShadow>
                         <color>
@@ -169,12 +173,16 @@
                      <Insets left="20.0" right="20.0" top="20.0" />
                   </VBox.margin>
                   <children>
-                     <VBox prefHeight="376.0" prefWidth="302.0">
+                     <VBox prefHeight="416.0" prefWidth="288.0" HBox.hgrow="ALWAYS">
                         <children>
                            <HBox prefHeight="23.0" prefWidth="282.0">
                               <children>
-                                 <Label prefHeight="18.0" prefWidth="122.0" text="Detail Informasi" />
-                                 <ImageView fitHeight="25.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <Label prefHeight="18.0" prefWidth="122.0" text="Detail Informasi">
+                                    <font>
+                                       <Font name="Reddit Sans Bold" size="14.0" />
+                                    </font>
+                                 </Label>
+                                 <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                        <Image url="@../../../../img/info-circle.png" />
                                     </image>
@@ -184,75 +192,89 @@
                                  <Insets bottom="15.0" left="20.0" right="15.0" top="20.0" />
                               </VBox.margin>
                            </HBox>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="Distribusi Laporan Skripsi" textFill="#7e7e7e">
+                           <Label prefHeight="10.0" prefWidth="251.0" text="Sertifikat TOEIC" textFill="#7e7e7e">
                               <VBox.margin>
                                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                               </VBox.margin>
                            </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="distribusilaporanskripsi.pdf">
+                           <TextField fx:id="inputSertifTOEIC" disable="true" editable="false" styleClass="input-field" text="sertifikat-toeic">
                               <VBox.margin>
-                                 <Insets bottom="20.0" left="15.0" right="15.0" />
+                                 <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
-                              <padding>
-                                 <Insets left="5.0" />
-                              </padding>
-                           </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="Distribusi Laporan Magang" textFill="#7e7e7e">
+                           </TextField>
+                           <Button mnemonicParsing="false" text="Buka file">
                               <VBox.margin>
-                                 <Insets bottom="5.0" left="15.0" right="15.0" />
+                                 <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>
-                           </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="distribusilaporanmagang.pdf">
-                              <padding>
-                                 <Insets left="5.0" />
-                              </padding>
-                              <VBox.margin>
-                                 <Insets bottom="20.0" left="15.0" right="15.0" />
-                              </VBox.margin>
-                           </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="Distribusi Laporan Kompensasi" textFill="#7e7e7e">
+                           </Button>
+                           <Label prefHeight="10.0" prefWidth="251.0" text="Laporan Distribusi Skripsi" textFill="#7e7e7e">
                               <VBox.margin>
                                  <Insets bottom="5.0" left="15.0" right="15.0" />
                               </VBox.margin>
                            </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="buktibebaskompensasi.pdf">
-                              <padding>
-                                 <Insets left="5.0" />
-                              </padding>
+                           <TextField fx:id="inputLaporanSkripsi" disable="true" editable="false" layoutX="36.0" layoutY="102.0" styleClass="input-field" text="laporan-distribusi-skripsi">
                               <VBox.margin>
-                                 <Insets bottom="20.0" left="15.0" right="15.0" />
+                                 <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
-                           </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="Sertifikat TOEIC" textFill="#7e7e7e">
+                           </TextField>
+                           <Button layoutX="36.0" layoutY="130.0" mnemonicParsing="false" text="Buka file">
+                              <VBox.margin>
+                                 <Insets bottom="20.0" left="15.0" />
+                              </VBox.margin>
+                           </Button>
+                           <Label prefHeight="10.0" prefWidth="251.0" text="Laporan Magang" textFill="#7e7e7e">
                               <VBox.margin>
                                  <Insets bottom="5.0" left="15.0" right="15.0" />
                               </VBox.margin>
                            </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="sertifikattoeic.pdf">
-                              <padding>
-                                 <Insets left="5.0" />
-                              </padding>
+                           <TextField fx:id="inputLaporanMagang" disable="true" editable="false" layoutX="36.0" layoutY="202.0" styleClass="input-field" text="laporan-magang">
                               <VBox.margin>
-                                 <Insets left="15.0" right="15.0" />
+                                 <Insets bottom="5.0" left="15.0" right="25.0" />
+                              </VBox.margin>
+                           </TextField>
+                           <Button layoutX="20.0" layoutY="237.0" mnemonicParsing="false" text="Buka file">
+                              <VBox.margin>
+                                 <Insets bottom="20.0" left="15.0" />
+                              </VBox.margin>
+                           </Button>
+                           <Label layoutX="36.0" layoutY="279.0" prefHeight="10.0" prefWidth="251.0" text="Surat Bebas Kompen" textFill="#7e7e7e">
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="15.0" right="15.0" />
                               </VBox.margin>
                            </Label>
+                           <TextField fx:id="inputSuratKompen" disable="true" editable="false" layoutX="36.0" layoutY="202.0" styleClass="input-field" text="surat-bebas-kompen" VBox.vgrow="ALWAYS">
+                              <VBox.margin>
+                                 <Insets bottom="5.0" left="15.0" right="25.0" />
+                              </VBox.margin>
+                           </TextField>
+                           <Button layoutX="36.0" layoutY="338.0" mnemonicParsing="false" text="Buka file">
+                              <VBox.margin>
+                                 <Insets bottom="20.0" left="15.0" />
+                              </VBox.margin>
+                           </Button>
                         </children>
                         <padding>
                            <Insets left="10.0" top="10.0" />
                         </padding>
                      </VBox>
-                     <VBox prefHeight="376.0" prefWidth="308.0">
+                     <VBox prefHeight="505.0" prefWidth="275.0" HBox.hgrow="ALWAYS">
                         <children>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="Distribusi Laporan Skripsi" textFill="#7e7e7e">
+                           <Label prefHeight="10.0" prefWidth="251.0" text="Proses Verifikasi">
                               <VBox.margin>
-                                 <Insets bottom="10.0" right="20.0" top="35.0" />
+                                 <Insets bottom="10.0" right="20.0" top="20.0" />
                               </VBox.margin>
+                              <font>
+                                 <Font name="Reddit Sans Bold" size="16.0" />
+                              </font>
                            </Label>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="Staff Administrasi Prodi" textFill="#7e7e7e" />
                            <HBox prefHeight="18.0" prefWidth="272.0">
                               <children>
-                                 <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="83.0" text="Verify" />
-                                 <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="150.0" text="Reject" />
+                                 <RadioButton fx:id="acceptRadioBtn" mnemonicParsing="false" text="Setuju">
+                                    <HBox.margin>
+                                       <Insets right="30.0" />
+                                    </HBox.margin>
+                                 </RadioButton>
+                                 <RadioButton fx:id="rejectRadioBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Tolak" />
                               </children>
                               <VBox.margin>
                                  <Insets left="10.0" top="10.0" />
@@ -263,7 +285,7 @@
                                  <Insets top="15.0" />
                               </VBox.margin>
                            </Label>
-                           <TextArea prefHeight="158.0" prefWidth="239.0">
+                           <TextArea fx:id="textAreaKeterangan" prefHeight="158.0" prefWidth="239.0" promptText="Tambahkan pesan verifikasi">
                               <VBox.margin>
                                  <Insets bottom="20.0" right="20.0" top="5.0" />
                               </VBox.margin>
@@ -275,13 +297,23 @@
                      </VBox>
                   </children>
                </HBox>
-               <Pane prefHeight="50.0" prefWidth="600.0">
-                  <children>
-                     <Button layoutX="463.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Button" />
-                  </children>
-               </Pane>
+               <BorderPane prefHeight="67.0" prefWidth="600.0">
+                  <right>
+                     <Button contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: #052C65;" text="Kirim" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <font>
+                           <Font name="Reddit Sans Regular" size="12.0" />
+                        </font>
+                        <BorderPane.margin>
+                           <Insets right="25.0" />
+                        </BorderPane.margin>
+                     </Button>
+                  </right>
+                  <VBox.margin>
+                     <Insets bottom="30.0" top="20.0" />
+                  </VBox.margin>
+               </BorderPane>
             </children>
          </VBox>
-        </children>
-    </VBox>
+      </children>
+   </VBox>
 </HBox>
