@@ -15,23 +15,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayEditDataAdmin {
-
     @FXML private VBox overlayEditDataAdmin;
-
     @FXML private TextField inputIDAdmin;
-
     @FXML private TextField inputFullName;
-
     @FXML private TextField inputEmail;
-
     @FXML private ChoiceBox<String> inputPosition;
-
     @FXML private PasswordField inputPassword;
-
     @FXML private PasswordField inputConfirmedPassword;
-
     @FXML private TextField inputFotoProfil;
-
     @FXML private Button btnSubmitForm;
 
     private ObservableList positionList = FXCollections.observableArrayList();
@@ -47,7 +38,7 @@ public class OverlayEditDataAdmin {
         inputIDAdmin.setText(admin.getUserId());
         inputFullName.setText(admin.getName());
         inputEmail.setText(admin.getEmail());
-        inputPosition.setValue(admin.getJabatan());
+        inputPosition.setValue(admin.getJabatan().getJenisAdminStr());
         inputPassword.setText(admin.getPassword());
         inputConfirmedPassword.setText(admin.getPassword());
         inputFotoProfil.setText(admin.getFotoProfil());
