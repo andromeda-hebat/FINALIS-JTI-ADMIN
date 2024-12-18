@@ -194,7 +194,7 @@
                                  <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
                            </TextField>
-                           <Button mnemonicParsing="false" text="Buka file">
+                           <Button fx:id="btnFileLaporanTA" mnemonicParsing="false" onAction="#btnFileLaporanTAOnClicked" text="Buka file">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>
@@ -209,7 +209,7 @@
                                  <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
                            </TextField>
-                           <Button layoutX="36.0" layoutY="130.0" mnemonicParsing="false" text="Buka file">
+                           <Button fx:id="btnFileAplikasi" layoutX="36.0" layoutY="130.0" mnemonicParsing="false" onAction="#btnFileAplikasiOnClicked" text="Buka file">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>
@@ -224,7 +224,7 @@
                                  <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
                            </TextField>
-                           <Button layoutX="20.0" layoutY="237.0" mnemonicParsing="false" text="Buka file">
+                           <Button fx:id="btnFilePublikasi" layoutX="20.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnFilePublikasiOnClicked" text="Buka file">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>

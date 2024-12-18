@@ -123,7 +123,6 @@ public class BerkasProdiRepository {
                 data.setDistribusiSkripsi(rs.getString("distribusi_skripsi"));
                 data.setMagang(rs.getString("distribusi_magang"));
                 data.setBebasKompen(rs.getString("surat_bebas_kompen"));
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
