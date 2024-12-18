@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.DetailPermintaanProdiVerifikasiController">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="1000.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.DetailPermintaanProdiVerifikasiController">
    <fx:include source="../../../components/admin/prodi/sidebar.fxml" />
    <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
       <children>
@@ -202,22 +195,22 @@
                                  <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
                            </TextField>
-                           <Button mnemonicParsing="false" text="Buka file">
+                           <Button fx:id="btnFileToeic" mnemonicParsing="false" onAction="#btnFileToeicOnClicked" text="Buka file">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>
                            </Button>
-                           <Label prefHeight="10.0" prefWidth="251.0" text="Laporan Distribusi Skripsi" textFill="#7e7e7e">
+                           <Label prefHeight="10.0" prefWidth="251.0" text="Laporan Distribusi TA" textFill="#7e7e7e">
                               <VBox.margin>
                                  <Insets bottom="5.0" left="15.0" right="15.0" />
                               </VBox.margin>
                            </Label>
-                           <TextField fx:id="inputLaporanSkripsi" disable="true" editable="false" layoutX="36.0" layoutY="102.0" styleClass="input-field" text="laporan-distribusi-skripsi">
+                           <TextField fx:id="inputLaporanTA" disable="true" editable="false" layoutX="36.0" layoutY="102.0" styleClass="input-field" text="laporan-distribusi-ta">
                               <VBox.margin>
                                  <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
                            </TextField>
-                           <Button layoutX="36.0" layoutY="130.0" mnemonicParsing="false" text="Buka file">
+                           <Button fx:id="btnFileLaporanTA" layoutX="36.0" layoutY="130.0" mnemonicParsing="false" onAction="#btnFileLaporanTAOnClicked" text="Buka file">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>
@@ -232,7 +225,7 @@
                                  <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
                            </TextField>
-                           <Button layoutX="20.0" layoutY="237.0" mnemonicParsing="false" text="Buka file">
+                           <Button fx:id="btnFileLaporanMagang" layoutX="20.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnFileLaporanMagangOnClicked" text="Buka file">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>
@@ -247,7 +240,7 @@
                                  <Insets bottom="5.0" left="15.0" right="25.0" />
                               </VBox.margin>
                            </TextField>
-                           <Button layoutX="36.0" layoutY="338.0" mnemonicParsing="false" text="Buka file">
+                           <Button fx:id="btnFileSuratKompen" layoutX="36.0" layoutY="338.0" mnemonicParsing="false" onAction="#btnFileSuratKompenOnClicked" text="Buka file">
                               <VBox.margin>
                                  <Insets bottom="20.0" left="15.0" />
                               </VBox.margin>
