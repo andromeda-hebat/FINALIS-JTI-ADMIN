@@ -14,7 +14,7 @@
         <Label text="Surat" />
         <TextField fx:id="editNamaSurat" />
         <Label text="Keperluan" />
-        <TextField fx:id="editKeterangan" />
+        <TextField fx:id="editKeperluan" />
         <Label text="File" />
         <TextField fx:id="editFilePath" />
         <Button fx:id="btnFileChooser" mnemonicParsing="false" onAction="#onBrowse" text="Unggah File" textFill="#052c65">
