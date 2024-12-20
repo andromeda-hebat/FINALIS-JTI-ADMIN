@@ -12,7 +12,7 @@
     <fx:include source="../../../components/admin/ta/sidebar.fxml" />
     <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" HBox.hgrow="ALWAYS">
         <children>
-            <fx:include source="../../../components/admin/topbar.fxml" />
+            <fx:include fx:id="topbarComponent" source="../../../components/admin/topbar.fxml" />
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="81.0" prefWidth="661.0">
                 <children>
                     <Label prefHeight="67.0" prefWidth="295.0" text="Dashboard" textFill="#052c65">
