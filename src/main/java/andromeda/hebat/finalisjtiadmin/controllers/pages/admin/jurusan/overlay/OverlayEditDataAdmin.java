@@ -78,6 +78,12 @@ public class OverlayEditDataAdmin {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil memperbarui data admin!");
                 alert.showAndWait();
+            } else {
+                Stage overlayStage = (Stage) overlayEditDataAdmin.getScene().getWindow();
+                overlayStage.close();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Gagal memperbarui data admin!");
+                alert.showAndWait();
             }
         } catch (SQLException e) {
             e.printStackTrace();
