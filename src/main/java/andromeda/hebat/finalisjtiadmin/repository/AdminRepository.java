@@ -13,10 +13,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UserRepository {
+public class AdminRepository {
     /**
      * Verifies the credentials of a user by querying the local database.
      * This method connects to the database directly using Java code,
@@ -102,7 +101,13 @@ public class UserRepository {
         ObservableList<Admin> result = FXCollections.observableArrayList();;
         try (Statement stmt = Database.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery("""
-             SELECT * FROM USERS.Admin;
+             SELECT
+                id_admin,
+                nama_lengkap,
+                password, 
+                email, 
+                jabatan
+             FROM USERS.Admin
              """)) {
             while (rs.next()) {
                 result.add(new Admin(
