@@ -3,6 +3,7 @@ package andromeda.hebat.finalisjtiadmin.controllers.pages.general;
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
 import andromeda.hebat.finalisjtiadmin.repository.UserRepository;
+import andromeda.hebat.finalisjtiadmin.session.UserSession;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -40,10 +41,13 @@ public class LoginController {
                     break;
             }
 
+            UserSession.getInstance().setAdmin(currentAdmin);
+
             ((Stage) loginScene.getScene().getWindow()).close();
             Stage mainStage = new Stage();
             mainStage.setTitle("FINALIS JTI");
             mainStage.getIcons().add(new Image(getClass().getResource("/icons/finalis-jti.png").toExternalForm()));
+
             SceneHelper.changeScene(mainStage, fxmlFile);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "You are not authenticated. Please log in to continue.",

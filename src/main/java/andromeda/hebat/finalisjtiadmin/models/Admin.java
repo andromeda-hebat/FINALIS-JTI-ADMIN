@@ -22,6 +22,19 @@ public class Admin {
         }
     }
 
+    public Admin(String userId, String name, String password, String email, String jabatan, String fotoProfil) {
+        this.userId = userId;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        switch (jabatan) {
+            case "Admin Jurusan": this.jabatan = JenisAdmin.ADMIN_JURUSAN; break;
+            case "Admin Prodi": this.jabatan = JenisAdmin.ADMIN_PRODI; break;
+            case "Admin TA": this.jabatan = JenisAdmin.ADMIN_TA; break;
+        }
+        this.fotoProfil = fotoProfil;
+    }
+
     public String getUserId() {
         return userId;
     }

@@ -13,6 +13,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UserRepository {
@@ -47,6 +48,7 @@ public class UserRepository {
                     admin.setPassword(rs.getString("password"));
                     admin.setEmail(rs.getString("email"));
                     admin.setJabatan(rs.getString("jabatan"));
+                    admin.setFotoProfil(rs.getString("foto_profil"));
                 }
             }
         } catch (Exception e) {
