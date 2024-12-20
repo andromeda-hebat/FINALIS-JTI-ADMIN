@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.io.File;
 import java.sql.PreparedStatement;
@@ -23,6 +24,7 @@ public class OverlayTambahDataMahasiswa {
     @FXML private TextField inputTahunMasuk;
     @FXML private TextField inputFotoProfil;
     @FXML private Button btnTambahkan;
+    private String base64PhotoProfile;
 
     private Mahasiswa mahasiswa;
 
@@ -57,10 +59,10 @@ public class OverlayTambahDataMahasiswa {
             VALUES (?, ?, ?, ?, ?, ?, ? , ?);
         """;
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
-          
+            String hashedPassword = BCrypt.hashpw(inputPassword.getText(), BCrypt.gensalt());
             stmt.setString(1, inputNim.getText());
             stmt.setString(2, inputNama.getText());
-            stmt.setString(3, inputPassword.getText());
+            stmt.setString(3, hashedPassword);
             stmt.setString(4, inputEmail.getText());
             stmt.setString(5, inputJurusan.getText());
             stmt.setString(6, inputProdi.getText());
@@ -73,10 +75,15 @@ public class OverlayTambahDataMahasiswa {
                 Stage overlayStage = (Stage) overlayTambahMahasiswa.getScene().getWindow();
                 overlayStage.close();
                 
-                
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil");
                 alert.setHeaderText("Data mahasiswa berhasil ditambahkan!");
+                alert.showAndWait();
+            } else {
+                Stage overlayStage = (Stage) overlayTambahMahasiswa.getScene().getWindow();
+                overlayStage.close();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Gagal menambahkan data mahasiswa baru!");
                 alert.showAndWait();
             }
         } catch (SQLException e) {
@@ -98,6 +105,12 @@ public class OverlayTambahDataMahasiswa {
         File selectedFile = fileChooser.showOpenDialog(new Stage());
         if (selectedFile != null) {
             inputFotoProfil.setText(selectedFile.getName());
+//            try {
+//                byte[] fileContent = Files.readAllBytes(selectedFile.toPath());
+//                base64PhotoProfile = Base64.getEncoder().encodeToString(fileContent);
+//            } catch (IOException ex) {
+//                ex.printStackTrace();
+//            }
         }
     }
 }
