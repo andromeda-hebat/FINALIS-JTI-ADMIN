@@ -8,10 +8,14 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Base64;
 
 public class OverlayTambahAdmin {
     @FXML private VBox overlayTambahAdmin;
@@ -23,6 +27,7 @@ public class OverlayTambahAdmin {
     @FXML private PasswordField inputConfirmedPassword;
     @FXML private TextField inputFotoProfil;
     @FXML private Button btnSubmitForm;
+    private String base64PhotoProfile;
 
     private ObservableList positionList = FXCollections.observableArrayList();
 
@@ -48,12 +53,13 @@ public class OverlayTambahAdmin {
         """;
 
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
+            String hashedPassword = BCrypt.hashpw(inputPassword.getText(), BCrypt.gensalt());
             stmt.setString(1, inputIDAdmin.getText());
             stmt.setString(2, inputFullName.getText());
-            stmt.setString(3, inputPassword.getText());
+            stmt.setString(3, hashedPassword);
             stmt.setString(4, inputEmail.getText());
             stmt.setString(5, inputPosition.getValue());
-            stmt.setString(6, inputFotoProfil.getText());
+            stmt.setString(6, base64PhotoProfile);
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -61,6 +67,12 @@ public class OverlayTambahAdmin {
                 overlayStage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil menambahkan data admin baru!");
+                alert.showAndWait();
+            } else {
+                Stage overlayStage = (Stage) overlayTambahAdmin.getScene().getWindow();
+                overlayStage.close();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Gagal menambahkan data admin baru!");
                 alert.showAndWait();
             }
         } catch (SQLException e) {
@@ -77,6 +89,12 @@ public class OverlayTambahAdmin {
         File selectedFile = fileChooser.showOpenDialog(new Stage());
         if (selectedFile != null) {
             inputFotoProfil.setText(selectedFile.getName());
+            try {
+                byte[] fileContent = Files.readAllBytes(selectedFile.toPath());
+                base64PhotoProfile = Base64.getEncoder().encodeToString(fileContent);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 }
