@@ -2,7 +2,7 @@ package andromeda.hebat.finalisjtiadmin.controllers.pages.general;
 
 import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
-import andromeda.hebat.finalisjtiadmin.repository.UserRepository;
+import andromeda.hebat.finalisjtiadmin.repository.AdminRepository;
 import andromeda.hebat.finalisjtiadmin.session.UserSession;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -24,7 +24,7 @@ public class LoginController {
         final String password = inputFieldPassword.getText();
         String fxmlFile = null;
 
-        Admin currentAdmin = UserRepository.getUserByIDAndPassword(userID, password);
+        Admin currentAdmin = AdminRepository.getUserByIDAndPassword(userID, password);
         if (currentAdmin != null) {
             switch (currentAdmin.getJabatan()) {
                 case ADMIN_JURUSAN:

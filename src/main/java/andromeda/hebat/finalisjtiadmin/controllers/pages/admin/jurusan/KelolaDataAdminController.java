@@ -4,7 +4,7 @@ import andromeda.hebat.finalisjtiadmin.Main;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteDataAdmin;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataAdmin;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
-import andromeda.hebat.finalisjtiadmin.repository.UserRepository;
+import andromeda.hebat.finalisjtiadmin.repository.AdminRepository;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -34,7 +34,7 @@ public class KelolaDataAdminController {
     @FXML
     public void initialize() {
         adminList = FXCollections.observableArrayList();
-        adminList.setAll(UserRepository.getAllAdmin());
+        adminList.setAll(AdminRepository.getAllAdmin());
 
         numberColumn.setCellValueFactory((TableColumn.CellDataFeatures<Admin, Integer> cellData) -> {
             int index = tableViewAdmin.getItems().indexOf(cellData.getValue()) + 1;

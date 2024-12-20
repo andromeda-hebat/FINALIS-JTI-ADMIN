@@ -3,8 +3,8 @@ package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteDataMahasiswa;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataMahasiswa;
 import andromeda.hebat.finalisjtiadmin.Main;
-import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
+import andromeda.hebat.finalisjtiadmin.repository.MahasiswaRepository;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
@@ -15,9 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 
 public class KelolaDataMahasiswaController {
@@ -30,14 +27,14 @@ public class KelolaDataMahasiswaController {
     @FXML private TableColumn<Mahasiswa, String> columnJurusan;
     @FXML private TableColumn<Mahasiswa, String> columnProdi;
     @FXML private TableColumn<Mahasiswa, Void> columnAction;
-    private ObservableList<Mahasiswa> mahasiswaList = FXCollections.observableArrayList();
+    private ObservableList<Mahasiswa> mahasiswaList;
     private ComboBox<Object> actionColumn;
 
     @FXML
     public void initialize() {
         btnTambahkanMhs.setOnAction(event -> openOverlayTambahMahasiswa());
         mahasiswaList = FXCollections.observableArrayList();
-        getAllMahasiswa();
+        mahasiswaList.setAll(MahasiswaRepository.getAllMahasiswa());
 
         columnNo.setCellValueFactory((TableColumn.CellDataFeatures<Mahasiswa, Integer> cellData) -> {
             int index = tableViewMahasiswa.getItems().indexOf(cellData.getValue()) + 1;
@@ -81,24 +78,6 @@ public class KelolaDataMahasiswaController {
         });
 
         tableViewMahasiswa.setItems(mahasiswaList);
-    }
-
-    private void getAllMahasiswa() {
-        String query = "SELECT * FROM USERS.Mahasiswa";
-        try (Statement stmt = Database.getConnection().createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
-            while (rs.next()) {
-                String nim = rs.getString("nim");
-                String nama = rs.getString("nama_lengkap");
-                String password = rs.getString("password");
-                String email = rs.getString("email");
-                String jurusan = rs.getString("jurusan");
-                String prodi = rs.getString("prodi");
-                mahasiswaList.add(new Mahasiswa(nim, nama, password, email, jurusan, prodi));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 
