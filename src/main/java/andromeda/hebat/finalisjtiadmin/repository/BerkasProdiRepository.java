@@ -131,5 +131,30 @@ public class BerkasProdiRepository {
         return data;
     }
 
+    public static String updateVerifyStatus(String idBerkas, String statusVerifikasi, String keteranganVerifikasi, String idAdmin) {
+        try (PreparedStatement stmt = Database.getConnection().prepareCall("""
+                EXEC sp_UpdateVerifikasiBerkasProdi
+                    @id_berkas = ?,
+                    @status_verifikasi = ?,
+                    @keterangan_verifikasi = ?,
+                    @id_admin = ?
+                """)) {
+            stmt.setString(1, idBerkas);
+            stmt.setString(2, statusVerifikasi);
+            stmt.setString(3, keteranganVerifikasi);
+            stmt.setString(4, idAdmin);
+
+            int affectedRows = stmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                return "success";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "fail";
+    }
+
 
 }
