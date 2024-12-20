@@ -77,6 +77,12 @@ public class OverlayEditDataMahasiswa {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil memperbarui data mahasiswa!");
                 alert.showAndWait();
+            } else {
+                Stage overlayStage = (Stage) overlayEditDataMahasiswa.getScene().getWindow();
+                overlayStage.close();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Berhasil memperbarui data mahasiswa!");
+                alert.showAndWait();
             }
         } catch (SQLException e) {
             e.printStackTrace();
