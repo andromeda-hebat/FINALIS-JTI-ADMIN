@@ -13,9 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OverlayEditDataSurat {
-    @FXML private VBox overlayEdit;
     @FXML private TextField editNamaSurat;
-    @FXML private TextField editKeterangan;
+    @FXML private TextField editKeperluan;
     @FXML private TextField editFilePath;
     @FXML private Button btnEdit;
 
@@ -31,7 +30,7 @@ public class OverlayEditDataSurat {
     public void fillData(Surat surat) {
         this.surat = surat;
         editNamaSurat.setText(surat.getNamaSurat());
-        editKeterangan.setText(surat.getKeperluan());
+        editKeperluan.setText(surat.getKeperluan());
         editFilePath.setText(surat.getFileSurat());
 
     }
@@ -41,18 +40,18 @@ public class OverlayEditDataSurat {
                 UPDATE TEMP.Surat 
                 SET
                     nama_surat = ?,
-                    keterangan = ?,
-                    file_path = ?
+                    keperluan_surat = ?,
+                    file_surat = ?
                 """;
 
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
             stmt.setString(1, editNamaSurat.getText());
-            stmt.setString(2, editKeterangan.getText());
+            stmt.setString(2, editKeperluan.getText());
             stmt.setString(3, editFilePath.getText());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
-                Stage overlayStage = (Stage) overlayEdit.getScene().getWindow();
+                Stage overlayStage = (Stage) overlayEditDataSurat.getScene().getWindow();
                 overlayStage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil memperbarui data template surat!");
@@ -67,9 +66,9 @@ public class OverlayEditDataSurat {
     @FXML
     public void onBrowse() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Cari file foto");
+        fileChooser.setTitle("Cari file Surat");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("FIles", "*.pdf"));
+                new FileChooser.ExtensionFilter("Files", "*.pdf"));
         File selectedFile = fileChooser.showOpenDialog(new Stage());
         if (selectedFile != null) {
             editFilePath.setText(selectedFile.getName());
