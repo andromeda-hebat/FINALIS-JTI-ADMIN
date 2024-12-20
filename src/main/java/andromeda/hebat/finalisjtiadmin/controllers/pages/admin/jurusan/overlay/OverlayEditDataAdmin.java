@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class OverlayEditDataAdmin {
@@ -41,7 +42,22 @@ public class OverlayEditDataAdmin {
         inputPosition.setValue(admin.getJabatan().getJenisAdminStr());
         inputPassword.setText(admin.getPassword());
         inputConfirmedPassword.setText(admin.getPassword());
-        inputFotoProfil.setText(admin.getFotoProfil());
+        getPhotoProfile();
+    }
+
+    private void getPhotoProfile() {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+                SELECT foto_profil WHERE id_admin = ?
+                """)) {
+            stmt.setString(1, inputIDAdmin.getText());
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                inputFotoProfil.setText(rs.getString("foto_profil"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateData() {
@@ -68,8 +84,8 @@ public class OverlayEditDataAdmin {
             stmt.setString(2, inputPassword.getText());
             stmt.setString(3, inputEmail.getText());
             stmt.setString(4, inputPosition.getValue());
-            stmt.setString(5, inputIDAdmin.getText());
-            stmt.setString(6, inputFotoProfil.getText());
+            stmt.setString(5, inputFotoProfil.getText());
+            stmt.setString(6, inputIDAdmin.getText());
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
