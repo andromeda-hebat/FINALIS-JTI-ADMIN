@@ -262,7 +262,7 @@
                                  <Insets top="15.0" />
                               </VBox.margin>
                            </Label>
-                           <TextArea prefHeight="158.0" prefWidth="239.0" promptText="Tambahkan pesan verifikasi">
+                           <TextArea fx:id="keteranganVerifikasi" prefHeight="158.0" prefWidth="239.0" promptText="Tambahkan pesan verifikasi">
                               <VBox.margin>
                                  <Insets bottom="20.0" right="20.0" top="5.0" />
                               </VBox.margin>
@@ -276,7 +276,7 @@
                </HBox>
                <BorderPane prefHeight="67.0" prefWidth="600.0">
                   <right>
-                     <Button contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: #052C65;" text="Kirim" textFill="WHITE" BorderPane.alignment="CENTER">
+                     <Button fx:id="btnKirim" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#updateVerification" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: #052C65;" text="Kirim" textFill="WHITE" BorderPane.alignment="CENTER">
                         <font>
                            <Font name="Reddit Sans Regular" size="12.0" />
                         </font>
