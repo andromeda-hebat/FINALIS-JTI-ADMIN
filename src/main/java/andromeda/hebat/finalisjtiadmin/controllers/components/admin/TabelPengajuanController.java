@@ -1,10 +1,8 @@
 package andromeda.hebat.finalisjtiadmin.controllers.components.admin;
 
 import andromeda.hebat.finalisjtiadmin.Main;
-import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataAdmin;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.prodi.DetailPermintaanProdiVerifikasiController;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.ta.DetailPermintaanTAVerifikasiController;
-import andromeda.hebat.finalisjtiadmin.helper.SceneHelper;
 import andromeda.hebat.finalisjtiadmin.models.BerkasPengajuan;
 import andromeda.hebat.finalisjtiadmin.models.JenisBerkas;
 import andromeda.hebat.finalisjtiadmin.repository.BerkasProdiRepository;
