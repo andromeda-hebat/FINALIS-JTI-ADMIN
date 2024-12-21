@@ -221,4 +221,23 @@ public class AdminRepository {
             e.printStackTrace();
         }
     }
+
+    public static String deleteAdmin(String adminID) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            DELETE 
+            FROM USERS.Admin 
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, adminID);
+
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted > 0) {
+                return "success";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "failed";
+    }
 }

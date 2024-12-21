@@ -8,6 +8,7 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -83,6 +84,7 @@ public class KelolaAdminController {
                     setGraphic(null);
                 } else {
                     HBox hbox = new HBox(5);
+                    hbox.setAlignment(Pos.CENTER);
                     hbox.getChildren().addAll(deleteBtn);
                     setGraphic(hbox);
                 }
@@ -115,7 +117,7 @@ public class KelolaAdminController {
             Parent root = fxmlLoader.load();
 
             OverlayDeleteAdminController controller = fxmlLoader.getController();
-            controller.fillData(admin);
+            controller.fillData(admin, adminList);
 
             Scene scene = new Scene(root, 400, 450);
             overlay.setScene(scene);
