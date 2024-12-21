@@ -13,6 +13,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AdminRepository {
@@ -27,11 +28,19 @@ public class AdminRepository {
      * @return an {@code Admin} object representing the verified admin user if
      *          credentials are valid; otherwise, returns {@code null}.
      */
-    public static Admin getUserByIDAndPassword(String userID, String password) {
-        String query = "SELECT * FROM USERS.Admin WHERE id_admin = ?";
+    public static Admin getAdminByIDAndPassword(String userID, String password) {
         Admin admin = null;
 
-        try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            SELECT 
+                id_admin,
+                nama_lengkap,
+                password,
+                email,
+                jabatan
+            FROM USERS.Admin 
+            WHERE id_admin = ?
+            """)) {
             stmt.setString(1, userID);
 
             ResultSet rs = stmt.executeQuery();
@@ -47,14 +56,35 @@ public class AdminRepository {
                     admin.setPassword(rs.getString("password"));
                     admin.setEmail(rs.getString("email"));
                     admin.setJabatan(rs.getString("jabatan"));
-                    admin.setFotoProfil(rs.getString("foto_profil"));
+                    admin.setFotoProfil(getAdminPhotoProfile(admin.getUserId()));
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return admin;
+    }
+
+    public static String getAdminPhotoProfile(String userID) {
+        String result = null;
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            SELECT foto_profil
+            FROM USERS.Admin
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, userID);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                result = rs.getString("foto_profil");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
     /**
@@ -123,5 +153,91 @@ public class AdminRepository {
         }
 
         return result;
+    }
+
+    public static String insertNewAdmin(Admin admin) throws SQLException {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            INSERT INTO USERS.Admin
+            VALUES
+            (?, ?, ?, ?, ?, ?)
+            """)) {
+            String hashedPassword = BCrypt.hashpw(admin.getPassword(), BCrypt.gensalt());
+            stmt.setString(1, admin.getUserId());
+            stmt.setString(2, admin.getName());
+            stmt.setString(3, hashedPassword);
+            stmt.setString(4, admin.getEmail());
+            stmt.setString(5, admin.getJabatan().getJenisAdminStr());
+            stmt.setString(6, admin.getFotoProfil());
+
+            int rowsAffected = stmt.executeUpdate();
+            return (rowsAffected > 0) ? "success" : "failed";
+        }
+    }
+
+    public static void updateAdminFullName(String idAdmin, String fullName) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            UPDATE USERS.Admin
+            SET 
+                nama_lengkap = ?
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, fullName);
+            stmt.setString(2, idAdmin);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateAdminEmail(String idAdmin, String email) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            UPDATE USERS.Admin
+            SET
+                email = ?
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, email);
+            stmt.setString(2, idAdmin);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateAdminJabatan(String idAdmin, String jabatan) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            UPDATE USERS.Admin
+            SET
+                jabatan = ?
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, jabatan);
+            stmt.setString(2, idAdmin);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String deleteAdmin(String adminID) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            DELETE 
+            FROM USERS.Admin 
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, adminID);
+
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted > 0) {
+                return "success";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "failed";
     }
 }

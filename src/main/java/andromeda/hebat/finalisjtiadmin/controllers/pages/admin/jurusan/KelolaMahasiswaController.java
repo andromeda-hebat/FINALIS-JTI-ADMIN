@@ -1,7 +1,6 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan;
 
-import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteMahasiswa;
-import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditMahasiswa;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteMahasiswaController;
 import andromeda.hebat.finalisjtiadmin.Main;
 import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
 import andromeda.hebat.finalisjtiadmin.repository.MahasiswaRepository;
@@ -11,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -49,16 +49,9 @@ public class KelolaMahasiswaController {
         columnTahunMasuk.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTahunAngkatan()));
 
         columnAction.setCellFactory(tc -> new TableCell<Mahasiswa, Void>() {
-            private final Button editBtn = new Button("Edit");
             private final Button deleteBtn = new Button("Hapus");
 
             {
-                editBtn.getStyleClass().add("edit");
-                editBtn.setOnAction(event -> {
-                    Mahasiswa mahasiswa = getTableView().getItems().get(getIndex());
-                    openOverlayEditMahasiswa(mahasiswa);
-                });
-
                 deleteBtn.getStyleClass().add("delete");
                 deleteBtn.setOnAction(event -> {
                     Mahasiswa mahasiswa = getTableView().getItems().get(getIndex());
@@ -73,7 +66,8 @@ public class KelolaMahasiswaController {
                     setGraphic(null);
                 } else {
                     HBox hbox = new HBox(5);
-                    hbox.getChildren().addAll(editBtn, deleteBtn);
+                    hbox.setAlignment(Pos.CENTER);
+                    hbox.getChildren().addAll(deleteBtn);
                     setGraphic(hbox);
                 }
             }
@@ -97,25 +91,6 @@ public class KelolaMahasiswaController {
         }
     }
 
-    public void openOverlayEditMahasiswa(Mahasiswa mahasiswa){
-        try {
-            Stage overlay = new Stage();
-            overlay.setTitle("Edit Data mahasiswa");
-
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-edit-mahasiswa.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 500, 600);
-            overlay.setScene(scene);
-
-            OverlayEditMahasiswa controller = fxmlLoader.getController();
-
-            controller.fillData(mahasiswa);
-
-            overlay.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void openOverlayHapusMahasiswa(Mahasiswa mahasiswa){
         try {
             Stage overlay = new Stage();
@@ -124,7 +99,7 @@ public class KelolaMahasiswaController {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-hapus-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 450);
 
-            OverlayDeleteMahasiswa overlayController = fxmlLoader.getController();
+            OverlayDeleteMahasiswaController overlayController = fxmlLoader.getController();
             overlayController.fillData(mahasiswa);
 
             overlay.setScene(scene);

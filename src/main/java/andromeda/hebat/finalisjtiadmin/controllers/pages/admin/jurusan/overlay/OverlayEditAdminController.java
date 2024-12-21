@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class OverlayEditDataAdmin {
+public class OverlayEditAdminController {
     @FXML private VBox overlayEditDataAdmin;
     @FXML private TextField inputIDAdmin;
     @FXML private TextField inputFullName;
