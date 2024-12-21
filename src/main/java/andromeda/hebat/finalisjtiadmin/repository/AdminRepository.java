@@ -144,4 +144,52 @@ public class AdminRepository {
             return (rowsAffected > 0) ? "success" : "failed";
         }
     }
+
+    public static void updateAdminFullName(String idAdmin, String fullName) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            UPDATE USERS.Admin
+            SET 
+                nama_lengkap = ?
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, fullName);
+            stmt.setString(2, idAdmin);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateAdminEmail(String idAdmin, String email) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            UPDATE USERS.Admin
+            SET
+                email = ?
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, email);
+            stmt.setString(2, idAdmin);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateAdminJabatan(String idAdmin, String jabatan) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            UPDATE USERS.Admin
+            SET
+                jabatan = ?
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, jabatan);
+            stmt.setString(2, idAdmin);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

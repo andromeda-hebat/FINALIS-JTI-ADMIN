@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.KelolaDataAdminController">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.KelolaAdminController">
     <fx:include source="../../../components/admin/jurusan/sidebar.fxml" />
    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" style="-fx-cursor: hand;" HBox.hgrow="ALWAYS">
       <children>
@@ -31,10 +31,10 @@
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding></Button>
-               <TableView fx:id="tableViewAdmin" style="-fx-border-color: #E4EEFF; -fx-border-width: 2px;" stylesheets="@../../../../css/table-view.css" VBox.vgrow="ALWAYS">
+               <TableView fx:id="tableViewAdmin" editable="true" stylesheets="@../../../../css/table-view.css" VBox.vgrow="ALWAYS">
                  <columns>
                    <TableColumn fx:id="numberColumn" prefWidth="75.0" text="No" />
-                     <TableColumn fx:id="adminIDColumn" prefWidth="120.20004272460938" styleClass=".table-header" text="ID" />
+                     <TableColumn fx:id="adminIDColumn" prefWidth="120.20004272460938" text="ID" />
                    <TableColumn fx:id="fullNameColumn" prefWidth="151.60003662109375" text="Nama Lengkap" />
                      <TableColumn fx:id="emailColumn" prefWidth="143.60003662109375" text="Email" />
                      <TableColumn fx:id="positionColumn" prefWidth="76.39996337890625" text="Jabatan" />
