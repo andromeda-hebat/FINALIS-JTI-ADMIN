@@ -13,6 +13,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AdminRepository {
@@ -123,5 +124,24 @@ public class AdminRepository {
         }
 
         return result;
+    }
+
+    public static String insertNewAdmin(Admin admin) throws SQLException {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            INSERT INTO USERS.Admin
+            VALUES
+            (?, ?, ?, ?, ?, ?)
+            """)) {
+            String hashedPassword = BCrypt.hashpw(admin.getPassword(), BCrypt.gensalt());
+            stmt.setString(1, admin.getUserId());
+            stmt.setString(2, admin.getName());
+            stmt.setString(3, hashedPassword);
+            stmt.setString(4, admin.getEmail());
+            stmt.setString(5, admin.getJabatan().getJenisAdminStr());
+            stmt.setString(6, admin.getFotoProfil());
+
+            int rowsAffected = stmt.executeUpdate();
+            return (rowsAffected > 0) ? "success" : "failed";
+        }
     }
 }
