@@ -10,14 +10,15 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class OverlayEditDataMahasiswa {
+public class OverlayEditMahasiswa {
     @FXML private VBox overlayEditDataMahasiswa;
     @FXML private TextField editNama;
     @FXML private TextField editNim;
     @FXML private TextField editJurusan;
-    @FXML private TextField editProdi;
+    @FXML private ChoiceBox<String> inputProdi;
     @FXML private TextField editEmail;
     @FXML private PasswordField editPassword;
     @FXML private Button btnEdit;
@@ -25,12 +26,13 @@ public class OverlayEditDataMahasiswa {
     @FXML private TextField editFotoProfil;
 
     private Mahasiswa mahasiswa;
-    public Button btnFileChooser;
+    private String hashedPassword;
+    private String base64PhotoProfile;
 
    
     @FXML
     public void initialize() {
-        btnEdit.setOnAction(event -> updateData());
+
     }
 
 
@@ -40,10 +42,27 @@ public class OverlayEditDataMahasiswa {
         editNama.setText(mahasiswa.getNama());
         editEmail.setText(mahasiswa.getEmail());
         editJurusan.setText(mahasiswa.getJurusan());
-        editProdi.setText(mahasiswa.getProdi());
-        editPassword.setText(mahasiswa.getPassword());
+        inputProdi.setValue(mahasiswa.getProdi());
+        hashedPassword = mahasiswa.getPassword();
         editTahunMasuk.setText(mahasiswa.getTahunAngkatan());
-        editFotoProfil.setText(mahasiswa.getFotoProfil());
+        getPhotoProfile();
+    }
+
+    private void getPhotoProfile() {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+                SELECT foto_profil
+                FROM USERS.Mahasiswa
+                WHERE nim = ?
+                """)) {
+            stmt.setString(1, editNim.getText());
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                base64PhotoProfile = rs.getString("foto_profil");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateData() {
@@ -65,7 +84,7 @@ public class OverlayEditDataMahasiswa {
             stmt.setString(2, editPassword.getText());
             stmt.setString(3, editEmail.getText());
             stmt.setString(4, editJurusan.getText());
-            stmt.setString(5, editProdi.getText());
+            stmt.setString(5, inputProdi.getValue());
             stmt.setString(6, editNim.getText());
             stmt.setString(7, editTahunMasuk.getText());
             stmt.setString(8, editFotoProfil.getText());
