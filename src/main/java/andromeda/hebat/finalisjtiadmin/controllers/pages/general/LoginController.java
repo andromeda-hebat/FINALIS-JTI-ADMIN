@@ -24,7 +24,7 @@ public class LoginController {
         final String password = inputFieldPassword.getText();
         String fxmlFile = null;
 
-        Admin currentAdmin = AdminRepository.getUserByIDAndPassword(userID, password);
+        Admin currentAdmin = AdminRepository.getAdminByIDAndPassword(userID, password);
         if (currentAdmin != null) {
             switch (currentAdmin.getJabatan()) {
                 case ADMIN_JURUSAN:

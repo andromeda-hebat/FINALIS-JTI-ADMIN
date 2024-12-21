@@ -28,11 +28,19 @@ public class AdminRepository {
      * @return an {@code Admin} object representing the verified admin user if
      *          credentials are valid; otherwise, returns {@code null}.
      */
-    public static Admin getUserByIDAndPassword(String userID, String password) {
-        String query = "SELECT * FROM USERS.Admin WHERE id_admin = ?";
+    public static Admin getAdminByIDAndPassword(String userID, String password) {
         Admin admin = null;
 
-        try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            SELECT 
+                id_admin,
+                nama_lengkap,
+                password,
+                email,
+                jabatan
+            FROM USERS.Admin 
+            WHERE id_admin = ?
+            """)) {
             stmt.setString(1, userID);
 
             ResultSet rs = stmt.executeQuery();
@@ -48,14 +56,35 @@ public class AdminRepository {
                     admin.setPassword(rs.getString("password"));
                     admin.setEmail(rs.getString("email"));
                     admin.setJabatan(rs.getString("jabatan"));
-                    admin.setFotoProfil(rs.getString("foto_profil"));
+                    admin.setFotoProfil(getAdminPhotoProfile(admin.getUserId()));
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return admin;
+    }
+
+    public static String getAdminPhotoProfile(String userID) {
+        String result = null;
+        try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
+            SELECT foto_profil
+            FROM USERS.Admin
+            WHERE id_admin = ?
+            """)) {
+            stmt.setString(1, userID);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                result = rs.getString("foto_profil");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
     /**
