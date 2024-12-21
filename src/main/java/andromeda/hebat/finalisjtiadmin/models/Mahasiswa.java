@@ -21,6 +21,17 @@ public class Mahasiswa {
         this.prodi = prodi;
     }
 
+    public Mahasiswa(String nim, String nama, String password, String email, String jurusan, String prodi, String tahunAngkatan, String fotoProfil) {
+        this.nim = nim;
+        this.nama = nama;
+        this.password = password;
+        this.email = email;
+        this.jurusan = jurusan;
+        this.prodi = prodi;
+        this.tahunAngkatan = tahunAngkatan;
+        this.fotoProfil = fotoProfil;
+    }
+
     public String getNim() {
         return nim;
     }

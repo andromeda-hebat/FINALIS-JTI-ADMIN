@@ -1,19 +1,22 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay;
 
-import andromeda.hebat.finalisjtiadmin.core.Database;
 import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
+import andromeda.hebat.finalisjtiadmin.repository.MahasiswaRepository;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.io.File;
-import java.sql.PreparedStatement;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.SQLException;
+import java.util.Base64;
 
-public class OverlayTambahMahasiswa {
+public class OverlayTambahMahasiswaController {
     @FXML private VBox overlayTambahMahasiswa;
     @FXML private TextField inputNama;
     @FXML private TextField inputNim;
@@ -27,10 +30,13 @@ public class OverlayTambahMahasiswa {
     private String base64PhotoProfile;
 
     private Mahasiswa mahasiswa;
+    private ObservableList prodiList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        btnTambahkan.setOnAction(event -> handleBtnTambahkan());
+        prodiList.removeAll(prodiList);
+        prodiList.addAll("D4 Teknik Informatika", "D4 Sistem Informasi Bisnis", "D2 Pengembangan Perangkat Lunak Situs");
+        inputProdi.getItems().addAll(prodiList);
     }
 
     public void fillData(Mahasiswa mahasiswa) {
@@ -44,7 +50,7 @@ public class OverlayTambahMahasiswa {
     }
 
     @FXML
-    public void handleBtnTambahkan() {
+    public void submitForm() {
         if (inputNim.getText().isEmpty() || inputNama.getText().isEmpty() || inputEmail.getText().isEmpty() ||
             inputJurusan.getText().isEmpty() || inputProdi.getValue().isEmpty() || inputPassword.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -54,46 +60,36 @@ public class OverlayTambahMahasiswa {
             return;
         }
 
-        String query = """
-            INSERT INTO USERS.mahasiswa (nim, nama_lengkap, password, email, jurusan, prodi, tahun_masuk, foto_profil)
-            VALUES (?, ?, ?, ?, ?, ?, ? , ?);
-        """;
-        try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
-            String hashedPassword = BCrypt.hashpw(inputPassword.getText(), BCrypt.gensalt());
-            stmt.setString(1, inputNim.getText());
-            stmt.setString(2, inputNama.getText());
-            stmt.setString(3, hashedPassword);
-            stmt.setString(4, inputEmail.getText());
-            stmt.setString(5, inputJurusan.getText());
-            stmt.setString(6, inputProdi.getValue());
-            stmt.setString(7, inputTahunMasuk.getText());
-            stmt.setString(8, inputFotoProfil.getText());
+        try {
+            String response = MahasiswaRepository.insertNewMahasiswa(new Mahasiswa(
+                inputNim.getText(),
+                inputNama.getText(),
+                inputPassword.getText(),
+                inputEmail.getText(),
+                inputJurusan.getText(),
+                inputProdi.getValue(),
+                inputTahunMasuk.getText(),
+                base64PhotoProfile
+            ));
 
-            int rowsAffected = stmt.executeUpdate();
-            if (rowsAffected > 0) {
-             
-                Stage overlayStage = (Stage) overlayTambahMahasiswa.getScene().getWindow();
-                overlayStage.close();
-                
+            if (response.equalsIgnoreCase("success")) {
+                ((Stage) overlayTambahMahasiswa.getScene().getWindow()).close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Berhasil");
-                alert.setHeaderText("Data mahasiswa berhasil ditambahkan!");
+                alert.setTitle("Berhasil menambahkan data mahasiswa baru!");
                 alert.showAndWait();
             } else {
-                Stage overlayStage = (Stage) overlayTambahMahasiswa.getScene().getWindow();
-                overlayStage.close();
+                ((Stage) overlayTambahMahasiswa.getScene().getWindow()).close();
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Gagal menambahkan data mahasiswa baru!");
                 alert.showAndWait();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            ((Stage) overlayTambahMahasiswa.getScene().getWindow()).close();
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Terjadi kesalahan saat menambahkan data mahasiswa.");
+            alert.setTitle("Gagal menambahkan admin baru! Terjadi kesalahan pada database!");
             alert.showAndWait();
+            e.printStackTrace();
         }
-      
     }
 
     @FXML
@@ -105,12 +101,12 @@ public class OverlayTambahMahasiswa {
         File selectedFile = fileChooser.showOpenDialog(new Stage());
         if (selectedFile != null) {
             inputFotoProfil.setText(selectedFile.getName());
-//            try {
-//                byte[] fileContent = Files.readAllBytes(selectedFile.toPath());
-//                base64PhotoProfile = Base64.getEncoder().encodeToString(fileContent);
-//            } catch (IOException ex) {
-//                ex.printStackTrace();
-//            }
+            try {
+                byte[] fileContent = Files.readAllBytes(selectedFile.toPath());
+                base64PhotoProfile = Base64.getEncoder().encodeToString(fileContent);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 }

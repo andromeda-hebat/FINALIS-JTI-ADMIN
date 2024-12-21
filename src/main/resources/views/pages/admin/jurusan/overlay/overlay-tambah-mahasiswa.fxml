@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="overlayTambahMahasiswa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayTambahMahasiswa">
+<VBox fx:id="overlayTambahMahasiswa" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayTambahMahasiswaController">
     <children>
         <Label text="Nama Lengkap" />
         <TextField fx:id="inputNama" prefHeight="26.0" prefWidth="502.0" />
@@ -38,8 +38,11 @@
 
         <HBox alignment="CENTER" prefHeight="77.0" prefWidth="430.0">
             <children>
-                <Button fx:id="btnTambahkan" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#handleBtnTambahkan" style="-fx-background-color: #052C65;" text="Tambahkan" textFill="WHITE" />
+                <Button fx:id="btnTambahkan" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#submitForm" style="-fx-background-color: #052C65;" text="Tambahkan" textFill="WHITE" />
             </children>
+         <VBox.margin>
+            <Insets bottom="30.0" top="30.0" />
+         </VBox.margin>
         </HBox>
     </children>
     <padding>
