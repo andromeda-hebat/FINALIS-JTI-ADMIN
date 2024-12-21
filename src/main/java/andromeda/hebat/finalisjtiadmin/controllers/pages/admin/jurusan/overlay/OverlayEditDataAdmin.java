@@ -26,6 +26,9 @@ public class OverlayEditDataAdmin {
     @FXML private TextField inputFotoProfil;
     @FXML private Button btnSubmitForm;
 
+    private String hashedPassword;
+    private String base64PhotoProfile;
+
     private ObservableList positionList = FXCollections.observableArrayList();
 
     @FXML
@@ -40,20 +43,21 @@ public class OverlayEditDataAdmin {
         inputFullName.setText(admin.getName());
         inputEmail.setText(admin.getEmail());
         inputPosition.setValue(admin.getJabatan().getJenisAdminStr());
-        inputPassword.setText(admin.getPassword());
-        inputConfirmedPassword.setText(admin.getPassword());
+        hashedPassword = admin.getPassword();
         getPhotoProfile();
     }
 
     private void getPhotoProfile() {
         try (PreparedStatement stmt = Database.getConnection().prepareStatement("""
-                SELECT foto_profil WHERE id_admin = ?
+                SELECT foto_profil
+                FROM USERS.Admin
+                WHERE id_admin = ?
                 """)) {
             stmt.setString(1, inputIDAdmin.getText());
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                inputFotoProfil.setText(rs.getString("foto_profil"));
+                this.base64PhotoProfile = rs.getString("foto_profil");
             }
         } catch (SQLException e) {
             e.printStackTrace();

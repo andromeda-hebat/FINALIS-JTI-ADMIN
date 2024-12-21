@@ -31,7 +31,7 @@
             <Button fx:id="btnSubmitForm" alignment="CENTER" mnemonicParsing="false" onAction="#submitForm" style="-fx-background-color: #052C65;" text="Tambahkan" textFill="WHITE" />
          </children>
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets bottom="30.0" top="30.0" />
          </VBox.margin>
       </HBox>
    </children>

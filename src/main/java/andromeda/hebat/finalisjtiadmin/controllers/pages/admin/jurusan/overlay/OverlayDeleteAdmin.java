@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class OverlayDeleteDataAdmin {
+public class OverlayDeleteAdmin {
     @FXML private VBox overlayDelete;
     @FXML private Button btnConfirm;
     @FXML private Button btnCancel;
