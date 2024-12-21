@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="overlayTambahMahasiswa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayTambahDataMahasiswa">
+<VBox fx:id="overlayTambahMahasiswa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayTambahMahasiswa">
     <children>
         <Label text="Nama Lengkap" />
         <TextField fx:id="inputNama" prefHeight="26.0" prefWidth="502.0" />
@@ -17,13 +17,15 @@
         <TextField fx:id="inputJurusan" prefHeight="26.0" prefWidth="502.0" />
 
         <Label text="Prodi" />
-        <TextField fx:id="inputProdi" prefHeight="26.0" prefWidth="502.0" />
+      <ChoiceBox fx:id="inputProdi" maxWidth="1.7976931348623157E308" />
 
         <Label text="Email" />
         <TextField fx:id="inputEmail" prefHeight="26.0" prefWidth="502.0" />
 
         <Label text="Password" />
         <PasswordField fx:id="inputPassword" prefHeight="26.0" prefWidth="502.0" />
+      <Label layoutX="40.0" layoutY="256.0" text="Konfirmasi Password" />
+      <PasswordField fx:id="inputKonfirmasiPassword" layoutX="40.0" layoutY="274.0" prefHeight="26.0" prefWidth="502.0" />
       <Label layoutX="40.0" layoutY="260.0" text="Tahun Masuk" />
       <TextField fx:id="inputTahunMasuk" layoutX="40.0" layoutY="234.0" prefHeight="26.0" prefWidth="502.0" />
       <Label layoutX="40.0" layoutY="304.0" text="Foto Profil" />

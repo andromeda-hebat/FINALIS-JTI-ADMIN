@@ -3,9 +3,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Font?>
-<VBox fx:id="overlayEditDataAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataAdmin">
+<VBox fx:id="overlayEditDataAdmin" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #F3F7FF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataAdmin">
    <padding>
       <Insets bottom="20.0" left="30.0" right="40.0" top="30.0" />
    </padding>
@@ -23,7 +23,7 @@
       <Label text="Konfirmasi Password" />
       <PasswordField fx:id="inputConfirmedPassword" />
       <Label layoutX="40.0" layoutY="259.0" text="Foto Profil" />
-      <PasswordField fx:id="inputFotoProfil" layoutX="40.0" layoutY="276.0" />
+      <TextField fx:id="inputFotoProfil" disable="true" layoutX="40.0" layoutY="144.0" promptText="File yang dipilih" />
       <Button fx:id="btnFileChooser" mnemonicParsing="false" onAction="#onBrowse" text="Unggah File" textFill="#052c65">
          <font>
             <Font name="Reddit Sans Regular" size="12.0" />
@@ -32,7 +32,7 @@
 
       <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets bottom="30.0" top="30.0" />
          </VBox.margin>
          <children>
             <Button fx:id="btnSubmitForm" alignment="CENTER" mnemonicParsing="false" onAction="#updateData" style="-fx-background-color: #052C65;" text="Perbarui" textFill="WHITE" />

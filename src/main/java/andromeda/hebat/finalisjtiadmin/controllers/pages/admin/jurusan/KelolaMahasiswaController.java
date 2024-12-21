@@ -1,7 +1,7 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan;
 
-import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteDataMahasiswa;
-import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataMahasiswa;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteMahasiswa;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditMahasiswa;
 import andromeda.hebat.finalisjtiadmin.Main;
 import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
 import andromeda.hebat.finalisjtiadmin.repository.MahasiswaRepository;
@@ -17,7 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 
-public class KelolaDataMahasiswaController {
+public class KelolaMahasiswaController {
     @FXML private Button btnTambahkanMhs;
     @FXML private TableView<Mahasiswa> tableViewMahasiswa;
     @FXML private TableColumn<Mahasiswa, Integer> columnNo;
@@ -26,6 +26,7 @@ public class KelolaDataMahasiswaController {
     @FXML private TableColumn<Mahasiswa, String> columnEmail;
     @FXML private TableColumn<Mahasiswa, String> columnJurusan;
     @FXML private TableColumn<Mahasiswa, String> columnProdi;
+    @FXML private TableColumn<Mahasiswa, String> columnTahunMasuk;
     @FXML private TableColumn<Mahasiswa, Void> columnAction;
     private ObservableList<Mahasiswa> mahasiswaList;
     private ComboBox<Object> actionColumn;
@@ -45,19 +46,20 @@ public class KelolaDataMahasiswaController {
         columnEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
         columnJurusan.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getJurusan()));
         columnProdi.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProdi()));
+        columnTahunMasuk.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTahunAngkatan()));
 
         columnAction.setCellFactory(tc -> new TableCell<Mahasiswa, Void>() {
             private final Button editBtn = new Button("Edit");
             private final Button deleteBtn = new Button("Hapus");
 
             {
-
+                editBtn.getStyleClass().add("edit");
                 editBtn.setOnAction(event -> {
                     Mahasiswa mahasiswa = getTableView().getItems().get(getIndex());
                     openOverlayEditMahasiswa(mahasiswa);
                 });
 
-
+                deleteBtn.getStyleClass().add("delete");
                 deleteBtn.setOnAction(event -> {
                     Mahasiswa mahasiswa = getTableView().getItems().get(getIndex());
                     openOverlayHapusMahasiswa(mahasiswa);
@@ -86,7 +88,7 @@ public class KelolaDataMahasiswaController {
             Stage overlay = new Stage();
             overlay.setTitle("Tambah Data Mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-tambah-data-mahasiswa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-tambah-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
             overlay.setScene(scene);
             overlay.show();
@@ -100,11 +102,11 @@ public class KelolaDataMahasiswaController {
             Stage overlay = new Stage();
             overlay.setTitle("Edit Data mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-edit-data-mahasiswa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-edit-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 500, 600);
             overlay.setScene(scene);
 
-            OverlayEditDataMahasiswa controller = fxmlLoader.getController();
+            OverlayEditMahasiswa controller = fxmlLoader.getController();
 
             controller.fillData(mahasiswa);
 
@@ -119,10 +121,10 @@ public class KelolaDataMahasiswaController {
             Stage overlay = new Stage();
             overlay.setTitle("Hapus Data Mahasiswa");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-hapus-data-mahasiswa.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-hapus-mahasiswa.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 450);
 
-            OverlayDeleteDataMahasiswa overlayController = fxmlLoader.getController();
+            OverlayDeleteMahasiswa overlayController = fxmlLoader.getController();
             overlayController.fillData(mahasiswa);
 
             overlay.setScene(scene);

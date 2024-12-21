@@ -13,12 +13,12 @@ import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class OverlayTambahDataMahasiswa {
+public class OverlayTambahMahasiswa {
     @FXML private VBox overlayTambahMahasiswa;
     @FXML private TextField inputNama;
     @FXML private TextField inputNim;
     @FXML private TextField inputJurusan;
-    @FXML private TextField inputProdi;
+    @FXML private ChoiceBox<String> inputProdi;
     @FXML private TextField inputEmail;
     @FXML private PasswordField inputPassword;
     @FXML private TextField inputTahunMasuk;
@@ -39,14 +39,14 @@ public class OverlayTambahDataMahasiswa {
         inputNama.setText(mahasiswa.getNama());
         inputEmail.setText(mahasiswa.getEmail());
         inputJurusan.setText(mahasiswa.getJurusan());
-        inputProdi.setText(mahasiswa.getProdi());
+        inputProdi.setValue(mahasiswa.getProdi());
         inputPassword.setText(mahasiswa.getPassword());
     }
 
     @FXML
     public void handleBtnTambahkan() {
         if (inputNim.getText().isEmpty() || inputNama.getText().isEmpty() || inputEmail.getText().isEmpty() ||
-            inputJurusan.getText().isEmpty() || inputProdi.getText().isEmpty() || inputPassword.getText().isEmpty()) {
+            inputJurusan.getText().isEmpty() || inputProdi.getValue().isEmpty() || inputPassword.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Perhatian");
             alert.setHeaderText("Semua field harus diisi!");
@@ -65,7 +65,7 @@ public class OverlayTambahDataMahasiswa {
             stmt.setString(3, hashedPassword);
             stmt.setString(4, inputEmail.getText());
             stmt.setString(5, inputJurusan.getText());
-            stmt.setString(6, inputProdi.getText());
+            stmt.setString(6, inputProdi.getValue());
             stmt.setString(7, inputTahunMasuk.getText());
             stmt.setString(8, inputFotoProfil.getText());
 

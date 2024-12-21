@@ -1,7 +1,7 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay;
 
 import andromeda.hebat.finalisjtiadmin.core.Database;
-import andromeda.hebat.finalisjtiadmin.models.Admin;
+import andromeda.hebat.finalisjtiadmin.models.Mahasiswa;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -11,23 +11,23 @@ import javafx.stage.Stage;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class OverlayDeleteDataAdmin {
+public class OverlayDeleteMahasiswa {
     @FXML private VBox overlayDelete;
     @FXML private Button btnConfirm;
     @FXML private Button btnCancel;
 
-    private Admin admin;
+    private Mahasiswa mahasiswa;
 
-    public void fillData(Admin admin) {
-        this.admin = admin;
+    public void fillData(Mahasiswa mahasiswa) {
+        this.mahasiswa = mahasiswa;
     }
 
+    @FXML
     public void confirmDelete() {
-        String query = "DELETE FROM USERS.Admin WHERE id_admin = ?";
 
+        String query = "DELETE FROM USERS.Mahasiswa WHERE nim = ?";
         try (PreparedStatement stmt = Database.getConnection().prepareStatement(query)) {
-            stmt.setString(1, admin.getUserId());
-
+            stmt.setString(1, mahasiswa.getNim());
             int rowsDeleted = stmt.executeUpdate();
 
             if (rowsDeleted > 0) {
@@ -36,13 +36,27 @@ public class OverlayDeleteDataAdmin {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Berhasil menghapus data!");
                 alert.showAndWait();
+            } else {
+                // Handle case where no rows were deleted
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Penghapusan Gagal");
+                alert.setHeaderText("Data tidak ditemukan");
+                alert.setContentText("Mahasiswa dengan NIM tersebut tidak ada.");
+                alert.showAndWait();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+
+    @FXML
     public void cancelDelete() {
+        if (overlayDelete == null) {
+            System.out.println("overlayDelete is null!");
+            return;
+        }
+
         ((Stage) overlayDelete.getScene().getWindow()).close();
     }
 }

@@ -1,7 +1,7 @@
 package andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan;
 
 import andromeda.hebat.finalisjtiadmin.Main;
-import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteDataAdmin;
+import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayDeleteAdmin;
 import andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.overlay.OverlayEditDataAdmin;
 import andromeda.hebat.finalisjtiadmin.models.Admin;
 import andromeda.hebat.finalisjtiadmin.repository.AdminRepository;
@@ -49,11 +49,13 @@ public class KelolaDataAdminController {
             private final Button deleteBtn = new Button("Hapus");
 
             {
+                editBtn.getStyleClass().add("edit");
                 editBtn.setOnAction(event -> {
                     Admin admin = getTableView().getItems().get(getIndex());
                     openOverlayEditAdmin(admin);
                 });
 
+                deleteBtn.getStyleClass().add("delete");
                 deleteBtn.setOnAction(event -> {
                     Admin admin = getTableView().getItems().get(getIndex());
                     openOverlayDeleteAdmin(admin);
@@ -96,7 +98,7 @@ public class KelolaDataAdminController {
             Stage overlay = new Stage();
             overlay.setTitle("Edit data admin");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-edit-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-edit-admin.fxml"));
             Parent root = fxmlLoader.load();
 
             OverlayEditDataAdmin controller = fxmlLoader.getController();
@@ -115,10 +117,10 @@ public class KelolaDataAdminController {
             Stage overlay = new Stage();
             overlay.setTitle("Hapus data admin");
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-hapus-data-admin.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/pages/admin/jurusan/overlay/overlay-hapus-admin.fxml"));
             Parent root = fxmlLoader.load();
 
-            OverlayDeleteDataAdmin controller = fxmlLoader.getController();
+            OverlayDeleteAdmin controller = fxmlLoader.getController();
             controller.fillData(admin);
 
             Scene scene = new Scene(root, 400, 450);

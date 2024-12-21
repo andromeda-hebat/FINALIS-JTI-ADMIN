@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.KelolaDataMahasiswaController">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="andromeda.hebat.finalisjtiadmin.controllers.pages.admin.jurusan.KelolaMahasiswaController">
     <fx:include source="../../../components/admin/jurusan/sidebar.fxml" />
     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" style="-fx-cursor: hand;" HBox.hgrow="ALWAYS">
         <children>
@@ -31,7 +31,7 @@
                         <padding>
                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </padding></Button>
-                    <TableView fx:id="tableViewMahasiswa" stylesheets="@../../../../css/table-view.css">
+                    <TableView fx:id="tableViewMahasiswa" stylesheets="@../../../../css/table-view.css" VBox.vgrow="ALWAYS">
                         <columns>
                             <TableColumn fx:id="columnNo" prefWidth="75.0" text="No" />
                             <TableColumn fx:id="columnNim" prefWidth="150.0" text="Nim" />
@@ -40,22 +40,21 @@
                             <TableColumn fx:id="columnEmail" prefWidth="100.0" text="Email" />
                      <TableColumn fx:id="columnJurusan" prefWidth="100.0" text="Jurusan" />
                      <TableColumn fx:id="columnProdi" prefWidth="100.0" text="Prodi" />
+                     <TableColumn fx:id="columnTahunMasuk" prefWidth="100.0" text="Tahun masuk" />
                      <TableColumn fx:id="columnAction" prefWidth="100.0" text="Aksi" />
                         </columns>
                   <columnResizePolicy>
                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                   </columnResizePolicy>
+                  <VBox.margin>
+                     <Insets bottom="40.0" />
+                  </VBox.margin>
                     </TableView>
                 </children>
                 <VBox.margin>
                     <Insets left="20.0" right="20.0" top="20.0" />
                 </VBox.margin>
             </VBox>
-            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                <VBox.margin>
-                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                </VBox.margin>
-            </HBox>
         </children>
     </VBox>
 
